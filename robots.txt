@@ -1,0 +1,13 @@
+User-agent: *
+Allow: /
+Disallow: /node_modules/
+Disallow: /src/
+Disallow: /public/
+
+Sitemap: https://christophervonk27-bot.github.io/Klosestral/sitemap.xml
+
+# Crawl-delay für Suchmaschinen
+Crawl-delay: 2
+
+# Host-Direktive (für Google)
+Host: christophervonk27-bot.github.io
