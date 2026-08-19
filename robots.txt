@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://christophervonk27-bot.github.io/Klosestral/sitemap.xml
+
+Crawl-delay: 2
