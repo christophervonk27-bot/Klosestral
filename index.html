@@ -3,36 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Zoho-Beratung & Integration für KMU in Salzburg und Bayern. Professionelle Implementierung, Schulung und Betreuung von Zoho CRM, Bigin, Analytics und mehr.">
-    <meta name="keywords" content="Zoho Beratung Salzburg, Zoho CRM KMU, Zoho Bigin, Zoho Integration, KMU.DIGITAL Förderung, Zoho Partner Salzburg">
+    <meta name="description" content="Professionelle Zoho-Beratung & Integration für KMU in Salzburg und Bayern. Implementierung, Schulung und Betreuung von Zoho CRM, Bigin, Analytics und mehr.">
+    <meta name="keywords" content="Zoho Beratung Salzburg, Zoho CRM KMU, Zoho Bigin, Zoho Integration, KMU.DIGITAL Förderung, Zoho Partner Österreich">
     <meta name="author" content="Christopher Klose Einzelunternehmen">
     
     <!-- Open Graph / Social Media -->
-    <meta property="og:title" content="kloseup | Zoho-Beratung für KMU in Salzburg">
-    <meta property="og:description" content="Lokale Zoho-Experten für Ihr Unternehmen. Gefördert durch KMU.DIGITAL.">
+    <meta property="og:title" content="kloseup | Professionelle Zoho-Beratung für KMU">
+    <meta property="og:description" content="Lokale Zoho-Experten für Ihr Unternehmen in Salzburg und Bayern. Gefördert durch KMU.DIGITAL.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://vibe-code.github.io/zoho-beratung-salzburg/">
+    <meta property="og:url" content="https://christophervonk27-bot.github.io/Klosestral/">
+    <meta property="og:image" content="https://christophervonk27-bot.github.io/Klosestral/assets/og-image.png">
     
     <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%232E7D32'/><text x='50' y='60' font-size='50' text-anchor='middle' fill='white' font-family='Arial'>k</text></svg>">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><linearGradient id='grad' x1='0%' y1='0%' x2='100%' y2='100%'><stop offset='0%' stop-color='%231B5E20'/><stop offset='100%' stop-color='%2300ACC1'/></linearGradient></defs><path d='M20 20 L20 80 L40 50 Z M40 20 L40 80' fill='url(%23grad)' stroke='%231B5E20' stroke-width='2'/><text x='60' y='65' font-family='Arial' font-size='40' fill='%231B5E20' font-weight='600'>k</text></svg>">
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome für Icons (CDN) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <!-- Stylesheet -->
     <link rel="stylesheet" href="styles.css">
     
-    <title>kloseup | Zoho-Beratung für KMU in Salzburg</title>
+    <title>kloseup | Professionelle Zoho-Beratung für KMU</title>
 </head>
 <body>
+    <!-- Loading Screen -->
+    <div class="loading-screen">
+        <div class="loader">
+            <svg class="logo-loader" viewBox="0 0 200 60" xmlns="http://www.w3.org/2000/svg">
+                <path d="M20 15 L20 45 L40 30 Z M40 15 L40 45" fill="url(#loaderGradient)" stroke="#1B5E20" stroke-width="2"/>
+                <text x="60" y="40" font-family="'Playfair Display', serif" font-size="24" font-weight="600" fill="#1B5E20">kloseup</text>
+                <defs>
+                    <linearGradient id="loaderGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#1B5E20"/>
+                        <stop offset="100%" stop-color="#00ACC1"/>
+                    </linearGradient>
+                </defs>
+            </svg>
+            <div class="loading-bar"></div>
+        </div>
+    </div>
+
     <!-- Header -->
     <header class="header">
         <div class="container">
             <a href="#" class="logo">
-                <span class="logo-icon">&#9632;</span>
-                <span class="logo-text">kloseup</span>
+                <svg class="logo-svg" viewBox="0 0 200 60" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M20 15 L20 45 L40 30 Z M40 15 L40 45" fill="url(#logoGradient)" stroke="#1B5E20" stroke-width="2"/>
+                    <text x="60" y="40" font-family="'Playfair Display', serif" font-size="24" font-weight="600" fill="#1B5E20">kloseup</text>
+                    <defs>
+                        <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#1B5E20"/>
+                            <stop offset="100%" stop-color="#00ACC1"/>
+                        </linearGradient>
+                    </defs>
+                </svg>
             </a>
             <nav class="nav">
                 <button class="nav-toggle" aria-label="Menü öffnen" aria-expanded="false">
@@ -42,6 +71,7 @@
                     <li><a href="#leistungen">Leistungen</a></li>
                     <li><a href="#vorteile">Vorteile</a></li>
                     <li><a href="#ueber-mich">Über mich</a></li>
+                    <li><a href="#preise">Preise</a></li>
                     <li><a href="#kontakt" class="btn btn-primary">Kontakt</a></li>
                 </ul>
             </nav>
@@ -52,20 +82,52 @@
     <section class="hero">
         <div class="container">
             <div class="hero-content">
-                <h1 class="hero-title">Zoho-Beratung & Integration<br>für KMU in Salzburg</h1>
-                <p class="hero-subtitle">Lokale Expertise. Gefördert durch KMU.DIGITAL. Bis zu 3.000 € Zuschuss für Ihr Unternehmen.</p>
+                <div class="hero-badge">
+                    <span><i class="fas fa-star"></i> KMU.DIGITAL zertifiziert</span>
+                </div>
+                <h1 class="hero-title">
+                    <span class="title-line">Professionelle</span>
+                    <span class="title-line highlight">Zoho-Beratung</span>
+                    <span class="title-line">für KMU</span>
+                </h1>
+                <p class="hero-subtitle">
+                    Lokale Expertise in Salzburg & Bayern. 
+                    <strong>Bis zu 3.000 € Förderung</strong> durch KMU.DIGITAL nutzen.
+                </p>
                 <div class="hero-cta">
                     <a href="mailto:christopher@kloseup.eu" class="btn btn-primary btn-large">
-                        Kostenlose Erstberatung
+                        <i class="fas fa-calendar-alt"></i> Kostenlose Erstberatung
                     </a>
-                    <a href="#leistungen" class="btn btn-secondary btn-large">
-                        Unsere Leistungen
+                    <a href="#leistungen" class="btn btn-glass btn-large">
+                        <i class="fas fa-arrow-down"></i> Leistungen entdecken
                     </a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">10+</span>
+                        <span class="stat-label">Jahre Erfahrung</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">50+</span>
+                        <span class="stat-label">Zufriedene Kunden</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">3.000€</span>
+                        <span class="stat-label">Max. Förderung</span>
+                    </div>
                 </div>
             </div>
             <div class="hero-image">
-                <div class="hero-bg"></div>
+                <div class="image-stack">
+                    <div class="stack-item stack-1"></div>
+                    <div class="stack-item stack-2"></div>
+                    <div class="stack-item stack-3"></div>
+                </div>
             </div>
+        </div>
+        <div class="scroll-indicator">
+            <span>Scrollen</span>
+            <i class="fas fa-chevron-down"></i>
         </div>
     </section>
 
@@ -73,58 +135,85 @@
     <section id="leistungen" class="section leistungen">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">Unsere Leistungen</h2>
-                <p class="section-subtitle">Alles aus einer Hand – von der Beratung bis zur laufenden Betreuung</p>
+                <span class="section-tag">Dienstleistungen</span>
+                <h2 class="section-title">Unsere <span class="highlight">Leistungen</span></h2>
+                <p class="section-subtitle">
+                    Alles aus einer Hand – von der Beratung bis zur laufenden Betreuung. 
+                    Individuell auf Ihr Unternehmen zugeschnitten.
+                </p>
             </div>
             <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon" style="--icon-color: #2E7D32;">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                            <circle cx="9" cy="7" r="4"></circle>
-                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-                        </svg>
+                <!-- Service Card 1 -->
+                <div class="service-card" data-tilt>
+                    <div class="service-icon">
+                        <i class="fas fa-chart-line"></i>
                     </div>
                     <h3 class="service-title">Zoho Bigin</h3>
-                    <p class="service-description">CRM-Einstieg für Kleinstunternehmen. Einfach, kostengünstig, effektiv.</p>
+                    <p class="service-description">
+                        Das perfekte CRM für Kleinstunternehmen. Einfach, intuitiv und kostengünstig. 
+                        Ideal für den Einstieg in die digitale Kundenverwaltung.
+                    </p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check-circle"></i> Lead-Management</li>
+                        <li><i class="fas fa-check-circle"></i> Kontaktverwaltung</li>
+                        <li><i class="fas fa-check-circle"></i> Pipeline-Tracking</li>
+                    </ul>
+                    <a href="#kontakt" class="btn btn-outline">Mehr erfahren</a>
                 </div>
-                <div class="service-card">
-                    <div class="service-icon" style="--icon-color: #2E7D32;">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <rect x="3" y="3" width="7" height="7"></rect>
-                            <rect x="14" y="3" width="7" height="7"></rect>
-                            <rect x="14" y="14" width="7" height="7"></rect>
-                            <rect x="3" y="14" width="7" height="7"></rect>
-                        </svg>
+                
+                <!-- Service Card 2 -->
+                <div class="service-card" data-tilt>
+                    <div class="service-icon">
+                        <i class="fas fa-cogs"></i>
                     </div>
                     <h3 class="service-title">Zoho CRM</h3>
-                    <p class="service-description">Standardlösung für wachsende KMU. Automatisierung, Vertrieb, Kundenmanagement.</p>
+                    <p class="service-description">
+                        Die Standardlösung für wachsende KMU. Automatisierung, Vertrieb und Kundenmanagement 
+                        in einem leistungsstarken System.
+                    </p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check-circle"></i> Automatisierte Workflows</li>
+                        <li><i class="fas fa-check-circle"></i> Vertriebs-Pipelines</li>
+                        <li><i class="fas fa-check-circle"></i> KI-gestützte Analysen</li>
+                    </ul>
+                    <a href="#kontakt" class="btn btn-outline">Mehr erfahren</a>
                 </div>
-                <div class="service-card">
-                    <div class="service-icon" style="--icon-color: #2E7D32;">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
-                        </svg>
+                
+                <!-- Service Card 3 -->
+                <div class="service-card" data-tilt>
+                    <div class="service-icon">
+                        <i class="fas fa-chart-bar"></i>
                     </div>
                     <h3 class="service-title">Zoho Analytics</h3>
-                    <p class="service-description">Reporting & Dashboards. Daten visualisieren und Entscheidungen treffen.</p>
+                    <p class="service-description">
+                        Daten visualisieren und fundierte Entscheidungen treffen. 
+                        Erstellen Sie individuelle Dashboards und Berichte.
+                    </p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check-circle"></i> Drag & Drop Dashboards</li>
+                        <li><i class="fas fa-check-circle"></i> Echtzeit-Daten</li>
+                        <li><i class="fas fa-check-circle"></i> KI-gestützte Einblicke</li>
+                    </ul>
+                    <a href="#kontakt" class="btn btn-outline">Mehr erfahren</a>
                 </div>
-                <div class="service-card">
-                    <div class="service-icon" style="--icon-color: #2E7D32;">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-                            <line x1="16" y1="2" x2="16" y2="6"></line>
-                            <line x1="8" y1="2" x2="8" y2="6"></line>
-                            <line x1="3" y1="10" x2="21" y2="10"></line>
-                        </svg>
+                
+                <!-- Service Card 4 -->
+                <div class="service-card" data-tilt>
+                    <div class="service-icon">
+                        <i class="fas fa-calendar-check"></i>
                     </div>
                     <h3 class="service-title">Zoho Calendar & Meet</h3>
-                    <p class="service-description">Terminmanagement und Videokonferenzen. Nahtlos integriert.</p>
+                    <p class="service-description">
+                        Terminmanagement und Videokonferenzen nahtlos integriert. 
+                        Synchronisieren Sie Ihre Termine mit Ihrem Team.
+                    </p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check-circle"></i> Team-Kalender</li>
+                        <li><i class="fas fa-check-circle"></i> Videokonferenzen</li>
+                        <li><i class="fas fa-check-circle"></i> Automatische Erinnerungen</li>
+                    </ul>
+                    <a href="#kontakt" class="btn btn-outline">Mehr erfahren</a>
                 </div>
-            </div>
-            <div class="services-cta">
-                <p>Benötigen Sie eine individuelle Lösung? <a href="#kontakt">Kontaktieren Sie uns</a> für ein maßgeschneidertes Angebot.</p>
             </div>
         </div>
     </section>
@@ -133,50 +222,63 @@
     <section id="vorteile" class="section vorteile">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">Ihre Vorteile mit kloseup</h2>
-                <p class="section-subtitle">Warum Sie mit uns arbeiten sollten</p>
+                <span class="section-tag">Warum wir?</span>
+                <h2 class="section-title">Ihre <span class="highlight">Vorteile</span></h2>
+                <p class="section-subtitle">
+                    Warum Sie mit kloseup arbeiten sollten – lokale Expertise, individuelle Lösungen und 
+                    maximale Förderung für Ihr Unternehmen.
+                </p>
             </div>
-            <div class="benefits-grid">
-                <div class="benefit-card">
-                    <div class="benefit-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                            <circle cx="12" cy="10" r="3"></circle>
-                        </svg>
+            <div class="benefits-layout">
+                <div class="benefits-main">
+                    <div class="benefit-card featured">
+                        <div class="benefit-icon large">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <h3 class="benefit-title">Lokal in Salzburg</h3>
+                        <p class="benefit-description">
+                            Wir sind vor Ort und kennen die spezifischen Bedürfnisse von KMU in der Region. 
+                            Keine anonyme Großfirma – bei uns sind Sie mehr als nur eine Kundennummer.
+                        </p>
                     </div>
-                    <h3 class="benefit-title">Lokal & persönlich</h3>
-                    <p class="benefit-description">Wir sind in Salzburg und kennen die Bedürfnisse lokaler KMU. Keine anonyme Großfirma – bei uns zählen Sie als Kunde.</p>
                 </div>
-                <div class="benefit-card">
-                    <div class="benefit-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
-                        </svg>
+                <div class="benefits-grid">
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="fas fa-euro-sign"></i>
+                        </div>
+                        <h3 class="benefit-title">KMU.DIGITAL Förderung</h3>
+                        <p class="benefit-description">
+                            Bis zu <strong>3.000 € Zuschuss</strong> pro Unternehmen. Wir helfen Ihnen bei der Beantragung.
+                        </p>
                     </div>
-                    <h3 class="benefit-title">Gefördert durch KMU.DIGITAL</h3>
-                    <p class="benefit-description">Bis zu 3.000 € Zuschuss pro Unternehmen. Wir helfen Ihnen, die Förderung zu beantragen und optimal zu nutzen.</p>
-                </div>
-                <div class="benefit-card">
-                    <div class="benefit-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                            <polyline points="14 2 14 8 20 8"></polyline>
-                            <line x1="16" y1="13" x2="8" y2="13"></line>
-                            <line x1="16" y1="17" x2="8" y2="17"></line>
-                        </svg>
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="fas fa-cog"></i>
+                        </div>
+                        <h3 class="benefit-title">Individuelle Lösungen</h3>
+                        <p class="benefit-description">
+                            Keine Standardpakete – wir passen unsere Dienstleistungen exakt an Ihre Bedürfnisse an.
+                        </p>
                     </div>
-                    <h3 class="benefit-title">Flexible Pakete</h3>
-                    <p class="benefit-description">Von der Einmal-Implementierung bis zum Retainer-Modell für laufende Betreuung. Wir passen uns Ihren Bedürfnissen an.</p>
-                </div>
-                <div class="benefit-card">
-                    <div class="benefit-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <circle cx="12" cy="12" r="10"></circle>
-                            <polyline points="12 6 12 12 16 14"></polyline>
-                        </svg>
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <h3 class="benefit-title">Schnelle Umsetzung</h3>
+                        <p class="benefit-description">
+                            Dank unserer Erfahrung können wir Projekte effizient und ohne lange Einarbeitungszeiten umsetzen.
+                        </p>
                     </div>
-                    <h3 class="benefit-title">Praxiserfahrung</h3>
-                    <p class="benefit-description">Jahre der Erfahrung im Digitalisierungsbereich. Wir wissen, was für KMU wirklich funktioniert.</p>
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="fas fa-headset"></i>
+                        </div>
+                        <h3 class="benefit-title">Laufende Betreuung</h3>
+                        <p class="benefit-description">
+                            Wir lassen Sie nicht allein – mit unserem Retainer-Modell sind wir langfristig für Sie da.
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -186,26 +288,131 @@
     <section id="ueber-mich" class="section about">
         <div class="container">
             <div class="about-content">
+                <div class="about-image">
+                    <div class="image-wrapper">
+                        <div class="placeholder-image">
+                            <i class="fas fa-user-tie"></i>
+                        </div>
+                        <div class="image-overlay">
+                            <span>Christopher Klose</span>
+                        </div>
+                    </div>
+                </div>
                 <div class="about-text">
-                    <h2 class="section-title">Über mich</h2>
+                    <span class="section-tag">Über mich</span>
+                    <h2 class="section-title">Ihr <span class="highlight">Zoho-Experte</span> in Salzburg</h2>
                     <p class="about-description">
-                        Ich bin <strong>Christopher Klose</strong>, Gründer von <strong>kloseup</strong> – Ihrem Partner für Zoho-Beratung und Integration in Salzburg und dem bayerischen Grenzgebiet.
+                        Ich bin <strong>Christopher Klose</strong>, Gründer von <strong>kloseup</strong> und Ihr 
+                        Ansprechpartner für alle Fragen rund um Zoho-Produkte. Mit über 10 Jahren Erfahrung 
+                        im Digitalisierungsbereich und einer Leidenschaft für effiziente Lösungen helfe ich 
+                        KMU, ihre Prozesse mit Zoho zu optimieren.
                     </p>
                     <p class="about-description">
-                        Mit meiner Erfahrung im Digitalisierungsbereich und meiner Leidenschaft für effiziente Lösungen helfe ich KMU, ihre Prozesse mit Zoho-Produkten zu optimieren. Mein Ansatz ist praxisorientiert: Keine Theorie, sondern Lösungen, die in Ihrem Alltag funktionieren.
+                        Mein Ansatz ist praxisorientiert: Keine Theorie, sondern Lösungen, die in Ihrem Alltag 
+                        funktionieren. Als nebenberuflicher Gründer biete ich Ihnen die Flexibilität eines kleinen 
+                        Unternehmens mit dem Know-how eines Experten.
                     </p>
-                    <p class="about-description">
-                        Als nebenberuflicher Gründer biete ich Ihnen die Flexibilität eines kleinen Unternehmens mit dem Know-how eines Experten. Mein Ziel: Ihnen Zeit und Ressourcen zu sparen, damit Sie sich auf Ihr Kerngeschäft konzentrieren können.
-                    </p>
+                    <div class="about-features">
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Zertifizierte Zoho-Kenntnisse</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Erfahrung aus der Praxis</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Lokale Präsenz in Salzburg</span>
+                        </div>
+                    </div>
                     <div class="about-cta">
                         <a href="mailto:christopher@kloseup.eu" class="btn btn-primary">
-                            Jetzt Kontakt aufnehmen
+                            <i class="fas fa-paper-plane"></i> Jetzt Kontakt aufnehmen
+                        </a>
+                        <a href="#preise" class="btn btn-glass">
+                            <i class="fas fa-tag"></i> Preise ansehen
                         </a>
                     </div>
                 </div>
-                <div class="about-image">
-                    <div class="about-bg"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Preise Section -->
+    <section id="preise" class="section preise">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Transparente Preise</span>
+                <h2 class="section-title">Unsere <span class="highlight">Pakete</span></h2>
+                <p class="section-subtitle">
+                    Wählen Sie das Paket, das am besten zu Ihren Bedürfnissen passt. 
+                    Alle Preise sind Netto und können durch Förderungen reduziert werden.
+                </p>
+            </div>
+            <div class="pricing-grid">
+                <!-- Pricing Card 1 -->
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3 class="pricing-title">Starter</h3>
+                        <p class="pricing-subtitle">Für Kleinstunternehmen</p>
+                    </div>
+                    <div class="pricing-price">
+                        <span class="price-amount">ab 499€</span>
+                        <span class="price-period">/ Projekt</span>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> Erstberatung & Bedarfsanalyse</li>
+                        <li><i class="fas fa-check"></i> Basis-Setup von Zoho Bigin</li>
+                        <li><i class="fas fa-check"></i> Schulung für 1-2 Mitarbeiter</li>
+                        <li><i class="fas fa-check"></i> 1 Monat Support</li>
+                    </ul>
+                    <a href="#kontakt" class="btn btn-outline btn-full">Anfragen</a>
                 </div>
+                
+                <!-- Pricing Card 2 (Featured) -->
+                <div class="pricing-card featured">
+                    <div class="pricing-badge">Beliebt</div>
+                    <div class="pricing-header">
+                        <h3 class="pricing-title">Professional</h3>
+                        <p class="pricing-subtitle">Für wachsende KMU</p>
+                    </div>
+                    <div class="pricing-price">
+                        <span class="price-amount">ab 1.499€</span>
+                        <span class="price-period">/ Projekt</span>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> Alles aus dem Starter-Paket</li>
+                        <li><i class="fas fa-check"></i> Vollständige Zoho CRM Implementierung</li>
+                        <li><i class="fas fa-check"></i> Datenmigration aus Alt-System</li>
+                        <li><i class="fas fa-check"></i> Schulung für bis zu 5 Mitarbeiter</li>
+                        <li><i class="fas fa-check"></i> 3 Monate Support</li>
+                    </ul>
+                    <a href="mailto:christopher@kloseup.eu" class="btn btn-primary btn-full">Jetzt buchen</a>
+                </div>
+                
+                <!-- Pricing Card 3 -->
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3 class="pricing-title">Enterprise</h3>
+                        <p class="pricing-subtitle">Für anspruchsvolle Anforderungen</p>
+                    </div>
+                    <div class="pricing-price">
+                        <span class="price-amount">Individuell</span>
+                        <span class="price-period">/ Anfrage</span>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> Alles aus dem Professional-Paket</li>
+                        <li><i class="fas fa-check"></i> Zoho Analytics Integration</li>
+                        <li><i class="fas fa-check"></i> Individuelle Anpassungen</li>
+                        <li><i class="fas fa-check"></i> Laufende Betreuung (Retainer)</li>
+                        <li><i class="fas fa-check"></i> Priorisierter Support</li>
+                    </ul>
+                    <a href="#kontakt" class="btn btn-outline btn-full">Anfragen</a>
+                </div>
+            </div>
+            <div class="pricing-note">
+                <p><i class="fas fa-info-circle"></i> Alle Preise verstehen sich als Nettopreise zzgl. gesetzlicher MwSt. | Förderungen durch KMU.DIGITAL möglich</p>
             </div>
         </div>
     </section>
@@ -213,53 +420,89 @@
     <!-- Kontakt Section -->
     <section id="kontakt" class="section contact">
         <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Kontakt</h2>
-                <p class="section-subtitle">Sie haben Fragen oder möchten ein unverbindliches Angebot?</p>
-            </div>
-            <div class="contact-content">
+            <div class="contact-layout">
                 <div class="contact-info">
-                    <h3>Christopher Klose Einzelunternehmen</h3>
-                    <p class="contact-email">
-                        <a href="mailto:christopher@kloseup.eu">christopher@kloseup.eu</a>
+                    <span class="section-tag">Kontakt</span>
+                    <h2 class="section-title">Lassen Sie uns <span class="highlight">reden</span></h2>
+                    <p class="contact-description">
+                        Sie haben Fragen zu unseren Dienstleistungen oder möchten ein unverbindliches Angebot? 
+                        Kontaktieren Sie uns – wir freuen uns auf Ihre Nachricht!
                     </p>
-                    <p class="contact-location">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                            <circle cx="12" cy="10" r="3"></circle>
-                        </svg>
-                        Salzburg, Österreich
-                    </p>
-                    <div class="contact-notes">
-                        <p><strong>Hinweis:</strong> Diese Webseite dient der Erstinformation. Für eine individuelle Beratung und ein Angebot kontaktieren Sie mich bitte per E-Mail.</p>
-                        <p><strong>Förderung:</strong> Nutzen Sie die Möglichkeit der Förderung durch <a href="https://www.kmu-digital.de" target="_blank" rel="noopener noreferrer">KMU.DIGITAL</a> (bis zu 3.000 € Zuschuss). Ich berate Sie gerne zu den Voraussetzungen.</p>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-text">
+                                <span class="contact-label">E-Mail</span>
+                                <a href="mailto:christopher@kloseup.eu">christopher@kloseup.eu</a>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-text">
+                                <span class="contact-label">Standort</span>
+                                <span>Salzburg, Österreich</span>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="contact-text">
+                                <span class="contact-label">Verfügbarkeit</span>
+                                <span>Mo-Fr: 09:00 - 18:00 Uhr</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Xing">
+                            <i class="fab fa-xing"></i>
+                        </a>
                     </div>
                 </div>
-                <div class="contact-form">
-                    <form id="contactForm" class="form">
+                <div class="contact-form-wrapper">
+                    <form id="contactForm" class="contact-form">
                         <div class="form-group">
-                            <label for="name">Ihr Name</label>
+                            <label for="name">Ihr Name *</label>
                             <input type="text" id="name" name="name" required placeholder="Max Mustermann">
                         </div>
                         <div class="form-group">
-                            <label for="email">Ihre E-Mail</label>
+                            <label for="email">Ihre E-Mail *</label>
                             <input type="email" id="email" name="email" required placeholder="max@mustermann.de">
                         </div>
                         <div class="form-group">
-                            <label for="subject">Betreff</label>
+                            <label for="phone">Telefon (optional)</label>
+                            <input type="tel" id="phone" name="phone" placeholder="+43 123 456789">
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Betreff *</label>
                             <select id="subject" name="subject" required>
                                 <option value="" disabled selected>Wählen Sie einen Betreff</option>
                                 <option value="Erstberatung">Kostenlose Erstberatung anfordern</option>
                                 <option value="Angebot">Angebot für Zoho-Implementierung</option>
                                 <option value="Förderung">Fragen zu KMU.DIGITAL-Förderung</option>
+                                <option value="Support">Technischer Support</option>
                                 <option value="Sonstiges">Sonstiges</option>
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="message">Ihre Nachricht</label>
+                            <label for="message">Ihre Nachricht *</label>
                             <textarea id="message" name="message" required placeholder="Wie können wir Ihnen helfen?"></textarea>
                         </div>
-                        <button type="submit" class="btn btn-primary btn-full">Nachricht senden</button>
+                        <div class="form-actions">
+                            <p class="form-note">
+                                <i class="fas fa-info-circle"></i> Mit dem Absenden stimmen Sie unserer Datenschutzerklärung zu.
+                            </p>
+                            <button type="submit" class="btn btn-primary btn-full">
+                                <i class="fas fa-paper-plane"></i> Nachricht senden
+                            </button>
+                        </div>
                     </form>
                     <div id="formMessage" class="form-message"></div>
                 </div>
@@ -273,14 +516,24 @@
             <div class="footer-content">
                 <div class="footer-brand">
                     <a href="#" class="logo">
-                        <span class="logo-icon">&#9632;</span>
-                        <span class="logo-text">kloseup</span>
+                        <svg class="logo-svg" viewBox="0 0 200 60" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M20 15 L20 45 L40 30 Z M40 15 L40 45" fill="url(#footerGradient)" stroke="#FFFFFF" stroke-width="2"/>
+                            <text x="60" y="40" font-family="'Playfair Display', serif" font-size="24" font-weight="600" fill="#FFFFFF">kloseup</text>
+                            <defs>
+                                <linearGradient id="footerGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="#00ACC1"/>
+                                    <stop offset="100%" stop-color="#1B5E20"/>
+                                </linearGradient>
+                            </defs>
+                        </svg>
                     </a>
-                    <p>Zoho-Beratung & Integration für KMU in Salzburg und Bayern.</p>
+                    <p class="footer-tagline">
+                        Professionelle Zoho-Beratung & Integration für KMU in Salzburg und Bayern.
+                    </p>
                 </div>
                 <div class="footer-links">
                     <div class="footer-column">
-                        <h4>Leistungen</h4>
+                        <h4>Dienstleistungen</h4>
                         <ul>
                             <li><a href="#leistungen">Zoho Bigin</a></li>
                             <li><a href="#leistungen">Zoho CRM</a></li>
@@ -292,9 +545,16 @@
                         <h4>Informationen</h4>
                         <ul>
                             <li><a href="#ueber-mich">Über mich</a></li>
+                            <li><a href="#preise">Preise</a></li>
                             <li><a href="#kontakt">Kontakt</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Partner & Förderung</h4>
+                        <ul>
                             <li><a href="https://www.kmu-digital.de" target="_blank" rel="noopener noreferrer">KMU.DIGITAL</a></li>
                             <li><a href="https://www.zoho.com/partners/" target="_blank" rel="noopener noreferrer">Zoho Partner</a></li>
+                            <li><a href="https://www.wko.at/salzburg" target="_blank" rel="noopener noreferrer">WKO Salzburg</a></li>
                         </ul>
                     </div>
                 </div>
@@ -308,6 +568,11 @@
             </div>
         </div>
     </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" aria-label="Nach oben">
+        <i class="fas fa-chevron-up"></i>
+    </button>
 
     <!-- Script -->
     <script src="script.js"></script>
