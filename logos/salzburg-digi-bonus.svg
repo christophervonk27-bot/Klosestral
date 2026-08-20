@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 100" role="img" aria-labelledby="salzburg-title">
+  <title id="salzburg-title">Salzburger Digi-Bonus</title>
+  <rect width="300" height="100" fill="#006633" rx="4"/>
+  <text x="150" y="35" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="white" text-anchor="middle">Land Salzburg</text>
+  <text x="150" y="55" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="white" text-anchor="middle">Digi-Bonus</text>
+  <text x="150" y="75" font-family="Arial, sans-serif" font-size="12" fill="white" text-anchor="middle">Salzburg</text>
+</svg>
