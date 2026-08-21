@@ -6,9 +6,11 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
+    "start": "node ./dist/server/entry.mjs",
     "check": "astro check"
   },
   "dependencies": {
+    "@astrojs/netlify": "^8.2.3",
     "astro": "^7.2.4"
   },
   "devDependencies": {

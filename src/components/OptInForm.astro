@@ -247,18 +247,37 @@
 </style>
 
 <script is:inline>
-  document.getElementById('optin-form').addEventListener('submit', function(e) {
+  document.getElementById('optin-form').addEventListener('submit', async function(e) {
     e.preventDefault();
     const email = document.getElementById('optin-email').value.trim();
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     
-    if (email && emailRegex.test(email)) {
-      // In a real implementation, you would send the email to your backend
-      // For now, just show the download link
-      document.getElementById('optin-form').style.display = 'none';
-      document.getElementById('optin-success').style.display = 'block';
-    } else {
+    if (!email || !emailRegex.test(email)) {
       alert('Bitte geben Sie eine gültige E-Mail-Adresse ein.');
+      return;
+    }
+
+    try {
+      const response = await fetch('/api/optin', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: `email=${encodeURIComponent(email)}`
+      });
+
+      const data = await response.json();
+      
+      if (data.success) {
+        // E-Mail erfolgreich gespeichert - Download-Link anzeigen
+        document.getElementById('optin-form').style.display = 'none';
+        document.getElementById('optin-success').style.display = 'block';
+      } else {
+        alert(data.error || 'Fehler beim Speichern der E-Mail.');
+      }
+    } catch (error) {
+      console.error('Fehler:', error);
+      alert('Netzwerkfehler. Bitte versuchen Sie es später erneut.');
     }
   });
 </script>
