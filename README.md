@@ -7,3 +7,4 @@
 - [x] Design anpassen
 - [x] Deploy Konfiguration
 - [x] Blende-Animation repariert (21.08.2026)
+https://christophervonk27-bot.github.io/Klosestral/
