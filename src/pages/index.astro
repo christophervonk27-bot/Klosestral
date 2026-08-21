@@ -7,7 +7,7 @@ import Button from '../components/Button.astro';
 import Service from '../components/Service.astro';
 import Badge from '../components/Badge.astro';
 import PriceCard from '../components/PriceCard.astro';
-import ContactCard from '../components/ContactCard.astro';
+import ContactForm from '../components/ContactForm.astro';
 ---
 
 <Layout>
@@ -61,7 +61,7 @@ import ContactCard from '../components/ContactCard.astro';
     </section>
 
     <!-- Zielgruppe Section -->
-    <section id="zielgruppe" style="background: var(--bg-alt);">
+    <section id="zielgruppe" >
       <div class="wrap target">
         <div>
           <p class="eyebrow">Zielgruppe & Förderung</p>
@@ -114,16 +114,9 @@ import ContactCard from '../components/ContactCard.astro';
     </section>
 
     <!-- Kontakt Section -->
-    <section id="kontakt" style="background: var(--bg-alt);">
-      <div class="wrap contact">
-        <div>
-          <p class="eyebrow">Kontakt</p>
-          <h2 style="margin-top:14px; margin-bottom: 16px;">Bereit für den ersten Blick auf Ihre Prozesse?</h2>
-          <p style="margin-top:16px; color: var(--ink-soft);">
-            Schreiben Sie mir kurz, worum es geht — ich melde mich zeitnah für ein unverbindliches Erstgespräch zurück.
-          </p>
-        </div>
-        <ContactCard />
+    <section id="kontakt">
+      <div class="wrap">
+        <ContactForm client:load />
       </div>
     </section>
   </main>

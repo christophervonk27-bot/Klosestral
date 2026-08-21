@@ -11,7 +11,7 @@
 }
 *{box-sizing:border-box;}
 html{scroll-behavior:smooth;}
-section{padding:120px 0 112px; border-top:1px solid var(--line);}
+section{padding:50px 0 50px; border-top:1px solid var(--line);}
 @media (prefers-reduced-motion: reduce){
   html{scroll-behavior:auto;}
   *{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important;}

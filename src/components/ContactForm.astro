@@ -1,0 +1,193 @@
+---
+// Astro-Frontmatter
+import Button from './Button.astro';
+---
+
+<section class="contact-section">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Kontakt</p>
+      <h2>Bereit für den ersten Blick auf Ihre Prozesse?</h2>
+      <p>Schreiben Sie mir kurz, worum es geht &mdash; ich melde mich zeitnah für ein unverbindliches Erstgespräch zurück.</p>
+    </div>
+
+    <form id="contact-form" class="form" action="/api/contact" method="POST">
+      <div class="form-group">
+        <label for="name" class="form-label">Ihr Name *</label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          class="form-input"
+          placeholder="Vor- und Nachname"
+          required
+        />
+        <span class="error-message" id="name-error"></span>
+      </div>
+
+      <div class="form-group">
+        <label for="email" class="form-label">E-Mail-Adresse *</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          class="form-input"
+          placeholder="ihre@email.at"
+          required
+        />
+        <span class="error-message" id="email-error"></span>
+      </div>
+
+      <div class="form-group">
+        <label for="message" class="form-label">Ihre Nachricht *</label>
+        <textarea
+          id="message"
+          name="message"
+          class="form-input form-textarea"
+          placeholder="Beschreiben Sie kurz, wobei ich Sie unterstützen kann …"
+          rows="5"
+          required
+        ></textarea>
+        <span class="error-message" id="message-error"></span>
+      </div>
+
+      <div class="form-group checkbox-group">
+        <input type="checkbox" id="privacy" name="privacy" required />
+        <label for="privacy">Ich habe die <a href="/datenschutz" target="_blank">Datenschutzerklärung</a> gelesen und stimme der Verarbeitung meiner Angaben zur Bearbeitung meiner Anfrage zu. *</label>
+        <span class="error-message" id="privacy-error"></span>
+      </div>
+
+      <button type="submit" class="btn btn-short">
+        <span class="btn-text">Nachricht senden</span>
+        <span class="btn-arrow" aria-hidden="true">→</span>
+      </button>
+    </form>
+
+    <div id="form-success" class="form-success" style="display: none;">
+      <h3>Danke für Ihre Nachricht.</h3>
+      <p>Ich melde mich zeitnah bei Ihnen.</p>
+    </div>
+
+
+  </div>
+</section>
+
+<style>
+  .contact-section { padding: 0; border-top: none; }
+  .section-head { margin-bottom: 26px; }
+  .section-head p { color: var(--ink-soft); font-size: 15.5px; max-width: 56ch; margin-top: 11px; }
+  .form { max-width: var(--max); margin: 0 auto; display: flex; flex-direction: column; gap: 18px; }
+  .btn-short { padding-left: 16px; padding-right: 16px; align-self: flex-start; }
+  .form-group { display: flex; flex-direction: column; gap: 5px; }
+  .form-label { font-family: 'Inter', -apple-system, sans-serif; font-size: 14px; color: var(--ink); font-weight: 500; }
+  .form-input, .form-textarea { 
+    background: var(--paper); 
+    border: 1px solid var(--line); 
+    padding: 10px 12px; 
+    font-family: 'Inter', -apple-system, sans-serif; 
+    font-size: 14.5px; 
+    color: var(--ink); 
+    border-radius: 2px; 
+    transition: border-color .15s, box-shadow .15s; 
+  }
+  .form-input:focus, .form-textarea:focus { 
+    outline: none; 
+    border-color: var(--green-bright); 
+    box-shadow: 0 0 0 2px rgba(76, 140, 107, 0.15); 
+  }
+  .form-input::placeholder, .form-textarea::placeholder { color: var(--ink-soft); }
+  .form-textarea { resize: vertical; min-height: 120px; font-family: inherit; }
+  .error-message { color: #c94949; font-family: 'Inter', -apple-system, sans-serif; font-size: 13px; min-height: 16px; }
+  .checkbox-group { flex-direction: row; align-items: flex-start; gap: 10px; margin-top: 4px; }
+  .checkbox-group input[type="checkbox"] { margin-top: 4px; flex-shrink: 0; }
+  .checkbox-group label { font-family: 'Inter', -apple-system, sans-serif; font-size: 14px; color: var(--ink-soft); line-height: 1.5; }
+  .checkbox-group a { color: var(--green-bright); text-decoration: underline; }
+  .checkbox-group a:hover { color: var(--green-deep); }
+  .form-success { text-align: left; padding: 18px 0; animation: fadeIn 0.25s ease-out; }
+  .form-success h3 { font-family: 'Fraunces', serif; font-size: 22px; color: var(--green-deep); margin: 0 0 10px 0; letter-spacing: -0.01em; }
+  .form-success p { color: var(--ink-soft); font-size: 14.5px; margin: 0 0 18px 0; max-width: 380px; }
+
+  
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+  
+  @media (max-width: 880px) { 
+    .direct-contact { margin-top: 20px; padding-top: 14px; } 
+  }
+  
+  @media (max-width: 560px) { 
+    .form-input, .form-textarea { font-size: 13.5px; } 
+    .contact-name { font-size: 17px; } 
+  }
+</style>
+
+<script is:inline>
+  document.getElementById('contact-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    let isValid = true;
+    
+    // Name validation
+    const name = document.getElementById('name').value.trim();
+    const nameError = document.getElementById('name-error');
+    if (!name) {
+      nameError.textContent = 'Bitte geben Sie Ihren Namen ein.';
+      isValid = false;
+    } else {
+      nameError.textContent = '';
+    }
+    
+    // Email validation
+    const email = document.getElementById('email').value.trim();
+    const emailError = document.getElementById('email-error');
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!email) {
+      emailError.textContent = 'Bitte geben Sie Ihre E-Mail-Adresse ein.';
+      isValid = false;
+    } else if (!emailRegex.test(email)) {
+      emailError.textContent = 'Bitte geben Sie eine gültige E-Mail-Adresse ein.';
+      isValid = false;
+    } else {
+      emailError.textContent = '';
+    }
+    
+    // Message validation
+    const message = document.getElementById('message').value.trim();
+    const messageError = document.getElementById('message-error');
+    if (!message) {
+      messageError.textContent = 'Bitte schreiben Sie eine Nachricht.';
+      isValid = false;
+    } else {
+      messageError.textContent = '';
+    }
+    
+    // Privacy checkbox validation
+    const privacy = document.getElementById('privacy').checked;
+    const privacyError = document.getElementById('privacy-error');
+    if (!privacy) {
+      privacyError.textContent = 'Bitte stimmen Sie der Datenschutzerklärung zu.';
+      isValid = false;
+    } else {
+      privacyError.textContent = '';
+    }
+    
+    // Submit form if valid
+    if (isValid) {
+      const formData = new FormData(e.target);
+      
+      // Submit to API endpoint
+      fetch('/api/contact', {
+        method: 'POST',
+        body: formData,
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          // Hide form and show success message
+          document.getElementById('contact-form').style.display = 'none';
+          document.getElementById('form-success').style.display = 'block';
+          document.querySelector('.contact-section').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        })
+        .catch((error) => {
+          alert('Fehler beim Senden der Nachricht. Bitte versuchen Sie es später erneut.');
+        });
+    }
+  });
+</script>
