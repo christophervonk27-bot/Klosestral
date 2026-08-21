@@ -1,0 +1,264 @@
+---
+// Opt-in Form for Zoho CRM Checklist
+---
+
+<div class="optin-card">
+  <p class="eyebrow">Kostenlos</p>
+  <h3>Die ultimative Zoho-CRM-Checkliste für KMUs</h3>
+  <p>Erhalten Sie unsere bewährte Checkliste – perfekt für den Einstieg in Zoho CRM. Tragt euch ein und ladet sie direkt herunter.</p>
+  
+  <div class="sneak-peeks-container">
+    <div class="sneak-peeks-logo">
+      <a href="#top" class="brand" aria-label="kloseup – Startseite" aria-hidden="true">
+        <img src="/Klosestral/logos/Logo_mit_Text.svg" alt="kloseup" class="logo-img" />
+      </a>
+    </div>
+    <div class="sneak-peeks-center">
+      <h3>Sneak Peaks</h3>
+      <ul class="peek-list">
+        <li>Prozessanalyse & Zieldefinition</li>
+        <li>Schritt-für-Schritt CRM-Einrichtung</li>
+        <li>Datenmigration aus Alt-Systemen</li>
+        <li>Automatisierungen für Vertrieb & Service</li>
+        <li>Integration mit E-Mail & Kalender</li>
+      </ul>
+    </div>
+    <div class="optin-form-wrapper">
+      <form id="optin-form" class="optin-form" action="#" method="POST">
+        <div class="optin-group">
+          <label for="optin-email" class="optin-label">E-Mail-Adresse</label>
+          <input
+            type="email"
+            id="optin-email"
+            name="email"
+            class="optin-input"
+            placeholder="ihre@email.at"
+            required
+          />
+        </div>
+        <button type="submit" class="btn optin-btn">
+          <span class="btn-text">Checkliste herunterladen</span>
+          <span class="btn-arrow" aria-hidden="true">→</span>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <div id="optin-success" class="optin-success" style="display: none;">
+    <p class="optin-success-msg">Vielen Dank! Hier können Sie die Checkliste herunterladen:</p>
+    <a href="/Zoho CRM Checkliste _ Kloseup.pdf" class="btn btn-download" download>
+      <span class="btn-text">PDF herunterladen</span>
+      <span class="btn-arrow" aria-hidden="true">→</span>
+    </a>
+  </div>
+</div>
+
+<style>
+  .optin-card {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    padding: 12px;
+    border-radius: 2px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 340px;
+  }
+  .optin-card > p.eyebrow {
+    margin-bottom: 5px;
+  }
+  .optin-card > h3 {
+    font-family: 'Fraunces', serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--green-deep);
+    margin: 0 0 8px;
+    letter-spacing: -0.01em;
+  }
+  .optin-card > p {
+    color: var(--ink-soft);
+    font-size: 14.5px;
+    line-height: 1.5;
+    margin: 0 0 12px;
+  }
+  .sneak-peeks-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 1;
+    min-height: 0;
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px solid var(--line);
+  }
+  .sneak-peeks-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-top: 8px;
+  }
+  .sneak-peeks-logo .brand {
+    display: inline-flex;
+    align-items: center;
+    color: var(--green-deep);
+    text-decoration: none;
+    line-height: 0;
+  }
+  .sneak-peeks-logo .logo-img {
+    width: auto;
+    height: clamp(26.4px, 2.86vw, 37.4px);
+    display: block;
+    max-width: 100%;
+  }
+  .sneak-peeks-center {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    gap: 8px;
+  }
+  .sneak-peeks-center h3 {
+    font-family: 'Fraunces', serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--green-deep);
+    margin: 0;
+    letter-spacing: -0.01em;
+  }
+  .peek-list {
+    margin: 0;
+    padding-left: 0;
+    list-style: none;
+    width: 100%;
+  }
+  .optin-form-wrapper {
+    width: 100%;
+  }
+  .peek-list li {
+    font-family: 'Inter', -apple-system, sans-serif;
+    font-size: 13.5px;
+    color: var(--ink);
+    margin-bottom: 3px;
+    padding-left: 14px;
+    position: relative;
+  }
+  .peek-list li::before {
+    content: "✓";
+    color: var(--green-bright);
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+  }
+  .optin-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: auto;
+  }
+  .optin-group {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+  .optin-label {
+    font-family: 'Inter', -apple-system, sans-serif;
+    font-size: 13.5px;
+    color: var(--ink);
+    font-weight: 500;
+  }
+  .optin-input {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    padding: 10px 12px;
+    font-family: 'Inter', -apple-system, sans-serif;
+    font-size: 14.5px;
+    color: var(--ink);
+    border-radius: 2px;
+    transition: border-color .15s, box-shadow .15s;
+  }
+  .optin-input:focus {
+    outline: none;
+    border-color: var(--green-bright);
+    box-shadow: 0 0 0 2px rgba(76, 140, 107, 0.15);
+  }
+  .optin-input::placeholder {
+    color: var(--ink-soft);
+  }
+  .optin-btn {
+    background: var(--green-deep);
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 14.5px;
+    padding: 12px 18px;
+    border-radius: 2px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border: none;
+    cursor: pointer;
+    transition: background .15s, transform .15s;
+    align-self: flex-start;
+  }
+  .optin-btn:hover {
+    background: var(--green-bright);
+    transform: translateY(-1px);
+  }
+  .optin-success {
+    margin-top: 12px;
+    text-align: center;
+    animation: fadeIn 0.25s ease-out;
+  }
+  .optin-success-msg {
+    color: var(--ink-soft);
+    font-size: 14px;
+    margin: 0 0 14px;
+  }
+  .btn-download {
+    background: var(--green-deep);
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 14.5px;
+    padding: 12px 20px;
+    border-radius: 2px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border: none;
+    cursor: pointer;
+    transition: background .15s, transform .15s;
+    margin: 0 auto;
+  }
+  .btn-download:hover {
+    background: var(--green-bright);
+    transform: translateY(-1px);
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @media (max-width: 880px) {
+    .optin-card {
+      width: 100%;
+    }
+  }
+</style>
+
+<script is:inline>
+  document.getElementById('optin-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const email = document.getElementById('optin-email').value.trim();
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    
+    if (email && emailRegex.test(email)) {
+      // In a real implementation, you would send the email to your backend
+      // For now, just show the download link
+      document.getElementById('optin-form').style.display = 'none';
+      document.getElementById('optin-success').style.display = 'block';
+    } else {
+      alert('Bitte geben Sie eine gültige E-Mail-Adresse ein.');
+    }
+  });
+</script>

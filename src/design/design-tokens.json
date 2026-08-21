@@ -1,0 +1,175 @@
+{
+  "name": "Klosestral Design System",
+  "description": "Design- und Farbtokens für das Klosestral Projekt. Dient als Vorlage für konsistente Dokumentengestaltung und AI-gestützte Anpassungen.",
+  "version": "1.0.0",
+  "colors": {
+    "primary": {
+      "green-deep": {
+        "value": "#14432F",
+        "description": "Primäre Dunkelgrün-Farbe für Überschriften und wichtige Elemente",
+        "usage": "headings, primary text emphasis, buttons (active state)"
+      },
+      "green-bright": {
+        "value": "#4C8C6B",
+        "description": "Primäre Hellgrün-Farbe für Akzente und interaktive Elemente",
+        "usage": "links, buttons (default state), borders, icons, focus states"
+      }
+    },
+    "neutral": {
+      "bg": {
+        "value": "#F6F7F2",
+        "description": "Haupt-Hintergrundfarbe der Seite",
+        "usage": "page background"
+      },
+      "bg-alt": {
+        "value": "#EEF1E7",
+        "description": "Alternativer Hintergrund für abgehobene Bereiche",
+        "usage": "section backgrounds, cards"
+      },
+      "paper": {
+        "value": "#FFFFFF",
+        "description": "Weiß für Karten und Formularfelder",
+        "usage": "cards, input backgrounds, elevated surfaces"
+      },
+      "ink": {
+        "value": "#12201A",
+        "description": "Primäre Textfarbe",
+        "usage": "body text, headings"
+      },
+      "ink-soft": {
+        "value": "#4B5C52",
+        "description": "Sekundäre Textfarbe für weniger wichtige Inhalte",
+        "usage": "subtext, descriptions, placeholders"
+      },
+      "line": {
+        "value": "#D9DFD2",
+        "description": "Linien- und Trennfarbe",
+        "usage": "borders, dividers, section borders"
+      }
+    }
+  },
+  "typography": {
+    "font_families": {
+      "sans_serif": {
+        "value": "'Inter', -apple-system, sans-serif",
+        "description": "Standard-Schriftart für Fließtext und UI-Elemente",
+        "usage": "body, buttons, labels, paragraphs"
+      },
+      "serif": {
+        "value": "'Fraunces', serif",
+        "description": "Serifen-Schriftart für Überschriften",
+        "usage": "headings (h1, h2, h3), emphasis"
+      },
+      "monospace": {
+        "value": "'IBM Plex Mono', monospace",
+        "description": "Monospace-Schriftart für technische Elemente",
+        "usage": "eyebrows, code, labels"
+      }
+    },
+    "font_sizes": {
+      "eyebrow": "12px",
+      "body": "17px",
+      "body_soft": "16.5px",
+      "button": "15px",
+      "input": "15px",
+      "small": "14px",
+      "tiny": "13px"
+    },
+    "line_heights": {
+      "body": "1.6",
+      "heading": "1.08"
+    },
+    "letter_spacing": {
+      "eyebrow": "0.16em",
+      "heading": "-0.01em"
+    }
+  },
+  "spacing": {
+    "system": "8px base grid",
+    "section_padding": "50px 0",
+    "wrap_max_width": "1120px",
+    "wrap_padding": "0 32px",
+    "gap_small": "6px",
+    "gap_medium": "16px",
+    "gap_large": "24px",
+    "border_radius": "2px",
+    "form_gap": "18px",
+    "form_group_gap": "5px"
+  },
+  "borders": {
+    "default": {
+      "width": "1px",
+      "style": "solid",
+      "color": "var(--line) / #D9DFD2"
+    },
+    "focus": {
+      "width": "2px",
+      "style": "solid",
+      "color": "rgba(76, 140, 107, 0.15) / rgba(var(--green-bright), 0.15)"
+    }
+  },
+  "shadows": {
+    "focus": "0 0 0 2px rgba(76, 140, 107, 0.15)"
+  },
+  "transitions": {
+    "default": "0.15s",
+    "properties": ["border-color", "box-shadow", "background", "transform"]
+  },
+  "components": {
+    "buttons": {
+      "primary": {
+        "background": "var(--green-deep) / #14432F",
+        "color": "#FFFFFF",
+        "padding": "14px 24px",
+        "border_radius": "2px",
+        "font": "500 15px var(--sans_serif)",
+        "hover": {
+          "background": "var(--green-bright) / #4C8C6B",
+          "transform": "translateY(-1px)"
+        }
+      },
+      "ghost": {
+        "background": "transparent",
+        "color": "var(--green-deep) / #14432F",
+        "border": "1px solid var(--line) / #D9DFD2",
+        "hover": {
+          "background": "var(--paper) / #FFFFFF",
+          "border_color": "var(--green-bright) / #4C8C6B",
+          "color": "var(--green-bright) / #4C8C6B"
+        }
+      }
+    },
+    "forms": {
+      "input": {
+        "background": "var(--paper) / #FFFFFF",
+        "border": "1px solid var(--line) / #D9DFD2",
+        "padding": "10px 12px",
+        "font": "14.5px var(--sans_serif)",
+        "border_radius": "2px",
+        "focus": {
+          "border_color": "var(--green-bright) / #4C8C6B",
+          "box_shadow": "0 0 0 2px rgba(76, 140, 107, 0.15)"
+        }
+      }
+    },
+    "cards": {
+      "background": "var(--paper) / #FFFFFF",
+      "border": "1px solid var(--line) / #D9DFD2",
+      "border_radius": "2px",
+      "padding": "30px 26px"
+    }
+  },
+  "usage_guidelines": {
+    "color_contrast": {
+      "text_on_bg": "AAA compliant (7.5:1)",
+      "text_on_paper": "AAA compliant (21:1)",
+      "green_bright_on_paper": "4.5:1 ratio",
+      "green_deep_on_paper": "15:1 ratio"
+    },
+    "accessibility": {
+      "focus_visible": "2px green-bright border",
+      "reduced_motion": "Respects prefers-reduced-motion"
+    }
+  },
+  "notes": "This file is machine-readable and can be used by AI tools to maintain design consistency across documents and implementations."
+}

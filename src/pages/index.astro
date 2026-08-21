@@ -24,7 +24,7 @@ import ContactForm from '../components/ContactForm.astro';
             Ich unterstütze kleine und mittlere Unternehmen in Salzburg und Umgebung bei der Einführung von Zoho-Produkten – von der Beratung bis zur nahtlosen Integration.
           </p>
           <div style="display: flex; gap: 14px; flex-wrap: wrap;">
-            <Button href="mailto:christopher@kloseup.eu?subject=Erstgespr%C3%A4ch%20Zoho-Beratung" variant="primary" label="Erstgespräch anfragen" showArrow={true} />
+            <Button href="#kontakt" variant="primary" label="Erstgespräch anfragen" showArrow={true} />
             <Button href="#leistungen" variant="ghost" label="Leistungen ansehen" showArrow={true} />
           </div>
         </div>
@@ -116,7 +116,7 @@ import ContactForm from '../components/ContactForm.astro';
     <!-- Kontakt Section -->
     <section id="kontakt">
       <div class="wrap">
-        <ContactForm client:load />
+        <ContactForm />
       </div>
     </section>
   </main>
