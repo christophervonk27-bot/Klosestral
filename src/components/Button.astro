@@ -1,0 +1,23 @@
+---
+interface Props {
+  variant?: 'primary' | 'ghost';
+  href: string;
+  label: string;
+  showArrow?: boolean;
+}
+
+const {
+  variant = 'primary',
+  href,
+  label,
+  showArrow = false
+} = Astro.props;
+---
+
+<a 
+  class={variant === 'ghost' ? 'btn btn-ghost' : 'btn'} 
+  href={href}
+>
+  <span class="btn-text">{label}</span>
+  {showArrow && <span class="btn-arrow" aria-hidden="true">→</span>}
+</a>

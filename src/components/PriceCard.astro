@@ -1,0 +1,16 @@
+---
+interface Props {
+  label: string;
+  amount: string;
+  unit: string;
+  description: string;
+}
+
+const { label, amount, unit, description } = Astro.props;
+---
+
+<div class="price-card">
+  <div class="label">{label}</div>
+  <div class="amount">{amount} <span>{unit}</span></div>
+  <p>{description}</p>
+</div>

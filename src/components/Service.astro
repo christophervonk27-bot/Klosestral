@@ -1,0 +1,18 @@
+---
+interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<div class="service">
+  <div class="dot"></div>
+  <h3>{title}</h3>
+  <p>{description}</p>
+</div>
+
+<style>
+  .service { text-align: center; }
+</style>

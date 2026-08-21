@@ -1,0 +1,43 @@
+---
+import Logo from './Logo.astro';
+
+interface Props {
+  currentSection?: string;
+}
+
+const { currentSection } = Astro.props;
+---
+
+<header>
+  <div class="nav">
+    <Logo variant="header" />
+    <button class="nav-toggle" aria-label="Menü öffnen" aria-expanded="false" id="navToggle">
+      <span></span>
+    </button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#leistungen">Leistungen</a></li>
+      <li><a href="#zielgruppe">Zielgruppe</a></li>
+      <li><a href="#preise">Preise</a></li>
+      <li><a href="#kontakt">Kontakt</a></li>
+    </ul>
+  </div>
+</header>
+
+<script>
+  const toggle = document.getElementById('navToggle');
+  const links = document.getElementById('navLinks');
+
+  if (toggle && links) {
+    toggle.addEventListener('click', () => {
+      const open = links.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', open.toString());
+    });
+
+    links.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        links.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+  }
+</script>

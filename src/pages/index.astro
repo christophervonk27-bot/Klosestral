@@ -1,0 +1,132 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Aperture from '../components/Aperture.astro';
+import Button from '../components/Button.astro';
+import Service from '../components/Service.astro';
+import Badge from '../components/Badge.astro';
+import PriceCard from '../components/PriceCard.astro';
+import ContactCard from '../components/ContactCard.astro';
+---
+
+<Layout>
+  <Header />
+
+  <main id="top">
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <p class="eyebrow">Zoho-Beratung · Salzburg</p>
+          <h1>Scharf gestellt<br />auf <em>Ihre Prozesse.</em></h1>
+          <p class="lede">
+            Ich unterstütze kleine und mittlere Unternehmen in Salzburg und Umgebung bei der Einführung von Zoho-Produkten – von der Beratung bis zur nahtlosen Integration.
+          </p>
+          <div style="display: flex; gap: 14px; flex-wrap: wrap;">
+            <Button href="mailto:christopher@kloseup.eu?subject=Erstgespr%C3%A4ch%20Zoho-Beratung" variant="primary" label="Erstgespräch anfragen" showArrow={true} />
+            <Button href="#leistungen" variant="ghost" label="Leistungen ansehen" showArrow={true} />
+          </div>
+        </div>
+        <Aperture />
+      </div>
+    </section>
+
+    <!-- Leistungen Section -->
+    <section id="leistungen">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">Leistungen</p>
+          <h2 style="margin-bottom: 16px;">Vier Bereiche, ein Blickwinkel.</h2>
+        </div>
+        <div class="services">
+          <Service
+            title="CRM & Vertrieb"
+            description="Zoho Bigin und Zoho CRM — von der Einrichtung bis zur automatisierten Pipeline."
+          />
+          <Service
+            title="Auswertung"
+            description="Zoho Analytics für Dashboards und Kennzahlen, die tatsächlich genutzt werden."
+          />
+          <Service
+            title="Kommunikation"
+            description="Zoho Calendar und Meet, sauber verzahnt mit Ihren Vertriebs- und Kundenprozessen."
+          />
+          <Service
+            title="Schulung"
+            description="Einführung Ihres Teams, damit das System auch im Alltag ankommt."
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- Zielgruppe Section -->
+    <section id="zielgruppe" style="background: var(--bg-alt);">
+      <div class="wrap target">
+        <div>
+          <p class="eyebrow">Zielgruppe & Förderung</p>
+          <h2 style="font-size: clamp(26px, 3vw, 34px); margin-bottom: 16px;">
+            Für Betriebe, die es genau wissen wollen.
+          </h2>
+          <p style="margin-top: 20px;">
+            Ich arbeite mit kleinen und mittleren Unternehmen im Raum Salzburg und dem bayerischen Grenzgebiet — branchenoffen, mit Fokus auf klare, nutzbare Lösungen statt Überkomplexität.
+          </p>
+          <p>Viele Digitalisierungsprojekte sind förderfähig. Ich unterstütze Sie dabei, die passende Förderung zu nutzen.</p>
+        </div>
+        <div class="badges">
+          <Badge label="Bundesförderung" name="KMU.DIGITAL Beratungsförderung" />
+          <Badge label="Land Salzburg" name="Salzburger Digi-Bonus" />
+        </div>
+      </div>
+    </section>
+
+    <!-- Preise Section -->
+    <section id="preise">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">Preise</p>
+          <h2 style="margin-bottom: 16px;">Transparent kalkuliert.</h2>
+        </div>
+        <div class="pricing">
+          <PriceCard
+            label="Beratung"
+            amount="ab 95 €"
+            unit="/ Std."
+            description="Prozessanalyse, Troubleshooting, Ad-hoc-Support."
+          />
+          <PriceCard
+            label="Projekt"
+            amount="ab 650 €"
+            unit="/ Projekt"
+            description="CRM-Setup, Migration, Automatisierung, Integration."
+          />
+          <PriceCard
+            label="Betreuung"
+            amount="ab 290 €"
+            unit="/ Monat"
+            description="Laufender Support und Weiterentwicklung im Retainer."
+          />
+        </div>
+        <p class="pricing-note">
+          Alle Preise zzgl. gesetzl. USt., sofern zutreffend. Finales Angebot nach individuellem Scoping-Gespräch.
+        </p>
+      </div>
+    </section>
+
+    <!-- Kontakt Section -->
+    <section id="kontakt" style="background: var(--bg-alt);">
+      <div class="wrap contact">
+        <div>
+          <p class="eyebrow">Kontakt</p>
+          <h2 style="margin-top:14px; margin-bottom: 16px;">Bereit für den ersten Blick auf Ihre Prozesse?</h2>
+          <p style="margin-top:16px; color: var(--ink-soft);">
+            Schreiben Sie mir kurz, worum es geht — ich melde mich zeitnah für ein unverbindliches Erstgespräch zurück.
+          </p>
+        </div>
+        <ContactCard />
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
