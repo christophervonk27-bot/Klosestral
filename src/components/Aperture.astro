@@ -1,0 +1,46 @@
+<style>
+  .aperture-wrap{display:flex; align-items:center; justify-content:center;}
+  .aperture{width:min(340px, 90%); height:auto;}
+  .aperture .blade{
+    transform-origin:160px 160px;
+    animation:focusIn 1.4s cubic-bezier(.2,.8,.2,1) both;
+  }
+  .aperture .blade:nth-child(1){animation-delay:.02s;}
+  .aperture .blade:nth-child(2){animation-delay:.08s;}
+  .aperture .blade:nth-child(3){animation-delay:.14s;}
+  .aperture .blade:nth-child(4){animation-delay:.20s;}
+  .aperture .blade:nth-child(5){animation-delay:.26s;}
+  .aperture .blade:nth-child(6){animation-delay:.32s;}
+  @keyframes focusIn{
+    from{ transform:scale(1.55) rotate(-14deg); opacity:0; }
+    to{ transform:scale(1) rotate(0deg); opacity:1; }
+  }
+  @media (prefers-reduced-motion: reduce){
+    .aperture .blade{animation:none !important;}
+  }
+</style>
+
+<div class="aperture-wrap">
+  <svg class="aperture" viewBox="0 0 320 320" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <circle cx="160" cy="160" r="150" stroke="#D9DFD2" stroke-width="1" />
+    <g class="blade" fill="#14432F" opacity="0.92">
+      <path d="M160 160 L160 34 L214 46 Z" />
+    </g>
+    <g class="blade" fill="#1B5138" opacity="0.92">
+      <path d="M160 160 L272 96 L260 152 Z" />
+    </g>
+    <g class="blade" fill="#215C41" opacity="0.92">
+      <path d="M160 160 L268 226 L214 258 Z" />
+    </g>
+    <g class="blade" fill="#2A6B4C" opacity="0.92">
+      <path d="M160 160 L160 286 L106 274 Z" />
+    </g>
+    <g class="blade" fill="#347A58" opacity="0.92">
+      <path d="M160 160 L48 224 L60 168 Z" />
+    </g>
+    <g class="blade" fill="#4C8C6B" opacity="0.92">
+      <path d="M160 160 L52 94 L106 62 Z" />
+    </g>
+    <circle cx="160" cy="160" r="30" fill="#F6F7F2" stroke="#14432F" stroke-width="1.5" />
+  </svg>
+</div>
