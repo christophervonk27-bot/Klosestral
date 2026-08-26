@@ -1,0 +1,209 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Button from '../components/Button.astro';
+import Service from '../components/Service.astro';
+
+const baseUrl = import.meta.env.BASE_URL;
+---
+
+<Layout
+  title="Über mich | Christopher Klose | Klosestral"
+  description="Berater für pragmatische Digitalisierung & Zoho-Lösungen. Ich helfe Unternehmen, ihre Prozesse ins Jahr 2026 zu bringen ohne teure Fehlinvestitionen."
+>
+  <Header />
+
+  <main id="top">
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <h1>Christopher Klose</h1>
+          <p class="lede">Berater für pragmatische Digitalisierung & Zoho-Lösungen</p>
+          <p style="color: var(--ink-soft);">Salzburg, Österreich | christopher@kloseup.eu</p>
+        </div>
+        <div class="hero-image">
+          <div style="position: relative; padding: 6px; background: linear-gradient(135deg, var(--green-bright) 0%, var(--green) 100%); border-radius: 50%; width: 140px; height: 140px;">
+            <img src={`${baseUrl}images/avatar-placeholder.svg`} alt="Christopher Klose" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section id="problem">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">Das Problem</p>
+          <h2>Digitalisierung, die niemand nutzt</h2>
+        </div>
+        <p><strong>Sie kennen das:</strong></p>
+        <div class="services">
+          <p>• Teure Tools werden eingeführt – und dann ignoriert.</p>
+          <p>• Ihre Mitarbeiter arbeiten weiter mit Excel und Outlook, während das neue CRM oder ERP unbenutzt im Hintergrund läuft.</p>
+          <p>• Jeder Monat verbrennen Sie Budget für Lizenzen, Schulungen und Support – ohne messbaren Nutzen.</p>
+        </div>
+        <p style="margin-top: 24px;"><strong>Warum?</strong></p>
+        <div class="services" style="color: var(--ink-soft);">
+          <p>Weil die meisten Berater Ihnen Tools verkaufen, statt Prozesse zu verstehen.</p>
+          <p>Weil Change Management oft nur ein Buzzword ist – und nicht der Schlüssel zum Erfolg.</p>
+          <p>Weil nicht jedes "revolutionäre" Produkt zu Ihrem Business passt.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Lösung Section -->
+    <section id="loesung">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">Meine Lösung</p>
+          <h2>Digitalisierung, die wirklich funktioniert</h2>
+        </div>
+        <p>Ich bin Christopher Klose – und ich mache Digitalisierung pragmatisch, kosteneffizient und nutzerfreundlich.</p>
+        <p style="margin-top: 16px; color: var(--ink-soft);">
+          Mit mehreren Jahren Erfahrung im Full Cycle Sales und als CRM-Admin (Zoho Bigin, CRM, Books, Inventory) weiß ich:
+        </p>
+        <div class="services" style="margin-top: 24px;">
+          <Service
+            title="Prozesse stehen vor Tools"
+            description="Erst wenn wir verstehen, wie Sie arbeiten, finden wir die richtige Lösung."
+          />
+          <Service
+            title="Change Management ist der Schlüssel"
+            description="Die beste Software nützt nichts, wenn Ihre Mitarbeiter sie nicht annehmen."
+          />
+          <Service
+            title="Kosten/Nutzen im Fokus"
+            description="Ich empfehle nur Tools, die messbaren Mehrwert bringen – nicht die neueste Hype-Software."
+          />
+        </div>
+        <p style="margin-top: 32px;"><strong>Mein Ansatz:</strong></p>
+        <div class="services" style="margin-top: 16px;">
+          <p><strong>Analyse:</strong> Wo hakt es in Ihren Prozessen?</p>
+          <p><strong>Evaluierung:</strong> Welche Tools passen wirklich zu Ihrem Business?</p>
+          <p><strong>Umsetzung:</strong> Schrittweise Einführung – ohne Chaos, ohne Überforderung.</p>
+          <p><strong>Optimierung:</strong> Kontinuierliche Anpassung, damit die Lösung nachhaltig funktioniert.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Warum ich Section -->
+    <section id="warum">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">Warum ich?</p>
+          <h2>Weil ich Ihre Sprache spreche</h2>
+        </div>
+        <table style="width: 100%; margin-top: 24px; border-collapse: collapse;">
+          <thead>
+            <tr style="border-bottom: 2px solid var(--line);">
+              <th style="padding: 12px 0; text-align: left; color: var(--ink); font-weight: 600;">Ihre Herausforderung</th>
+              <th style="padding: 12px 0; text-align: left; color: var(--ink); font-weight: 600;">Meine Lösung</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom: 1px solid var(--line);">
+              <td style="padding: 12px 0; color: var(--ink-soft);">"Wir haben zu viele Tools, die keiner nutzt."</td>
+              <td style="padding: 12px 0; color: var(--ink);">Ich vereinfache Ihre Digital-Landschaft und schaffe Klärung.</td>
+            </tr>
+            <tr style="border-bottom: 1px solid var(--line);">
+              <td style="padding: 12px 0; color: var(--ink-soft);">"Meine Mitarbeiter wehren sich gegen Veränderungen."</td>
+              <td style="padding: 12px 0; color: var(--ink);">Ich sorge für Akzeptanz – durch Schulungen, die praktisch und verständlich sind.</td>
+            </tr>
+            <tr style="border-bottom: 1px solid var(--line);">
+              <td style="padding: 12px 0; color: var(--ink-soft);">"Ich will keine teuren Experimente."</td>
+              <td style="padding: 12px 0; color: var(--ink);">Ich setze auf bewährte Lösungen (wie Zoho) – mit transparenter Kosten/Nutzen-Analyse.</td>
+            </tr>
+            <tr>
+              <td style="padding: 12px 0; color: var(--ink-soft);">"Unsere Prozesse sind zu komplex."</td>
+              <td style="padding: 12px 0; color: var(--ink);">Ich standardisiere und automatisiere, wo es Sinn macht.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Versprechen Section -->
+    <section id="versprechen">
+      <div class="wrap" style="text-align: center;">
+        <p class="eyebrow">Mein Versprechen</p>
+        <h2 style="margin-top: 0; font-size: 1.75rem;">"Kein Bullshit-Bingo. Keine teuren Fehlinvestitionen. Nur Lösungen, die in Ihrem Alltag ankommen."</h2>
+      </div>
+    </section>
+
+    <!-- Weg Section -->
+    <section id="weg">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">Mein Weg</p>
+          <h2>Vom Nerd zum Digitalisierungs-Pragmatiker</h2>
+        </div>
+        <p style="color: var(--ink-soft); line-height: 1.8;">
+          Schon immer war ich ein Digital Native – mit einem kritischen Blick auf Technologie.
+        </p>
+        <p style="color: var(--ink-soft); line-height: 1.8; margin-top: 16px;">
+          Als ich in meinem aktuellen Job sah, wie ein 18 Jahre altes ERP und veraltete Prozesse das Unternehmen ausbremsten, wurde mir klar: Die größte Hürde ist nicht die Technik – sondern der Mensch.
+        </p>
+        <p style="color: var(--ink-soft); line-height: 1.8; margin-top: 16px;">
+          Also begann ich, Prozesse zu hinterfragen, Tools zu testen und Lösungen zu finden, die wirklich funktionieren.
+        </p>
+        <p style="color: var(--ink-soft); line-height: 1.8; margin-top: 16px;">
+          Heute helfe ich Mittelständlern, ihre Digitalisierung voranzubringen – ohne die typischen Fallstricke.
+        </p>
+      </div>
+    </section>
+
+    <!-- Kontakt Section -->
+    <section id="kontakt">
+      <div class="wrap">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 40px; flex-wrap: wrap;">
+          <div style="flex: 1; min-width: 300px;">
+            <p class="eyebrow">Bereit für den nächsten Schritt?</p>
+            <h2>Kontaktieren Sie mich</h2>
+            <p style="margin-top: 16px;">
+              Sie wollen Digitalisierung, die Ihre Mitarbeiter nutzen und die Ihnen Geld spart?
+            </p>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 16px;">
+            <a href="mailto:christopher@kloseup.eu" class="btn" style="width: 250px;">
+              <span class="btn-text">Per Mail</span>
+              <span class="btn-arrow" aria-hidden="true">→</span>
+            </a>
+            <a href="https://wa.me/436641234567" class="btn" style="width: 250px;">
+              <span class="btn-text">Per WhatsApp</span>
+              <span class="btn-arrow" aria-hidden="true">→</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Privat Section -->
+    <section id="privat">
+      <div class="wrap">
+        <p class="eyebrow">Privat</p>
+        <h2>Abseits der Arbeit</h2>
+        <p style="max-width: 600px; color: var(--ink-soft); line-height: 1.8;">
+          Abseits der Digitalisierung liebe ich gute Geschichten – ob in Filmen, Serien oder beim Kochen für Freunde. Salzburgs Kaffeehauskultur gibt mir dabei die perfekte Inspiration für neue Ideen.
+        </p>
+      </div>
+    </section>
+
+    <!-- Quote Section -->
+    <section id="quote">
+      <div class="wrap">
+        <div style="max-width: 600px; margin: 0 auto;">
+          <div class="quote-card price-card" style="text-align: center;">
+            <p class="amount" style="font-size: 1.25rem; font-weight: 400;">
+              "Luck is when preparation meets opportunity."
+            </p>
+            <cite class="label">Seneca</cite>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
