@@ -11,13 +11,17 @@ const { currentSection } = Astro.props;
 <header>
   <div class="nav">
     <Logo variant="header" />
-    <button class="nav-toggle" aria-label="Menü öffnen" aria-expanded="false" id="navToggle">
-      <span></span>
-    </button>
     <ul class="nav-links" id="navLinks">
       <li><a href="/Klosestral/">Startseite</a></li>
       <li><a href="/Klosestral/ueber-mich">Über mich</a></li>
     </ul>
+    <span class="status-pill">
+      <span class="status-dot" aria-hidden="true"></span>
+      Verfügbar für Projekte
+    </span>
+    <button class="nav-toggle" aria-label="Menü öffnen" aria-expanded="false" id="navToggle">
+      <span></span>
+    </button>
   </div>
 </header>
 
@@ -39,3 +43,73 @@ const { currentSection } = Astro.props;
     });
   }
 </script>
+
+<style>
+  .nav {
+    display: grid;
+    grid-template-columns: auto 1fr auto auto;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 32px;
+    max-width: var(--max);
+    margin: 0 auto;
+  }
+
+  .nav-links {
+    justify-self: center;
+  }
+
+  .status-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 2px;
+    padding: 5px 12px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11.5px;
+    letter-spacing: 0.06em;
+    color: var(--ink-soft);
+    white-space: nowrap;
+    justify-self: end;
+  }
+
+  .status-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--green-bright);
+    position: relative;
+  }
+
+  .status-dot::after {
+    content: "";
+    position: absolute;
+    inset: -3px;
+    border-radius: 50%;
+    border: 1.5px solid var(--green-bright);
+    opacity: 0;
+    animation: pulse 2.4s ease-out infinite;
+  }
+
+  @keyframes pulse {
+    0%   { opacity: 0.6; transform: scale(0.8); }
+    100% { opacity: 0;   transform: scale(2); }
+  }
+
+  /* Mobile: Logo links, Menü + Pill rechts */
+  @media (max-width: 880px) {
+    .nav {
+      grid-template-columns: auto 1fr;
+    }
+    .status-pill {
+      justify-self: start;
+      grid-column: 1 / -1;
+      margin-top: 6px;
+      font-size: 10.5px;
+      padding: 4px 10px;
+    }
+  }
+</style>
+

@@ -22,10 +22,20 @@ const baseUrl = import.meta.env.BASE_URL;
           <h1>Christopher Klose</h1>
           <p class="lede">Berater für pragmatische Digitalisierung & Zoho-Lösungen</p>
           <p style="color: var(--ink-soft);">Salzburg, Österreich | christopher@kloseup.eu</p>
+          <div style="display: flex; gap: 16px; margin-top: 20px;">
+            <a href="mailto:christopher@kloseup.eu" class="btn" style="width: 250px;">
+              <span class="btn-text">Per Mail</span>
+              <span class="btn-arrow" aria-hidden="true">→</span>
+            </a>
+            <a href="https://wa.me/436641234567" class="btn" style="width: 250px;">
+              <span class="btn-text">Per WhatsApp</span>
+              <span class="btn-arrow" aria-hidden="true">→</span>
+            </a>
+          </div>
         </div>
-        <div class="hero-image">
-          <div style="position: relative; padding: 6px; background: linear-gradient(135deg, var(--green-bright) 0%, var(--green) 100%); border-radius: 50%; width: 140px; height: 140px;">
-            <img src={`${baseUrl}images/avatar-placeholder.svg`} alt="Christopher Klose" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;" />
+        <div class="hero-image" style="justify-self: center;">
+          <div style="position: relative; padding: 6px; background: linear-gradient(135deg, var(--green-bright) 0%, var(--green) 100%); border-radius: 50%; width: 207px; height: 207px;">
+            <img src={`${baseUrl}images/1731027398052.jpeg`} alt="Christopher Klose" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;" />
           </div>
         </div>
       </div>
@@ -33,60 +43,511 @@ const baseUrl = import.meta.env.BASE_URL;
 
     <!-- Problem Section -->
     <section id="problem">
-      <div class="wrap">
-        <div class="section-head">
-          <p class="eyebrow">Das Problem</p>
-          <h2>Digitalisierung, die niemand nutzt</h2>
+  <div class="wrap">
+    <!-- Eyebrow / Vor-Headline -->
+    <p class="eyebrow">Sie kennen das</p>
+
+    <!-- Hauptüberschrift -->
+    <h2>Digitalisierung die niemand nutzt</h2>
+
+    <!-- Zwei-Spalten Layout: Probleme | Gründe -->
+    <div class="ds-grid">
+
+      <!-- Linke Spalte: Probleme -->
+      <div class="ds-column ds-column--problem">
+        <div class="ds-column-header">
+          <h3 class="ds-column-title">Das Problem</h3>
         </div>
-        <p><strong>Sie kennen das:</strong></p>
-        <div class="services">
-          <p>• Teure Tools werden eingeführt – und dann ignoriert.</p>
-          <p>• Ihre Mitarbeiter arbeiten weiter mit Excel und Outlook, während das neue CRM oder ERP unbenutzt im Hintergrund läuft.</p>
-          <p>• Jeder Monat verbrennen Sie Budget für Lizenzen, Schulungen und Support – ohne messbaren Nutzen.</p>
-        </div>
-        <p style="margin-top: 24px;"><strong>Warum?</strong></p>
-        <div class="services" style="color: var(--ink-soft);">
-          <p>Weil die meisten Berater Ihnen Tools verkaufen, statt Prozesse zu verstehen.</p>
-          <p>Weil Change Management oft nur ein Buzzword ist – und nicht der Schlüssel zum Erfolg.</p>
-          <p>Weil nicht jedes "revolutionäre" Produkt zu Ihrem Business passt.</p>
-        </div>
+        <ul class="ds-list">
+          <li class="ds-item">
+            <p class="ds-item-lead">Teure Tools werden eingeführt und dann ignoriert.</p>
+            <p class="ds-item-desc">Lizenzen laufen, aber niemand nutzt sie wirklich.</p>
+          </li>
+          <li class="ds-item">
+            <p class="ds-item-lead">Mitarbeiter arbeiten weiter mit Excel &amp; Outlook.</p>
+            <p class="ds-item-desc">Neue CRM- oder ERP-Systeme laufen ungenutzt im Hintergrund.</p>
+          </li>
+          <li class="ds-item">
+            <p class="ds-item-lead">Jeden Monat Geld verschwendet.</p>
+            <p class="ds-item-desc">Für Lizenzen Schulungen und Support ohne messbaren Nutzen.</p>
+          </li>
+        </ul>
       </div>
-    </section>
+
+      <!-- Rechte Spalte: Gründe -->
+      <div class="ds-column ds-column--reason">
+        <div class="ds-column-header">
+          <h3 class="ds-column-title">Warum?</h3>
+        </div>
+        <ul class="ds-list">
+          <li class="ds-item">
+            <p class="ds-item-lead">Weil die meisten Berater Tools verkaufen, statt Prozesse zu verstehen.</p>
+            <p class="ds-item-desc">Der Fokus liegt auf dem Verkauf, nicht auf Ihrer unternehmerischen Herausforderung.</p>
+          </li>
+          <li class="ds-item">
+            <p class="ds-item-lead">Weil Change Management oft nur ein Buzzword ist.</p>
+            <p class="ds-item-desc">Nicht der Schlüssel zum Erfolg den es sein sollte.</p>
+          </li>
+          <li class="ds-item">
+            <p class="ds-item-lead">Weil nicht jedes „revolutionäre" Produkt zu Ihrem Business passt.</p>
+            <p class="ds-item-desc">Hype ist kein Ersatz für passgenaue Lösungen.</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* ===== Design Tokens ===== */
+  :root {
+    --ds-green: #1a5c3a;
+    --ds-green-dark: #0d3a23;
+    --ds-green-light: #2d8659;
+    --ds-red: #c0392b;
+    --ds-red-bg: #fdf5f4;
+    --ds-gray: #6b7280;
+    --ds-gray-light: #f9fafb;
+    --ds-gray-border: #e5e7eb;
+    --ds-text: #1f2937;
+    --ds-radius: 12px;
+    --ds-shadow: 0 1px 3px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.04);
+    --ds-shadow-hover: 0 4px 12px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.06);
+    --ds-transition: 0.25s ease;
+  }
+
+
+
+
+
+
+
+  /* ===== Grid ===== */
+  .ds-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-bottom: 3rem;
+  }
+
+  @media (max-width: 768px) {
+    .ds-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* ===== Columns ===== */
+  .ds-column {
+    border-radius: var(--ds-radius);
+    padding: 2rem;
+    box-shadow: var(--ds-shadow);
+    transition: box-shadow var(--ds-transition);
+  }
+
+  .ds-column:hover {
+    box-shadow: var(--ds-shadow-hover);
+  }
+
+  .ds-column--problem {
+    background: var(--paper);
+    border: 1px solid var(--line);
+  }
+
+  .ds-column--reason {
+    background: var(--paper);
+    border: 1px solid var(--line);
+  }
+
+  /* ===== Column Header ===== */
+  .ds-column-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--ds-gray-border);
+  }
+
+  .ds-column-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin: 0;
+    color: var(--ds-text);
+  }
+
+  /* ===== List ===== */
+  .ds-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .ds-item {
+    position: relative;
+    padding-left: 1.5rem;
+  }
+
+  .ds-item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.55rem;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+  }
+
+  .ds-column--problem .ds-item::before {
+    background: var(--ds-red);
+  }
+
+  .ds-column--reason .ds-item::before {
+    background: var(--ds-green);
+  }
+
+  .ds-item-lead {
+    font-weight: 600;
+    color: var(--ds-text);
+    margin: 0 0 0.25rem 0;
+    line-height: 1.45;
+  }
+
+  .ds-item-desc {
+    font-size: 0.92rem;
+    color: var(--ds-gray);
+    margin: 0;
+    line-height: 1.45;
+  }
+
+  /* ===== Fade-in Animation beim Scrollen ===== */
+  @media (prefers-reduced-motion: no-preference) {
+    .ds-column {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: ds-fade-in 0.6s ease forwards;
+    }
+
+    .ds-column--problem {
+      animation-delay: 0.1s;
+    }
+
+    .ds-column--reason {
+      animation-delay: 0.25s;
+    }
+
+    @keyframes ds-fade-in {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  }
+</style>
 
     <!-- Lösung Section -->
-    <section id="loesung">
-      <div class="wrap">
-        <div class="section-head">
-          <p class="eyebrow">Meine Lösung</p>
-          <h2>Digitalisierung, die wirklich funktioniert</h2>
-        </div>
-        <p>Ich bin Christopher Klose – und ich mache Digitalisierung pragmatisch, kosteneffizient und nutzerfreundlich.</p>
-        <p style="margin-top: 16px; color: var(--ink-soft);">
-          Mit mehreren Jahren Erfahrung im Full Cycle Sales und als CRM-Admin (Zoho Bigin, CRM, Books, Inventory) weiß ich:
+<section id="loesung" class="loesung">
+  <div class="wrap">
+
+    <!-- Section Head (bestehendes Pattern) -->
+    <div class="section-head">
+      <p class="eyebrow">Meine Lösung</p>
+      <h2>Digitalisierung die wirklich funktioniert</h2>
+    </div>
+
+    <!-- Intro -->
+    <div class="loesung-intro">
+      <p class="loesung-intro-lead">
+        Ich mache Digitalisierung pragmatisch, kosteneffizient und nutzerfreundlich.
+      </p>
+      <p class="loesung-intro-sub">
+        Mit mehreren Jahren Erfahrung im Full Cycle Sales und als CRM-Admin
+        (Zoho Bigin, CRM, Books, Inventory) weiß ich:
+      </p>
+    </div>
+
+    <!-- 3 Prinzipien als Karten -->
+    <div class="loesung-principles">
+      <article class="loesung-card">
+        <div class="loesung-card-num" aria-hidden="true">01</div>
+        <h3 class="loesung-card-title">Prozesse stehen vor Tools</h3>
+        <p class="loesung-card-desc">
+          Erst wenn wir verstehen, wie Sie arbeiten, finden wir die richtige Lösung.
         </p>
-        <div class="services" style="margin-top: 24px;">
-          <Service
-            title="Prozesse stehen vor Tools"
-            description="Erst wenn wir verstehen, wie Sie arbeiten, finden wir die richtige Lösung."
-          />
-          <Service
-            title="Change Management ist der Schlüssel"
-            description="Die beste Software nützt nichts, wenn Ihre Mitarbeiter sie nicht annehmen."
-          />
-          <Service
-            title="Kosten/Nutzen im Fokus"
-            description="Ich empfehle nur Tools, die messbaren Mehrwert bringen – nicht die neueste Hype-Software."
-          />
-        </div>
-        <p style="margin-top: 32px;"><strong>Mein Ansatz:</strong></p>
-        <div class="services" style="margin-top: 16px;">
-          <p><strong>Analyse:</strong> Wo hakt es in Ihren Prozessen?</p>
-          <p><strong>Evaluierung:</strong> Welche Tools passen wirklich zu Ihrem Business?</p>
-          <p><strong>Umsetzung:</strong> Schrittweise Einführung – ohne Chaos, ohne Überforderung.</p>
-          <p><strong>Optimierung:</strong> Kontinuierliche Anpassung, damit die Lösung nachhaltig funktioniert.</p>
-        </div>
-      </div>
-    </section>
+      </article>
+
+      <article class="loesung-card">
+        <div class="loesung-card-num" aria-hidden="true">02</div>
+        <h3 class="loesung-card-title">Change Management ist der Schlüssel</h3>
+        <p class="loesung-card-desc">
+          Die beste Software nützt nichts, wenn Ihre Mitarbeiter sie nicht annehmen.
+        </p>
+      </article>
+
+      <article class="loesung-card">
+        <div class="loesung-card-num" aria-hidden="true">03</div>
+        <h3 class="loesung-card-title">Kosten/Nutzen im Fokus</h3>
+        <p class="loesung-card-desc">
+          Ich empfehle nur Tools, die messbaren Mehrwert bringen – nicht die neueste Hype-Software.
+        </p>
+      </article>
+    </div>
+
+    <!-- Mein Ansatz als Steps -->
+    <div class="loesung-ansatz">
+      <h2>Mein Ansatz</h2>
+
+      <ol class="loesung-steps">
+        <li class="loesung-step">
+          <div class="loesung-step-marker" aria-hidden="true">
+            <span class="loesung-step-dot"></span>
+          </div>
+          <div class="loesung-step-body">
+            <h4 class="loesung-step-title">Analyse</h4>
+            <p class="loesung-step-desc">Wo hakt es in Ihren Prozessen?</p>
+          </div>
+        </li>
+
+        <li class="loesung-step">
+          <div class="loesung-step-marker" aria-hidden="true">
+            <span class="loesung-step-dot"></span>
+          </div>
+          <div class="loesung-step-body">
+            <h4 class="loesung-step-title">Evaluierung</h4>
+            <p class="loesung-step-desc">Welche Tools passen wirklich zu Ihrem Business?</p>
+          </div>
+        </li>
+
+        <li class="loesung-step">
+          <div class="loesung-step-marker" aria-hidden="true">
+            <span class="loesung-step-dot"></span>
+          </div>
+          <div class="loesung-step-body">
+            <h4 class="loesung-step-title">Umsetzung</h4>
+            <p class="loesung-step-desc">Schrittweise Einführung – ohne Chaos, ohne Überforderung.</p>
+          </div>
+        </li>
+
+        <li class="loesung-step">
+          <div class="loesung-step-marker" aria-hidden="true">
+            <span class="loesung-step-dot"></span>
+          </div>
+          <div class="loesung-step-body">
+            <h4 class="loesung-step-title">Optimierung</h4>
+            <p class="loesung-step-desc">Kontinuierliche Anpassung, damit die Lösung nachhaltig funktioniert.</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  /* ===== Container ===== */
+  .loesung {
+    padding: 50px 0;
+    border-top: 1px solid var(--line);
+  }
+
+  /* ===== Section Head ===== */
+  .section-head {
+    margin-bottom: 40px;
+  }
+
+  /* ===== Intro ===== */
+  .loesung-intro {
+    max-width: 640px;
+    margin-bottom: 48px;
+  }
+
+  .loesung-intro-lead {
+    font-size: 19px;
+    line-height: 1.55;
+    color: var(--ink);
+    margin: 0 0 16px;
+    font-weight: 500;
+  }
+
+  .loesung-intro-sub {
+    font-size: 17px;
+    line-height: 1.6;
+    color: var(--ink-soft);
+    margin: 0;
+  }
+
+  /* ===== 3 Prinzipien Cards ===== */
+  .loesung-principles {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    margin-bottom: 56px;
+    border: 1px solid var(--line);
+    border-radius: 2px;
+    background: var(--paper);
+    overflow: hidden;
+  }
+
+  .loesung-card {
+    padding: 32px 26px;
+    border-right: 1px solid var(--line);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    transition: background 0.15s;
+  }
+
+  .loesung-card:last-child {
+    border-right: none;
+  }
+
+  .loesung-card:hover,
+  .quote-card:hover {
+    background: var(--bg-alt);
+  }
+
+  .loesung-card-num {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    color: var(--green-bright);
+    margin-bottom: 6px;
+  }
+
+  .loesung-card-title {
+    font-family: 'Fraunces', serif;
+    font-size: 19px;
+    font-weight: 600;
+    color: var(--ink);
+    margin: 0;
+    line-height: 1.25;
+  }
+
+  .loesung-card-desc {
+    font-size: 15px;
+    line-height: 1.55;
+    color: var(--ink-soft);
+    margin: 0;
+  }
+
+  /* ===== Ansatz Section ===== */
+  .loesung-ansatz {
+    border-top: 1px solid var(--line);
+    padding-top: 40px;
+  }
+
+
+
+  /* ===== Steps als vertikaler Timeline-Flow ===== */
+  .loesung-steps {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    counter-reset: step;
+  }
+
+  .loesung-step {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 0 20px 0 0;
+    position: relative;
+  }
+
+  .loesung-step:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    top: 5px;
+    left: calc(100% - 20px);
+    width: 20px;
+    height: 1px;
+    background: var(--line);
+  }
+
+  .loesung-step-marker {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 12px;
+    height: 12px;
+  }
+
+  .loesung-step-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 1.5px solid var(--green-bright);
+    background: var(--paper);
+    transition: background 0.15s, border-color 0.15s;
+  }
+
+  .loesung-step:hover .loesung-step-dot {
+    background: var(--green-bright);
+  }
+
+  .loesung-step-body {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .loesung-step-title {
+    font-family: 'Fraunces', serif;
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--green-deep);
+    margin: 0;
+  }
+
+  .loesung-step-desc {
+    font-size: 14.5px;
+    line-height: 1.5;
+    color: var(--ink-soft);
+    margin: 0;
+  }
+
+  /* ===== Responsive ===== */
+  @media (max-width: 880px) {
+    .loesung-principles {
+      grid-template-columns: 1fr;
+    }
+
+    .loesung-card {
+      border-right: none;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .loesung-card:last-child {
+      border-bottom: none;
+    }
+
+    .loesung-steps {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 28px 0;
+    }
+
+    .loesung-step:nth-child(2n)::after {
+      display: none;
+    }
+  }
+
+  @media (max-width: 560px) {
+    .loesung-steps {
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+
+    .loesung-step:not(:last-child)::after {
+      display: none;
+    }
+  }
+</style>
 
     <!-- Warum ich Section -->
     <section id="warum">
@@ -104,20 +565,20 @@ const baseUrl = import.meta.env.BASE_URL;
           </thead>
           <tbody>
             <tr style="border-bottom: 1px solid var(--line);">
-              <td style="padding: 12px 0; color: var(--ink-soft);">"Wir haben zu viele Tools, die keiner nutzt."</td>
+              <td style="padding: 12px 0; color: var(--ink-soft);">"Wir haben zu viele Tools die keiner nutzt."</td>
               <td style="padding: 12px 0; color: var(--ink);">Ich vereinfache Ihre Digital-Landschaft und schaffe Klärung.</td>
             </tr>
             <tr style="border-bottom: 1px solid var(--line);">
               <td style="padding: 12px 0; color: var(--ink-soft);">"Meine Mitarbeiter wehren sich gegen Veränderungen."</td>
-              <td style="padding: 12px 0; color: var(--ink);">Ich sorge für Akzeptanz – durch Schulungen, die praktisch und verständlich sind.</td>
+              <td style="padding: 12px 0; color: var(--ink);">Ich sorge für Akzeptanz durch Schulungen die praktisch und verständlich sind.</td>
             </tr>
             <tr style="border-bottom: 1px solid var(--line);">
               <td style="padding: 12px 0; color: var(--ink-soft);">"Ich will keine teuren Experimente."</td>
-              <td style="padding: 12px 0; color: var(--ink);">Ich setze auf bewährte Lösungen (wie Zoho) – mit transparenter Kosten/Nutzen-Analyse.</td>
+              <td style="padding: 12px 0; color: var(--ink);">Ich setze auf bewährte Lösungen (wie Zoho)  mit transparenter Kosten/Nutzen-Analyse.</td>
             </tr>
             <tr>
               <td style="padding: 12px 0; color: var(--ink-soft);">"Unsere Prozesse sind zu komplex."</td>
-              <td style="padding: 12px 0; color: var(--ink);">Ich standardisiere und automatisiere, wo es Sinn macht.</td>
+              <td style="padding: 12px 0; color: var(--ink);">Ich standardisiere und automatisiere wo es Sinn macht.</td>
             </tr>
           </tbody>
         </table>
@@ -128,7 +589,7 @@ const baseUrl = import.meta.env.BASE_URL;
     <section id="versprechen">
       <div class="wrap" style="text-align: center;">
         <p class="eyebrow">Mein Versprechen</p>
-        <h2 style="margin-top: 0; font-size: 1.75rem;">"Kein Bullshit-Bingo. Keine teuren Fehlinvestitionen. Nur Lösungen, die in Ihrem Alltag ankommen."</h2>
+        <h2 style="font-size: 1.75rem;">"Kein Bullshit-Bingo. Keine teuren Fehlinvestitionen. Nur Lösungen die in Ihrem Alltag ankommen."</h2>
       </div>
     </section>
 
@@ -137,16 +598,16 @@ const baseUrl = import.meta.env.BASE_URL;
       <div class="wrap">
         <div class="section-head">
           <p class="eyebrow">Mein Weg</p>
-          <h2>Vom Nerd zum Digitalisierungs-Pragmatiker</h2>
+          <h2>Lernen aus 18 Jahren ERP-Chaos</h2>
         </div>
         <p style="color: var(--ink-soft); line-height: 1.8;">
-          Schon immer war ich ein Digital Native – mit einem kritischen Blick auf Technologie.
+          Schon immer war ich ein Digital Native mit einem kritischen Blick auf Technologie.
         </p>
         <p style="color: var(--ink-soft); line-height: 1.8; margin-top: 16px;">
           Als ich in meinem aktuellen Job sah, wie ein 18 Jahre altes ERP und veraltete Prozesse das Unternehmen ausbremsten, wurde mir klar: Die größte Hürde ist nicht die Technik – sondern der Mensch.
         </p>
         <p style="color: var(--ink-soft); line-height: 1.8; margin-top: 16px;">
-          Also begann ich, Prozesse zu hinterfragen, Tools zu testen und Lösungen zu finden, die wirklich funktionieren.
+          Also begann ich, Prozesse zu hinterfragen Tools zu testen und Lösungen zu finden, die wirklich funktionieren.
         </p>
         <p style="color: var(--ink-soft); line-height: 1.8; margin-top: 16px;">
           Heute helfe ich Mittelständlern, ihre Digitalisierung voranzubringen – ohne die typischen Fallstricke.
@@ -162,7 +623,7 @@ const baseUrl = import.meta.env.BASE_URL;
             <p class="eyebrow">Bereit für den nächsten Schritt?</p>
             <h2>Kontaktieren Sie mich</h2>
             <p style="margin-top: 16px;">
-              Sie wollen Digitalisierung, die Ihre Mitarbeiter nutzen und die Ihnen Geld spart?
+              Sie wollen Digitalisierung die Ihre Mitarbeiter nutzen und die Ihnen Geld spart?
             </p>
           </div>
           <div style="display: flex; flex-direction: column; gap: 16px;">
@@ -194,7 +655,7 @@ const baseUrl = import.meta.env.BASE_URL;
     <section id="quote">
       <div class="wrap">
         <div style="max-width: 600px; margin: 0 auto;">
-          <div class="quote-card price-card" style="text-align: center;">
+          <div class="quote-card price-card" style="text-align: center; transition: background 0.15s;">
             <p class="amount" style="font-size: 1.25rem; font-weight: 400;">
               "Luck is when preparation meets opportunity."
             </p>
