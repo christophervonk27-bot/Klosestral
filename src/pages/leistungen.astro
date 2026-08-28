@@ -1,0 +1,520 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Button from '../components/Button.astro';
+
+const baseUrl = import.meta.env.BASE_URL;
+
+// Leistungsdaten
+const leistungen = [
+  {
+    num: '01',
+    title: 'CRM & Vertrieb',
+    desc: 'Ihre Vertriebspipeline funktioniert, nicht nur auf dem Papier. Von der Einrichtung in Zoho Bigin oder Zoho CRM bis zur automatisierten Workflow-Pipeline, die Ihre Vertriebler auch wirklich nutzen.',
+    points: [
+      'Einrichtung & Konfiguration von Zoho Bigin oder Zoho CRM, exakt auf Ihre Vertriebsprozesse abgestimmt',
+      'Automatisierte Sales-Pipelines: Leads, Deals, Follow-ups ohne manuelle Doppelpflege',
+      'Saubere Migration Ihrer bestehenden Kundendaten, ohne Verlust und ohne Downtime',
+      'Anbindung an E-Mail, Telefonie und bestehende Systeme. Ein System, eine Wahrheit.'
+    ]
+  },
+  {
+    num: '02',
+    title: 'Auswertung',
+    desc: 'Dashboards, die jemand ansieht. Zoho Analytics verbindet Ihre Datenquellen und zeigt Ihnen die Kennzahlen, die Ihre Entscheidungen wirklich beeinflussen, nicht die, die gut aussehen.',
+    points: [
+      'Zoho Analytics-Dashboards nach Ihren KPIs. Keine Standard-Reports, sondern Ihre Metriken',
+      'Verknüpfung von CRM-, Finanz- und externen Datenquellen in einer zentralen Ansicht',
+      'Automatisierte Reportings per Mail oder Slack, damit der Report kommt, bevor Sie danach fragen',
+      'Klare Visualisierungen statt Datenfriedhöfe. Sie sehen in 30 Sekunden, wo Sie stehen.'
+    ]
+  },
+  {
+    num: '03',
+    title: 'Kommunikation',
+    desc: 'Termine, Meetings und Follow-ups in einem System, sauber verzahnt mit Ihren Vertriebs- und Kundenprozessen. Zoho Calendar und Meet, damit kein Termin mehr verloren geht.',
+    points: [
+      'Zoho Calendar & Zoho Meet direkt ins CRM integriert. Kein Kontextwechsel mehr.',
+      'Automatische Terminerinnerungen und Follow-ups. Ihr System denkt mit, Sie vergessen nichts.',
+      'Synchronisation mit bestehenden Kalendersystemen: Google, Outlook, Apple.',
+      'Virtuelle Kundenmeetings ohne Tool-Sprung. Vom Deal zum Gespräch in einem Klick.'
+    ]
+  },
+  {
+    num: '04',
+    title: 'Schulung',
+    desc: 'Ihr Team kennt das System und nutzt es. Kein Standard-Workshop, sondern praxisnahe Einführung, die Ihre Prozesse und Ihre Sprache spricht. Damit die Investition im Alltag ankommt.',
+    points: [
+      'Praxisnahe Team-Schulungen vor Ort oder remote, an Ihren Beispielen und nicht an Demo-Daten.',
+      'Individuelle Userguides & Kurzvideos für Ihre Prozesse, als Nachschlagewerk, wenn es zählt.',
+      'Change Management, das Mitarbeiter abholt statt überfährt. Akzeptanz statt Widerstand.',
+      'Follow-up-Support in den ersten Wochen nach Go-Live, bis es im Alltag sitzt.'
+    ]
+  }
+];
+---
+
+<Layout
+  title="Leistungen | kloseup. – Zoho-Beratung & Integration"
+  description="CRM & Vertrieb, Analytics-Auswertungen, Kommunikation und Team-Schulung. Zoho-Integration, die im Alltag funktioniert. Kostenloses Erstgespräch anfragen."
+>
+  <Header />
+
+  <main id="top">
+
+    <!-- Hero -->
+    <section class="hero leistungen-hero">
+      <div class="wrap">
+        <p class="eyebrow">Leistungen</p>
+        <h1 class="leistungen-hero-h1">
+          Vier Bereiche,<br /><em>ein Pragmatiker.</em>
+        </h1>
+        <p class="lede">
+          Zoho-Integration, die Ihre Prozesse respektiert. Kein Tool-Verkauf,
+          sondern Lösungen, die im Alltag funktionieren. Vier Bereiche,
+          ein Ansatz: pragmatisch, nutzerfreundlich, messbar.
+        </p>
+        <div class="leistungen-hero-cta">
+          <Button href="#kontakt" variant="primary" label="Kostenloses Erstgespräch" showArrow={true} />
+          <Button href="#prozess" variant="ghost" label="So arbeite ich" showArrow={true} />
+        </div>
+      </div>
+    </section>
+
+    <!-- Leistungen Detail -->
+    <section id="leistungen-detail">
+      <div class="wrap">
+        <div class="leistungen-grid">
+          {leistungen.map((l) => (
+            <article class="leistung-card">
+              <div class="leistung-card-head">
+                <span class="leistung-num">{l.num}</span>
+                <h2 class="leistung-title">{l.title}</h2>
+              </div>
+              <p class="leistung-desc">{l.desc}</p>
+              <ul class="leistung-points">
+                {l.points.map((p) => (
+                  <li class="leistung-point">
+                    <span class="leistung-point-dot" aria-hidden="true"></span>
+                    <span>{p}</span>
+                  </li>
+                ))}
+              </ul>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Prozess -->
+    <section id="prozess">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">Mein Prozess</p>
+          <h2>In vier Schritten zur Lösung, die funktioniert.</h2>
+        </div>
+        <ol class="prozess-steps">
+          <li class="prozess-step">
+            <div class="prozess-step-num">1</div>
+            <div class="prozess-step-body">
+              <h3>Analyse</h3>
+              <p>Wir schauen uns Ihre Prozesse an, ehrlich und ohne Blendeffekt. Wo hakt es? Wo versickert Zeit? Wo fließt Geld, ohne dass es zurückkommt?</p>
+            </div>
+          </li>
+          <li class="prozess-step">
+            <div class="prozess-step-num">2</div>
+            <div class="prozess-step-body">
+              <h3>Evaluierung</h3>
+              <p>Welche Zoho-Module passen zu Ihnen? Ich empfehle nur, was messbar hilft, und sage Ihnen auch, was Sie nicht brauchen.</p>
+            </div>
+          </li>
+          <li class="prozess-step">
+            <div class="prozess-step-num">3</div>
+            <div class="prozess-step-body">
+              <h3>Umsetzung</h3>
+              <p>Schrittweise Einrichtung, Migration und Automatisierung. Sie sehen nach jedem Schritt, was sich verändert hat, ohne Überforderung und ohne Chaos.</p>
+            </div>
+          </li>
+          <li class="prozess-step">
+            <div class="prozess-step-num">4</div>
+            <div class="prozess-step-body">
+              <h3>Schulung & Optimierung</h3>
+              <p>Ihr Team wird fit gemacht, an Ihren Prozessen und nicht an Demo-Daten. Danach optimieren wir kontinuierlich, bis das System im Alltag sitzt.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Förderung Hinweis -->
+    <section id="foerderung">
+      <div class="wrap">
+        <div class="foerderung-box">
+          <div class="foerderung-content">
+            <p class="eyebrow">Förderung</p>
+            <h2>Digitalisierung muss nicht teuer sein.</h2>
+            <p>
+              Viele Digitalisierungsprojekte sind förderfähig, bis zu 50 % der Beratungskosten können übernommen werden. Ich prüfe für Sie, ob die <strong>KMU.Digital Beratungsförderung</strong> des Bundes oder der <strong>Salzburger Digi-Bonus</strong> passen und übernehme die Antragsstellung mit.
+            </p>
+          </div>
+          <div class="foerderung-cta">
+            <Button href="#kontakt" variant="ghost" label="Förderung prüfen lassen" showArrow={true} />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Kontakt -->
+    <section id="kontakt">
+      <div class="wrap kontakt-box">
+        <div class="kontakt-text">
+          <p class="eyebrow">Bereit?</p>
+          <h2>Reden wir über Ihr Projekt.</h2>
+          <p>
+            Kostenloses Erstgespräch. Ich sage Ihnen ehrlich, ob und wie Zoho für Sie Sinn macht. Kein Verkaufspitch, kein Blendeffekt. Nur eine echte Einschätzung.
+          </p>
+        </div>
+        <div class="kontakt-actions">
+          <a href="mailto:christopher@kloseup.eu" class="btn">
+            <span class="btn-text">Per Mail</span>
+            <span class="btn-arrow" aria-hidden="true">→</span>
+          </a>
+          <a href="https://wa.me/436641234567" class="btn">
+            <span class="btn-text">Per WhatsApp</span>
+            <span class="btn-arrow" aria-hidden="true">→</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  /* ===== Hero ===== */
+  .leistungen-hero {
+    padding: 96px 0 80px;
+  }
+
+  .leistungen-hero-h1 {
+    font-size: clamp(38px, 5.4vw, 64px);
+    margin: 14px 0 24px;
+  }
+
+  .leistungen-hero-h1 em {
+    font-style: italic;
+    font-weight: 500;
+    color: var(--green-bright);
+  }
+
+  .leistungen-hero .lede {
+    font-size: 19px;
+    color: var(--ink-soft);
+    max-width: 56ch;
+    margin: 0 0 34px;
+  }
+
+  .leistungen-hero-cta {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+
+  /* ===== Leistungen Grid ===== */
+  #leistungen-detail {
+    padding: 50px 0;
+    border-top: 1px solid var(--line);
+  }
+
+  .leistungen-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    border: 1px solid var(--line);
+    border-radius: 2px;
+    background: var(--paper);
+    overflow: hidden;
+  }
+
+  .leistung-card {
+    padding: 36px 32px;
+    border-right: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    transition: background 0.15s;
+  }
+
+  .leistung-card:nth-child(2n) {
+    border-right: none;
+  }
+
+  .leistung-card:nth-last-child(-n+2) {
+    border-bottom: none;
+  }
+
+  .leistung-card:hover {
+    background: var(--bg-alt);
+  }
+
+  .leistung-card-head {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 10px;
+  }
+
+  .leistung-num {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    color: var(--green-bright);
+  }
+
+  .leistung-title {
+    font-family: 'Fraunces', serif;
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--green-deep);
+    margin: 0;
+    line-height: 1.15;
+  }
+
+  .leistung-desc {
+    font-size: 16px;
+    line-height: 1.55;
+    color: var(--ink-soft);
+    margin: 0 0 20px;
+    max-width: 50ch;
+  }
+
+  .leistung-points {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .leistung-point {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 14.5px;
+    line-height: 1.5;
+    color: var(--ink);
+  }
+
+  .leistung-point-dot {
+    flex-shrink: 0;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    border: 1.5px solid var(--green-bright);
+    margin-top: 7px;
+  }
+
+  /* ===== Prozess ===== */
+  #prozess {
+    padding: 50px 0;
+    border-top: 1px solid var(--line);
+  }
+
+  .section-head {
+    margin-bottom: 36px;
+  }
+
+  .prozess-steps {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    position: relative;
+  }
+
+  .prozess-steps::before {
+    content: "";
+    position: absolute;
+    top: 16px;
+    left: 5%;
+    right: 5%;
+    height: 1px;
+    background: var(--line);
+    z-index: 0;
+  }
+
+  .prozess-step {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 0 20px 0 0;
+    position: relative;
+    z-index: 1;
+  }
+
+  .prozess-step-num {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--paper);
+    border: 1.5px solid var(--green-bright);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--green-deep);
+    transition: background 0.15s, border-color 0.15s, color 0.15s;
+  }
+
+  .prozess-step:hover .prozess-step-num {
+    background: var(--green-bright);
+    color: var(--paper);
+  }
+
+  .prozess-step-body h3 {
+    font-family: 'Fraunces', serif;
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--green-deep);
+    margin: 0 0 4px;
+  }
+
+  .prozess-step-body p {
+    font-size: 14.5px;
+    line-height: 1.5;
+    color: var(--ink-soft);
+    margin: 0;
+  }
+
+  /* ===== Förderung ===== */
+  #foerderung {
+    padding: 50px 0;
+    border-top: 1px solid var(--line);
+  }
+
+  .foerderung-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    background: var(--bg-alt);
+    border: 1px solid var(--line);
+    border-radius: 2px;
+    padding: 36px 32px;
+    flex-wrap: wrap;
+  }
+
+  .foerderung-content {
+    flex: 1;
+    min-width: 280px;
+  }
+
+  .foerderung-content h2 {
+    font-size: clamp(22px, 2.8vw, 28px);
+    margin: 8px 0 12px;
+  }
+
+  .foerderung-content p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--ink-soft);
+    margin: 0;
+    max-width: 56ch;
+  }
+
+  .foerderung-cta {
+    flex-shrink: 0;
+  }
+
+  /* ===== Kontakt ===== */
+  #kontakt {
+    padding: 50px 0;
+    border-top: 1px solid var(--line);
+  }
+
+  .kontakt-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+
+  .kontakt-text {
+    flex: 1;
+    min-width: 300px;
+  }
+
+  .kontakt-text h2 {
+    font-size: clamp(26px, 3.4vw, 36px);
+    margin: 8px 0 12px;
+  }
+
+  .kontakt-text p {
+    font-size: 16px;
+    color: var(--ink-soft);
+    max-width: 48ch;
+    margin: 0;
+  }
+
+  .kontakt-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .kontakt-actions .btn {
+    width: 250px;
+  }
+
+  /* ===== Responsive ===== */
+  @media (max-width: 880px) {
+    .leistungen-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .leistung-card {
+      border-right: none;
+    }
+
+    .leistung-card:nth-last-child(2) {
+      border-bottom: 1px solid var(--line);
+    }
+
+    .prozess-steps {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 28px 0;
+    }
+
+    .prozess-steps::before {
+      display: none;
+    }
+
+    .foerderung-box {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+
+  @media (max-width: 560px) {
+    .prozess-steps {
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+
+    .kontakt-box {
+      flex-direction: column;
+    }
+
+    .kontakt-actions .btn {
+      width: 100%;
+    }
+  }
+</style>
