@@ -1,0 +1,409 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import ContactForm from '../components/ContactForm.astro';
+
+const baseUrl = import.meta.env.BASE_URL;
+---
+
+<Layout
+  title="Kontakt | kloseup. – Zoho-Beratung & Integration"
+  description="Kostenloses Erstgespräch mit Christopher Klose, Zoho-Berater in Salzburg. Schreiben Sie mir, ich melde mich innerhalb von 24 Stunden zurück."
+>
+  <Header />
+
+  <main id="top">
+
+    <!-- Hero -->
+    <section class="hero kontakt-hero">
+      <div class="wrap">
+        <p class="eyebrow">Kontakt</p>
+        <h1 class="kontakt-hero-h1">
+          Reden wir über<br /><em>Ihr Projekt.</em>
+        </h1>
+        <p class="lede">
+          Kostenloses Erstgespräch. Ich sage Ihnen ehrlich, ob und wie Zoho
+          für Sie Sinn macht. Kein Verkaufspitch, kein Blendeffekt. Nur eine
+          echte Einschätzung.
+        </p>
+      </div>
+    </section>
+
+    <!-- Formular Section -->
+    <section id="kontakt-formular" class="kontakt-section">
+      <div class="wrap">
+        <div class="kontakt-section-head">
+          <p class="eyebrow">Schreiben Sie mir</p>
+          <h2>Erzählen Sie mir, worum es geht.</h2>
+          <p class="kontakt-intro">
+            Je genauer Sie beschreiben, wobei ich Sie unterstützen kann,
+            desto gezielter kann ich antworten. Ich melde mich innerhalb
+            von 24 Stunden.
+          </p>
+        </div>
+        <ContactForm />
+      </div>
+    </section>
+
+    <!-- Info-Strip: 3 Karten nebeneinander -->
+    <section id="kontakt-info" class="kontakt-info-strip">
+      <div class="wrap">
+        <div class="info-strip-grid">
+
+          <!-- Karte 1: Direkter Draht -->
+          <div class="info-card">
+            <p class="eyebrow">Direkt</p>
+            <h3 class="info-card-title">Lieber direkt schreiben?</h3>
+            <p class="info-card-text">
+              Wählen Sie Ihren Weg. Beide landen direkt bei mir.
+            </p>
+            <div class="info-card-actions">
+              <a href="mailto:christopher@kloseup.eu" class="btn info-card-btn">
+                <span class="btn-text">Per E-Mail</span>
+                <span class="btn-arrow" aria-hidden="true">→</span>
+              </a>
+              <a href="https://wa.me/436641234567" class="btn info-card-btn">
+                <span class="btn-text">Per WhatsApp</span>
+                <span class="btn-arrow" aria-hidden="true">→</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Karte 2: Wann & Wo -->
+          <div class="info-card">
+            <p class="eyebrow">Wann &amp; Wo</p>
+            <h3 class="info-card-title">Was Sie wissen sollten</h3>
+            <ul class="info-card-list">
+              <li>
+                <span class="info-card-label">Antwortzeit</span>
+                <span class="info-card-value">Innerhalb von 24 Stunden</span>
+              </li>
+              <li>
+                <span class="info-card-label">Standort</span>
+                <span class="info-card-value">Salzburg, Österreich</span>
+              </li>
+              <li>
+                <span class="info-card-label">Einsatzgebiet</span>
+                <span class="info-card-value">Salzburg &amp; bayerisches Grenzgebiet</span>
+              </li>
+              <li>
+                <span class="info-card-label">Erstgespräch</span>
+                <span class="info-card-value">Kostenlos &amp; unverbindlich</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Karte 3: Förderung -->
+          <div class="info-card info-card--accent">
+            <p class="eyebrow">Förderung</p>
+            <h3 class="info-card-title">Bis zu 50 % förderfähig</h3>
+            <p class="info-card-text">
+              Viele Beratungskosten sind über die KMU.Digital
+              Beratungsförderung oder den Salzburger Digi-Bonus förderfähig.
+              Ich prüfe das für Sie mit.
+            </p>
+            <a href="#kontakt-formular" class="btn btn-ghost info-card-btn">
+              <span class="btn-text">Förderung prüfen</span>
+              <span class="btn-arrow" aria-hidden="true">→</span>
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="kontakt-faq">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">Häufige Fragen</p>
+          <h2>Bevor Sie schreiben.</h2>
+        </div>
+        <div class="faq-list">
+          <details class="faq-item">
+            <summary>Kostet das Erstgespräch etwas?</summary>
+            <div class="faq-answer">
+              <p>Nein. Das Erstgespräch ist kostenlos und unverbindlich. Wir klären gemeinsam, ob und wie ich Ihnen helfen kann. Passt es nicht, sage ich das ehrlich.</p>
+            </div>
+          </details>
+          <details class="faq-item">
+            <summary>Arbeiten Sie auch außerhalb von Salzburg?</summary>
+            <div class="faq-answer">
+              <p>Ja. Ich arbeite remote mit Kunden in ganz Österreich und Deutschland. Vor-Ort-Termine sind im Raum Salzburg und im bayerischen Grenzgebiet möglich.</p>
+            </div>
+          </details>
+          <details class="faq-item">
+            <summary>Welche Zoho-Produkte decken Sie ab?</summary>
+            <div class="faq-answer">
+              <p>Zoho Bigin, Zoho CRM, Zoho Analytics, Zoho Calendar, Zoho Meet, Zoho Books und Zoho Inventory. Wenn Sie ein anderes Zoho-Modul brauchen, fragen Sie einfach.</p>
+            </div>
+          </details>
+          <details class="faq-item">
+            <summary>Was kostet eine Zoho-Implementierung?</summary>
+            <div class="faq-answer">
+              <p>Das hängt vom Umfang ab. Beratung ab 95 € pro Stunde, Projektarbeiten ab 650 €. Viele Projekte sind förderfähig. Ein finales Angebot erhalten Sie nach dem Erstgespräch.</p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  /* ===== Hero ==== */
+  .kontakt-hero {
+    padding: 96px 0 72px;
+  }
+
+  .kontakt-hero-h1 {
+    font-size: clamp(38px, 5.4vw, 64px);
+    margin: 14px 0 24px;
+  }
+
+  .kontakt-hero-h1 em {
+    font-style: italic;
+    font-weight: 500;
+    color: var(--green-bright);
+  }
+
+  .kontakt-hero .lede {
+    font-size: 19px;
+    color: var(--ink-soft);
+    max-width: 56ch;
+    margin: 0;
+    line-height: 1.65;
+  }
+
+  /* ===== Formular Section ==== */
+  .kontakt-section {
+    padding: 72px 0;
+    border-top: 1px solid var(--line);
+  }
+
+  .kontakt-section-head {
+    max-width: 640px;
+    margin-bottom: 48px;
+  }
+
+  .kontakt-section-head h2 {
+    margin: 8px 0 14px;
+  }
+
+  .kontakt-intro {
+    color: var(--ink-soft);
+    font-size: 16px;
+    line-height: 1.65;
+    max-width: 56ch;
+    margin: 0;
+  }
+
+  /* ===== Info-Strip (3 Karten) ==== */
+  .kontakt-info-strip {
+    padding: 72px 0;
+    border-top: 1px solid var(--line);
+    background: var(--bg-alt);
+  }
+
+  .info-strip-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+  }
+
+  .info-card {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 2px;
+    padding: 32px 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    transition: border-color 0.15s;
+  }
+
+  .info-card:hover {
+    border-color: var(--green-bright);
+  }
+
+  .info-card--accent {
+    background: var(--paper);
+    border-color: var(--green-bright);
+  }
+
+  .info-card-title {
+    font-family: 'Fraunces', serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--green-deep);
+    margin: 4px 0 4px;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+  }
+
+  .info-card-text {
+    color: var(--ink-soft);
+    font-size: 15px;
+    line-height: 1.6;
+    margin: 0 0 8px;
+  }
+
+  /* Buttons in Karten */
+  .info-card-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: auto;
+  }
+
+  .info-card-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Liste in Wann & Wo */
+  .info-card-list {
+    list-style: none;
+    padding: 0;
+    margin: 8px 0 0;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .info-card-list li {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+
+  .info-card-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--green-bright);
+  }
+
+  .info-card-value {
+    font-size: 15px;
+    color: var(--ink);
+    font-weight: 500;
+  }
+
+  /* ===== FAQ ==== */
+  .kontakt-faq {
+    padding: 72px 0;
+    border-top: 1px solid var(--line);
+  }
+
+  .section-head {
+    margin-bottom: 48px;
+  }
+
+  .section-head h2 {
+    margin-top: 8px;
+  }
+
+  .faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    max-width: 760px;
+  }
+
+  .faq-item {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 2px;
+    padding: 24px 28px;
+    transition: border-color 0.15s;
+  }
+
+  .faq-item:hover {
+    border-color: var(--green-bright);
+  }
+
+  .faq-item[open] {
+    border-color: var(--green-bright);
+  }
+
+  .faq-item summary {
+    font-family: 'Fraunces', serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--green-deep);
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    letter-spacing: -0.01em;
+  }
+
+  .faq-item summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .faq-item summary::after {
+    content: "+";
+    font-family: 'Inter', sans-serif;
+    font-size: 22px;
+    font-weight: 400;
+    color: var(--green-bright);
+    flex-shrink: 0;
+    line-height: 1;
+  }
+
+  .faq-item[open] summary::after {
+    content: "\2212";
+  }
+
+  .faq-item[open] summary {
+    margin-bottom: 14px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .faq-answer {
+    padding-top: 2px;
+  }
+
+  .faq-answer p {
+    color: var(--ink-soft);
+    font-size: 15px;
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  /* ===== Responsive ==== */
+  @media (max-width: 880px) {
+    .info-strip-grid {
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+
+    .kontakt-section-head {
+      margin-bottom: 36px;
+    }
+  }
+
+  @media (max-width: 560px) {
+    .info-card {
+      padding: 28px 24px;
+    }
+
+    .faq-item {
+      padding: 20px 24px;
+    }
+
+    .faq-item summary {
+      font-size: 16px;
+    }
+  }
+</style>

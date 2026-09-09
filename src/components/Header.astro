@@ -15,11 +15,12 @@ const { currentSection } = Astro.props;
       <li><a href="/Klosestral/">Startseite</a></li>
       <li><a href="/Klosestral/ueber-mich">Über mich</a></li>
       <li><a href="/Klosestral/leistungen">Leistungen</a></li>
+      <li><a href="/Klosestral/kontakt">Kontakt</a></li>
     </ul>
-    <span class="status-pill">
+    <a href="/Klosestral/kontakt" class="status-pill">
       <span class="status-dot" aria-hidden="true"></span>
       Verfügbar für Projekte
-    </span>
+    </a>
     <button class="nav-toggle" aria-label="Menü öffnen" aria-expanded="false" id="navToggle">
       <span></span>
     </button>
@@ -74,6 +75,13 @@ const { currentSection } = Astro.props;
     color: var(--ink-soft);
     white-space: nowrap;
     justify-self: end;
+    cursor: pointer;
+    text-decoration: none;
+    transition: border-color 0.15s;
+  }
+  
+  .status-pill:hover {
+    border-color: var(--green-bright);
   }
 
   .status-dot {
