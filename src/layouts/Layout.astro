@@ -45,5 +45,36 @@ const baseUrl = import.meta.env.BASE_URL;
 </head>
 <body>
   <slot />
+  <!-- Klaro Cookie Consent -->
+  <script is:inline src={baseUrl + "klaro-config.js"}></script>
+  <script is:inline src={baseUrl + "klaro.js"}></script>
+  <!-- Google Analytics - lädt erst nach Consent -->
+  <script type="text/plain" data-type="application/javascript" data-name="google-analytics">
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX', { anonymize_ip: true });
+  </script>
+  <script>
+    // Load GA after consent
+    if (window.klaro) {
+      (window as any).klaroCallback = function(consent: any, app: any) {
+        if (consent && consent.googleAnalytics) {
+          var script = document.createElement('script');
+          script.async = true;
+          script.src = 'https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX';
+          document.head.appendChild(script);
+          
+          // Process the queued gtag commands
+          var scriptInline = document.querySelector('script[type="text/plain"][data-name="google-analytics"]');
+          if (scriptInline) {
+            var inlineScript = document.createElement('script');
+            inlineScript.innerHTML = (scriptInline as HTMLElement).innerHTML;
+            document.head.appendChild(inlineScript);
+          }
+        }
+      };
+    }
+  </script>
 </body>
 </html>

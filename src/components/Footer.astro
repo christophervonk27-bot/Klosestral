@@ -1,23 +1,76 @@
 ---
+const baseUrl = import.meta.env.BASE_URL;
 ---
 
 <footer>
   <div class="wrap">
     <div class="foot-row">
-      <a href="#top" class="brand" aria-label="kloseup – Startseite" aria-hidden="true">
-        <img src="/Klosestral/logos/Logo_mit_Text.svg" alt="kloseup" class="logo-img" />
+      <a href="/Klosestral/" class="brand" aria-label="kloseup – Startseite">
+        <img src={baseUrl + "logos/Logo_mit_Text.svg"} alt="kloseup" class="logo-img" />
       </a>
       <div class="meta">© 2026 Christopher Klose · kloseup.eu</div>
     </div>
-  <details>
-    <summary>Impressum</summary>
-    <div class="impressum-body">
-      Christopher Klose · kloseup – Zoho-Beratung & Integration (Einzelunternehmen)<br />
-      Gewerbe: Dienstleistungen in der automatischen Datenverarbeitung und Informationstechnik<br />
-      Sitz: <span class="todo">[BITTE ADRESSE ERGÄNZEN], Bundesland Salzburg, Österreich</span><br />
-      E-Mail: christopher@kloseup.eu<br />
-      <span class="todo">[BITTE GISA-ZAHL / GEWERBEBEHÖRDE NACH ANMELDUNG ERGÄNZEN]</span>
+    <div class="foot-links">
+      <a href={baseUrl + "impressum"}>Impressum</a>
+      <a href={baseUrl + "datenschutz"}>Datenschutz</a>
     </div>
-  </details>
   </div>
 </footer>
+
+<style>
+  footer {
+    background: var(--bg);
+    padding: 32px 0;
+    border-top: 1px solid var(--line);
+  }
+
+  .foot-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+  }
+
+  .logo-img {
+    height: 28px;
+  }
+
+  .meta {
+    font-size: 13px;
+    color: var(--ink-soft);
+  }
+
+  .foot-links {
+    display: flex;
+    gap: 20px;
+  }
+
+  .foot-links a {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.06em;
+    color: var(--green-bright);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    transition: color 0.15s;
+  }
+
+  .foot-links a:hover {
+    color: var(--green-deep);
+  }
+
+  @media (max-width: 560px) {
+    .foot-row {
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .meta {
+      text-align: center;
+    }
+
+    .foot-links {
+      justify-content: center;
+    }
+  }
+</style>

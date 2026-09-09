@@ -199,6 +199,10 @@ footer .brand{color:var(--green-deep);}
   align-items:center;
   text-align:center;
   gap:12px;
+  transition: background 0.15s;
+}
+.badge:hover{
+  background:var(--bg-alt);
 }
 .badge-logo{height:40px; width:auto; max-width:100%; object-fit:contain;}
 .badge .label{font-family:'IBM Plex Mono'; font-size:11px; letter-spacing:.1em; color:var(--green-bright); text-transform:uppercase;}
@@ -208,6 +212,10 @@ footer .brand{color:var(--green-deep);}
 .pricing{display:grid; grid-template-columns:repeat(3,1fr); gap:28px;}
 .price-card{
   background:var(--paper); border:1px solid var(--line); padding:30px 26px;
+  transition: border-color 0.15s;
+}
+.price-card:hover{
+  border-color:var(--green-bright);
 }
 .price-card .label{font-family:'IBM Plex Mono'; font-size:11px; letter-spacing:.1em; color:var(--ink-soft); text-transform:uppercase;}
 .price-card .amount{font-family:'Fraunces'; font-size:30px; color:var(--green-deep); margin:10px 0 6px; font-weight:600;}
