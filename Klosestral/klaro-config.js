@@ -10,7 +10,7 @@ window.klaroConfig = {
   groupByPurpose: true,
   translations: {
     de: {
-      privacyPolicyUrl: '/Klosestral/datenschutz',
+      privacyPolicyUrl: '/datenschutz',
       consentNotice: {
         description: 'Um unsere Website für Sie optimal zu gestalten und fortlaufend verbessern zu können, verwenden wir Cookies. Durch die weitere Nutzung der Webseite stimmen Sie der Verwendung von Cookies zu.'
       },
