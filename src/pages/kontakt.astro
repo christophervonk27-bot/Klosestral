@@ -5,13 +5,54 @@ import Footer from '../components/Footer.astro';
 import ContactForm from '../components/ContactForm.astro';
 
 const baseUrl = import.meta.env.BASE_URL;
+
+// FAQ Schema.org Data
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Kostet das Erstgespräch etwas?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Nein. Das Erstgespräch ist kostenlos und unverbindlich. Wir klären gemeinsam, ob und wie ich Ihnen helfen kann. Passt es nicht, sage ich das ehrlich."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Arbeiten Sie auch außerhalb von Salzburg?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ja. Ich arbeite remote mit Kunden in ganz Österreich und Deutschland. Vor-Ort-Termine sind im Raum Salzburg und im bayerischen Grenzgebiet möglich."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Welche Zoho-Produkte decken Sie ab?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Zoho Bigin, Zoho CRM, Zoho Analytics, Zoho Calendar, Zoho Meet, Zoho Books und Zoho Inventory. Wenn Sie ein anderes Zoho-Modul brauchen, fragen Sie einfach."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Was kostet eine Zoho-Implementierung?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Das hängt vom Umfang ab. Beratung ab 95 € pro Stunde, Projektarbeiten ab 650 €. Viele Projekte sind förderfähig. Ein finales Angebot erhalten Sie nach dem Erstgespräch."
+      }
+    }
+  ]
+};
 ---
 
 <Layout
-  title="Kontakt | kloseup. – Zoho-Beratung & Integration"
+  title="Kontakt – Zoho Beratung Salzburg, kostenloses Erstgespräch | kloseup."
   description="Kostenloses Erstgespräch mit Christopher Klose, Zoho-Berater in Salzburg. Schreiben Sie mir, ich melde mich innerhalb von 24 Stunden zurück."
 >
   <Header />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
 
   <main id="top">
 
@@ -20,7 +61,7 @@ const baseUrl = import.meta.env.BASE_URL;
       <div class="wrap">
         <p class="eyebrow">Kontakt</p>
         <h1 class="kontakt-hero-h1">
-          Reden wir über<br /><em>Ihr Projekt.</em>
+          Kostenloses Erstgespräch in Salzburg<br /><em>für Ihr Zoho-Projekt.</em>
         </h1>
         <p class="lede">
           Kostenloses Erstgespräch. Ich sage Ihnen ehrlich, ob und wie Zoho

@@ -1,5 +1,7 @@
 ---
 // Opt-in Form for Zoho CRM Checklist
+import Logo from './Logo.astro';
+const baseUrl = import.meta.env.BASE_URL;
 ---
 
 <div class="optin-card">
@@ -9,9 +11,7 @@
   
   <div class="sneak-peeks-container">
     <div class="sneak-peeks-logo">
-      <a href="#top" class="brand" aria-label="kloseup – Startseite" aria-hidden="true">
-        <img src="/Klosestral/logos/Logo_mit_Text.svg" alt="kloseup" class="logo-img" />
-      </a>
+      <Logo variant="small" showLink={false} />
     </div>
     <div class="sneak-peeks-center">
       <h3>Sneak Peaks</h3>
@@ -46,7 +46,7 @@
 
   <div id="optin-success" class="optin-success" style="display: none;">
     <p class="optin-success-msg">Vielen Dank! Hier können Sie die Checkliste herunterladen:</p>
-    <a href="/Zoho CRM Checkliste _ Kloseup.pdf" class="btn btn-download" download>
+    <a href={`${baseUrl}Zoho CRM Checkliste _ Kloseup.pdf`} class="btn btn-download" download>
       <span class="btn-text">PDF herunterladen</span>
       <span class="btn-arrow" aria-hidden="true">→</span>
     </a>
