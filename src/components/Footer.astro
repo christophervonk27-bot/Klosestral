@@ -6,13 +6,13 @@ const baseUrl = import.meta.env.BASE_URL;
   <div class="wrap">
     <div class="foot-row">
       <a href={`${baseUrl}`} class="brand" aria-label="kloseup – Startseite">
-        <img src={baseUrl + "logos/Logo_mit_Text.svg"} alt="kloseup" class="logo-img" />
+        <img src={`${baseUrl}logos/Logo_mit_Text.svg`} alt="kloseup" class="logo-img" />
       </a>
       <div class="meta">© 2026 Christopher Klose · kloseup.eu</div>
     </div>
     <div class="foot-links">
-      <a href={baseUrl + "impressum"}>Impressum</a>
-      <a href={baseUrl + "datenschutz"}>Datenschutz</a>
+      <a href={`${baseUrl}impressum`}>Impressum</a>
+      <a href={`${baseUrl}datenschutz`}>Datenschutz</a>
     </div>
   </div>
 </footer>
@@ -43,6 +43,8 @@ const baseUrl = import.meta.env.BASE_URL;
   .foot-links {
     display: flex;
     gap: 20px;
+    flex-wrap: wrap;
+    justify-content: flex-start;
   }
 
   .foot-links a {
@@ -67,10 +69,6 @@ const baseUrl = import.meta.env.BASE_URL;
 
     .meta {
       text-align: center;
-    }
-
-    .foot-links {
-      justify-content: center;
     }
   }
 </style>

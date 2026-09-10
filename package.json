@@ -4,13 +4,14 @@
   "version": "1.0.0",
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build",
+    "build": "astro build && cp -r dist/client/* dist/ && rm -rf dist/client dist/server",
     "preview": "astro preview",
     "check": "astro check"
   },
   "dependencies": {
+    "@astrojs/cloudflare": "^14.3.1",
     "@astrojs/sitemap": "^3.7.4",
-    "astro": "^7.2.4"
+    "astro": "^7.3.2"
   },
   "devDependencies": {
     "@astrojs/check": "^0.7.0",

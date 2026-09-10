@@ -15,6 +15,8 @@ const baseUrl = import.meta.env.BASE_URL;
         </div>
 
         <form id="contact-form" class="form" action="/api/contact" method="POST">
+          <!-- Honeypot field for bot protection -->
+          <input type="text" name="botcheck" class="honeypot" tabindex="-1" autocomplete="off" />
           <div class="form-group">
             <label for="name" class="form-label">Ihr Name *</label>
             <input
@@ -104,6 +106,8 @@ const baseUrl = import.meta.env.BASE_URL;
   .form-textarea { resize: vertical; min-height: 120px; font-family: inherit; }
   .error-message { color: #c94949; font-family: 'Inter', -apple-system, sans-serif; font-size: 13px; min-height: 0; }
   .checkbox-group { flex-direction: row; align-items: flex-start; gap: 10px; }
+  /* Honeypot field - invisible to humans, visible to bots */
+  .honeypot { position: absolute; left: -10000px; top: -10000px; width: 1px; height: 1px; opacity: 0; }
   .checkbox-group input[type="checkbox"] { margin-top: 4px; flex-shrink: 0; }
   .checkbox-group label { font-family: 'Inter', -apple-system, sans-serif; font-size: 14px; color: var(--ink-soft); line-height: 1.5; }
   .checkbox-group a { color: var(--green-bright); text-decoration: underline; }
