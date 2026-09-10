@@ -18,7 +18,7 @@ const sizeStyle = sizeClasses[variant] || sizeClasses.header;
 ---
 
 {showLink ? (
-  <a href="#top" class="brand" aria-label="kloseup – Startseite">
+  <a href={`${baseUrl}`} class="brand" aria-label="kloseup – Startseite">
     <img src={`${baseUrl}logos/Logo_mit_Text.svg`} alt="kloseup" class="logo-img" style={sizeStyle} />
   </a>
 ) : (
