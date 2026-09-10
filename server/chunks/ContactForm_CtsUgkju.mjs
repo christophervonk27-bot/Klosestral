@@ -2,7 +2,7 @@ globalThis.process ??= {};
 globalThis.process.env ??= {};
 import { d as maybeRenderHead, i as renderComponent, p as addAttribute, u as renderTemplate } from "./server_CxJNEKB-.mjs";
 import { t as createComponent } from "./compiler_BbSIq9rB.mjs";
-import { r as $$Logo } from "./Footer_D8dChTMD.mjs";
+import { r as $$Logo } from "./Footer_nFBoCAh8.mjs";
 //#region src/components/OptInForm.astro
 var $$OptInForm = createComponent(($$result, $$props, $$slots) => {
 	return renderTemplate`${maybeRenderHead($$result)}<div class="optin-card" data-astro-cid-ul26w753><p class="eyebrow" data-astro-cid-ul26w753>Kostenlos</p><h3 data-astro-cid-ul26w753>Die ultimative Zoho-CRM-Checkliste für KMUs</h3><p data-astro-cid-ul26w753>Erhalten Sie unsere bewährte Checkliste – perfekt für den Einstieg in Zoho CRM. Tragt euch ein und ladet sie direkt herunter.</p><div class="sneak-peeks-container" data-astro-cid-ul26w753><div class="sneak-peeks-logo" data-astro-cid-ul26w753>${renderComponent($$result, "Logo", $$Logo, {

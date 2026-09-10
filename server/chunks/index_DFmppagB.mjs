@@ -3,9 +3,9 @@ globalThis.process.env ??= {};
 import { t as __exportAll } from "./rolldown-runtime_D7vh-g_o.mjs";
 import { C as createAstro, d as maybeRenderHead, i as renderComponent, u as renderTemplate } from "./server_CxJNEKB-.mjs";
 import { t as createComponent } from "./compiler_BbSIq9rB.mjs";
-import { i as $$Layout, n as $$Header, t as $$Footer } from "./Footer_D8dChTMD.mjs";
+import { i as $$Layout, n as $$Header, t as $$Footer } from "./Footer_nFBoCAh8.mjs";
 import { t as $$Button } from "./Button_LMpF2Yrn.mjs";
-import { t as $$ContactForm } from "./ContactForm_BWt-MNqm.mjs";
+import { t as $$ContactForm } from "./ContactForm_CtsUgkju.mjs";
 //#region src/components/Aperture.astro
 var $$Aperture = createComponent(($$result, $$props, $$slots) => {
 	return renderTemplate`${maybeRenderHead($$result)}<div class="aperture-wrap" data-astro-cid-wvjkjens><svg class="aperture" viewBox="0 0 320 320" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" data-astro-cid-wvjkjens><circle cx="160" cy="160" r="150" stroke="#D9DFD2" stroke-width="1" data-astro-cid-wvjkjens></circle><g class="blade" fill="#14432F" opacity="0.92" data-astro-cid-wvjkjens><path d="M160 160 L160 34 L214 46 Z" data-astro-cid-wvjkjens></path></g><g class="blade" fill="#1B5138" opacity="0.92" data-astro-cid-wvjkjens><path d="M160 160 L272 96 L260 152 Z" data-astro-cid-wvjkjens></path></g><g class="blade" fill="#215C41" opacity="0.92" data-astro-cid-wvjkjens><path d="M160 160 L268 226 L214 258 Z" data-astro-cid-wvjkjens></path></g><g class="blade" fill="#2A6B4C" opacity="0.92" data-astro-cid-wvjkjens><path d="M160 160 L160 286 L106 274 Z" data-astro-cid-wvjkjens></path></g><g class="blade" fill="#347A58" opacity="0.92" data-astro-cid-wvjkjens><path d="M160 160 L48 224 L60 168 Z" data-astro-cid-wvjkjens></path></g><g class="blade" fill="#4C8C6B" opacity="0.92" data-astro-cid-wvjkjens><path d="M160 160 L52 94 L106 62 Z" data-astro-cid-wvjkjens></path></g><circle cx="160" cy="160" r="30" fill="#F6F7F2" stroke="#14432F" stroke-width="1.5" data-astro-cid-wvjkjens></circle></svg></div>`;
