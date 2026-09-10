@@ -1,31 +1,27 @@
 import type { APIRoute } from 'astro';
 
-export const prerender = false;
-
-export const POST: APIRoute = async ({ request, locals }) => {
+export const POST: APIRoute = async ({ request }) => {
   try {
     const formData = await request.formData();
-    const email = (formData.get('email') || '').toString().trim();
-    const consent = formData.get('consent') === 'on';
-    const botcheck = formData.get('botcheck');
 
-    if (botcheck) {
-      return new Response(JSON.stringify({ success: true }), {
-        status: 200,
-        headers: { 'Content-Type': 'application/json' },
-      });
-    }
-
-    if (!email) {
+    // Honeypot
+    const honeypot = formData.get('website')?.toString();
+    if (honeypot) {
       return new Response(
-        JSON.stringify({ success: false, error: 'E-Mail ist erforderlich.' }),
-        { status: 400, headers: { 'Content-Type': 'application/json' } }
+        JSON.stringify({ success: true, message: 'Checkliste angefordert!' }),
+        { status: 200, headers: { 'Content-Type': 'application/json' } }
       );
     }
 
-    if (!consent) {
+    // Felder extrahieren
+    const email = formData.get('email')?.toString().trim() || '';
+    const name = formData.get('name')?.toString().trim() || '';
+    const consent = formData.get('consent')?.toString();
+
+    // Validierung
+    if (!email) {
       return new Response(
-        JSON.stringify({ success: false, error: 'Bitte stimmen Sie dem Empfang zu.' }),
+        JSON.stringify({ success: false, error: 'E-Mail-Adresse ist erforderlich.' }),
         { status: 400, headers: { 'Content-Type': 'application/json' } }
       );
     }
@@ -33,53 +29,60 @@ export const POST: APIRoute = async ({ request, locals }) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
       return new Response(
-        JSON.stringify({ success: false, error: 'Ungültige E-Mail-Adresse.' }),
+        JSON.stringify({ success: false, error: 'Bitte geben Sie eine gültige E-Mail-Adresse ein.' }),
         { status: 400, headers: { 'Content-Type': 'application/json' } }
       );
     }
 
-    const runtime = locals.runtime;
-    const resendKey = runtime?.env?.RESEND_API_KEY;
-
-    if (!resendKey) {
-      console.error('RESEND_API_KEY not configured');
+    if (!consent) {
       return new Response(
-        JSON.stringify({ success: false, error: 'Serverfehler – E-Mail-Dienst nicht konfiguriert.' }),
-        { status: 500, headers: { 'Content-Type': 'application/json' } }
+        JSON.stringify({ success: false, error: 'Bitte stimmen Sie der Datenschutzerklärung zu.' }),
+        { status: 400, headers: { 'Content-Type': 'application/json' } }
       );
     }
 
-    const res = await fetch('https://api.resend.com/emails', {
+    // Namen aufteilen (falls angegeben)
+    const nameParts = name.split(/\s+/).filter(Boolean);
+    const firstName = nameParts[0] || '';
+    const lastName = nameParts.slice(1).join(' ') || '';
+
+    // Kontakt in Brevo anlegen
+    // listIds: [5] — ersetze mit der ID der Liste "Checklisten-Downloads"
+    const brevoResponse = await fetch('https://api.brevo.com/v3/contacts', {
       method: 'POST',
       headers: {
-        Authorization: `Bearer ${resendKey}`,
+        'api-key': import.meta.env.BREVO_API_KEY,
         'Content-Type': 'application/json',
+        'accept': 'application/json',
       },
       body: JSON.stringify({
-        from: 'kontakt@kloseup.eu',
-        to: 'christopher@kloseup.eu',
-        subject: 'Neuer Download: Zoho CRM Checkliste',
-        reply_to: email,
-        text: `Jemand hat die Zoho CRM Checkliste angefordert.\n\nE-Mail: ${email}\n\nConsent gegeben: ja`,
+        email: email,
+        attributes: {
+          FIRSTNAME: firstName,
+          LASTNAME: lastName,
+        },
+        listIds: [5], // ERSETZE mit deiner Listen-ID für "Checklisten-Downloads"
+        updateEnabled: true,
       }),
     });
 
-    if (!res.ok) {
-      console.error('Resend API error:', await res.text());
-      return new Response(
-        JSON.stringify({ success: false, error: 'Fehler beim Versenden.' }),
-        { status: 500, headers: { 'Content-Type': 'application/json' } }
-      );
+    if (!brevoResponse.ok) {
+      const errorData = await brevoResponse.text();
+      console.error('Brevo API Fehler:', brevoResponse.status, errorData);
     }
 
     return new Response(
-      JSON.stringify({ success: true, message: 'E-Mail gespeichert! Danke für Ihr Interesse.' }),
+      JSON.stringify({
+        success: true,
+        message: 'Checkliste angefordert! Bitte prüfen Sie Ihr Postfach.'
+      }),
       { status: 200, headers: { 'Content-Type': 'application/json' } }
     );
   } catch (error) {
-    console.error('Opt-in error:', error);
+    console.error('Opt-in form Fehler:', error);
     return new Response(
-      JSON.stringify({ success: false, error: 'Serverfehler beim Verarbeiten der Anfrage.' }),
+      JSON.stringify({ success: false,
+        error: 'Server-Fehler beim Senden der Anfrage.' }),
       { status: 500, headers: { 'Content-Type': 'application/json' } }
     );
   }

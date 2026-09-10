@@ -4,9 +4,9 @@ import cloudflare from '@astrojs/cloudflare';
 
 export default defineConfig({
   site: 'https://klosestral.pages.dev',
-  output: 'static',
+  output: 'server',
   adapter: cloudflare({
-    mode: 'static',
+    platformProxy: { enabled: true },
   }),
   integrations: [
     sitemap({

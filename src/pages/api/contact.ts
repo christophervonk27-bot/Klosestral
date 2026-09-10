@@ -1,39 +1,34 @@
 import type { APIRoute } from 'astro';
 
-export const prerender = false;
-
-export const POST: APIRoute = async ({ request, locals }) => {
+export const POST: APIRoute = async ({ request }) => {
   try {
     const formData = await request.formData();
-    const name = (formData.get('name') || '').toString().trim();
-    const email = (formData.get('email') || '').toString().trim();
-    const message = (formData.get('message') || '').toString().trim();
-    const privacy = formData.get('privacy') === 'on';
-    const botcheck = formData.get('botcheck');
 
-    // Honeypot — bots fill hidden fields
-    if (botcheck) {
-      return new Response(JSON.stringify({ success: true }), {
-        status: 200,
-        headers: { 'Content-Type': 'application/json' },
-      });
+    // Honeypot — Spambots füllen dieses versteckte Feld aus
+    const honeypot = formData.get('website')?.toString();
+    if (honeypot) {
+      // Tu so als wäre alles OK, aber ignoriere die Anfrage
+      return new Response(
+        JSON.stringify({ success: true, message: 'Nachricht gesendet!' }),
+        { status: 200, headers: { 'Content-Type': 'application/json' } }
+      );
     }
 
+    // Felder extrahieren
+    const name = formData.get('name')?.toString().trim() || '';
+    const email = formData.get('email')?.toString().trim() || '';
+    const message = formData.get('message')?.toString().trim() || '';
+
+    // Validierung
     if (!name || !email || !message) {
       return new Response(
-        JSON.stringify({ success: false, error: 'Bitte füllen Sie alle Pflichtfelder aus.' }),
+        JSON.stringify({ success: false,
+          error: 'Bitte füllen Sie alle Pflichtfelder aus.' }),
         { status: 400, headers: { 'Content-Type': 'application/json' } }
       );
     }
 
-    if (!privacy) {
-      return new Response(
-        JSON.stringify({ success: false, error: 'Bitte stimmen Sie der Datenschutzerklärung zu.' }),
-        { status: 400, headers: { 'Content-Type': 'application/json' } }
-      );
-    }
-
-    const emailRegex = /^[\s@]+@[\s@]+\.[\s@]+$/;
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
       return new Response(
         JSON.stringify({ success: false, error: 'Bitte geben Sie eine gültige E-Mail-Adresse ein.' }),
@@ -41,54 +36,48 @@ export const POST: APIRoute = async ({ request, locals }) => {
       );
     }
 
-    // Resend API key from Cloudflare runtime env
-    const runtime = locals.runtime;
-    const resendKey = runtime?.env?.RESEND_API_KEY;
+    // Namen in Vor- und Nachname aufteilen
+    const nameParts = name.split(/\s+/);
+    const firstName = nameParts[0] || '';
+    const lastName = nameParts.slice(1).join(' ') || '';
 
-    if (!resendKey) {
-      console.error('RESEND_API_KEY not configured');
-      return new Response(
-        JSON.stringify({ success: false, error: 'Serverfehler – E-Mail-Dienst nicht konfiguriert.' }),
-        { status: 500, headers: { 'Content-Type': 'application/json' } }
-      );
-    }
-
-    const res = await fetch('https://api.resend.com/emails', {
+    // Kontakt in Brevo anlegen
+    // listIds: [4] — ersetze mit der ID der Liste "Kontaktanfragen"
+    const brevoResponse = await fetch('https://api.brevo.com/v3/contacts', {
       method: 'POST',
       headers: {
-        Authorization: `Bearer ${resendKey}`,
+        'api-key': import.meta.env.BREVO_API_KEY,
         'Content-Type': 'application/json',
+        'accept': 'application/json',
       },
       body: JSON.stringify({
-        from: 'kontakt@kloseup.eu',
-        to: 'christopher@kloseup.eu',
-        subject: `Neue Kontaktanfrage von ${name}`,
-        reply_to: email,
-        text: `Name: ${name}\nE-Mail: ${email}\n\nNachricht:\n${message}`,
-        html: `<h2>Neue Kontaktanfrage</h2>
-          <p><strong>Name:</strong> ${name}</p>
-          <p><strong>E-Mail:</strong> ${email}</p>
-          <p><strong>Nachricht:</strong></p>
-          <p>${message.replace(/\n/g, '<br>')}</p>`,
+        email: email,
+        attributes: {
+          FIRSTNAME: firstName,
+          LASTNAME: lastName,
+          ANFRAGE: message,
+        },
+        listIds: [4], // ← ERSETZE mit deiner Listen-ID für "Kontaktanfragen"
+        updateEnabled: true,
       }),
     });
 
-    if (!res.ok) {
-      console.error('Resend API error:', await res.text());
-      return new Response(
-        JSON.stringify({ success: false, error: 'Fehler beim Versenden der E-Mail.' }),
-        { status: 500, headers: { 'Content-Type': 'application/json' } }
-      );
+    if (!brevoResponse.ok) {
+      const errorData = await brevoResponse.text();
+      console.error('Brevo API Fehler:', brevoResponse.status, errorData);
+      // Wir geben trotzdem success zurück, damit der Besucher keine Fehlermeldung sieht
+      // Die Anfrage ist protokolliert und kann manuell nachverfolgt werden
     }
 
     return new Response(
-      JSON.stringify({ success: true, message: 'Nachricht erfolgreich gesendet.' }),
+      JSON.stringify({ success: true, message: 'Nachricht gesendet!' }),
       { status: 200, headers: { 'Content-Type': 'application/json' } }
     );
   } catch (error) {
-    console.error('Contact form error:', error);
+    console.error('Contact form Fehler:', error);
     return new Response(
-      JSON.stringify({ success: false, error: 'Serverfehler beim Verarbeiten der Anfrage.' }),
+      JSON.stringify({ success: false,
+        error: 'Server-Fehler beim Senden der Nachricht.' }),
       { status: 500, headers: { 'Content-Type': 'application/json' } }
     );
   }

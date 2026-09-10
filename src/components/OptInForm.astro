@@ -1,7 +1,6 @@
 ---
 // Opt-in Form for Zoho CRM Checklist
 import Logo from './Logo.astro';
-const baseUrl = import.meta.env.BASE_URL;
 ---
 
 <div class="optin-card">
@@ -25,10 +24,23 @@ const baseUrl = import.meta.env.BASE_URL;
     </div>
     <div class="optin-form-wrapper">
       <form id="optin-form" class="optin-form" action="/api/optin" method="POST">
-        <!-- Honeypot field for bot protection -->
-        <input type="text" name="botcheck" class="honeypot" tabindex="-1" autocomplete="off" />
+        <!-- HONEYPOT -->
+        <div style="position: absolute; left: -9999px; top: -9999px;" aria-hidden="true">
+          <label for="website-optin">Website (nicht ausfüllen)</label>
+          <input type="text" id="website-optin" name="website" tabindex="-1" autocomplete="off" />
+        </div>
         <div class="optin-group">
-          <label for="optin-email" class="optin-label">E-Mail-Adresse</label>
+          <label for="optin-name" class="optin-label">Ihr Name (optional)</label>
+          <input
+            type="text"
+            id="optin-name"
+            name="name"
+            class="optin-input"
+            placeholder="Vor- und Nachname"
+          />
+        </div>
+        <div class="optin-group">
+          <label for="optin-email" class="optin-label">E-Mail-Adresse *</label>
           <input
             type="email"
             id="optin-email"
@@ -38,12 +50,12 @@ const baseUrl = import.meta.env.BASE_URL;
             required
           />
         </div>
-        <div class="optin-group checkbox-group">
-          <input type="checkbox" id="optin-consent" name="consent" required />
-          <label for="optin-consent">Ich stimme dem Empfang der Checkliste per E-Mail zu.*</label>
+        <div class="optin-group optin-consent">
+          <input type="checkbox" id="optin-consent" name="consent" value="yes" required />
+          <label for="optin-consent">Ich habe die <a href="/datenschutz" target="_blank">Datenschutzerklärung</a> gelesen und stimme der Verarbeitung meiner E-Mail-Adresse zu. *</label>
         </div>
         <button type="submit" class="btn optin-btn">
-          <span class="btn-text">Checkliste herunterladen</span>
+          <span class="btn-text">Checkliste anfordern</span>
           <span class="btn-arrow" aria-hidden="true">→</span>
         </button>
       </form>
@@ -51,11 +63,10 @@ const baseUrl = import.meta.env.BASE_URL;
   </div>
 
   <div id="optin-success" class="optin-success" style="display: none;">
-    <p class="optin-success-msg">Vielen Dank! Hier können Sie die Checkliste herunterladen:</p>
-    <a href={`${baseUrl}Zoho CRM Checkliste _ Kloseup.pdf`} class="btn btn-download" download>
-      <span class="btn-text">PDF herunterladen</span>
-      <span class="btn-arrow" aria-hidden="true">→</span>
-    </a>
+    <p class="optin-success-msg">Vielen Dank! Die Checkliste ist auf dem Weg zu Ihrem Postfach.</p>
+    <p class="optin-success-hint" style="color: var(--ink-soft); font-size: 13px; margin-top: 8px;">
+      Bitte prüfen Sie auch Ihren Spam-Ordner.
+    </p>
   </div>
 </div>
 
@@ -214,6 +225,25 @@ const baseUrl = import.meta.env.BASE_URL;
     color: var(--ink-soft);
     line-height: 1.5;
   }
+  .optin-consent {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  .optin-consent input[type="checkbox"] {
+    margin-top: 3px;
+    flex-shrink: 0;
+  }
+  .optin-consent label {
+    font-family: 'Inter', -apple-system, sans-serif;
+    font-size: 12.5px;
+    color: var(--ink-soft);
+    line-height: 1.4;
+  }
+  .optin-consent a {
+    color: var(--green-bright);
+    text-decoration: underline;
+  }
   .optin-btn {
     background: var(--green-deep);
     color: #fff;
@@ -281,37 +311,43 @@ const baseUrl = import.meta.env.BASE_URL;
     const email = document.getElementById('optin-email').value.trim();
     const consent = document.getElementById('optin-consent').checked;
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    
+
     if (!email || !emailRegex.test(email)) {
       alert('Bitte geben Sie eine gültige E-Mail-Adresse ein.');
       return;
     }
-    
+
     if (!consent) {
-      alert('Bitte stimmen Sie dem Empfang der Checkliste zu.');
+      alert('Bitte stimmen Sie der Datenschutzerklärung zu.');
       return;
     }
 
+    const submitBtn = e.target.querySelector('button[type="submit"]');
+    submitBtn.disabled = true;
+    submitBtn.querySelector('.btn-text').textContent = 'Wird gesendet…';
+
     try {
       const formData = new FormData(e.target);
-      
       const response = await fetch('/api/optin', {
         method: 'POST',
         body: formData,
       });
 
+      if (!response.ok) throw new Error('Server error');
       const data = await response.json();
-      
+
       if (data.success) {
-        // E-Mail erfolgreich gespeichert - Download-Link anzeigen
         document.getElementById('optin-form').style.display = 'none';
         document.getElementById('optin-success').style.display = 'block';
       } else {
-        alert(data.error || 'Fehler beim Speichern der E-Mail.');
+        alert(data.error || 'Fehler beim Senden. Bitte versuchen Sie es später erneut.');
       }
     } catch (error) {
       console.error('Fehler:', error);
       alert('Netzwerkfehler. Bitte versuchen Sie es später erneut.');
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.querySelector('.btn-text').textContent = 'Checkliste anfordern';
     }
   });
 </script>

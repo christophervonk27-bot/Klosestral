@@ -1,7 +1,12 @@
 node_modules/
 dist/
 
+# Local env files
+.env
+.env.*
+
 # Local Netlify folder
 .netlify
 .wrangler/
 .astro/integrations/
+.astro/

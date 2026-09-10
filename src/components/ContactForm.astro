@@ -15,8 +15,12 @@ const baseUrl = import.meta.env.BASE_URL;
         </div>
 
         <form id="contact-form" class="form" action="/api/contact" method="POST">
-          <!-- Honeypot field for bot protection -->
-          <input type="text" name="botcheck" class="honeypot" tabindex="-1" autocomplete="off" />
+          <!-- HONEYPOT — verstecktes Feld für Spambots -->
+          <div style="position: absolute; left: -9999px; top: -9999px;" aria-hidden="true">
+            <label for="website-ct">Website (nicht ausfüllen)</label>
+            <input type="text" id="website-ct" name="website" tabindex="-1" autocomplete="off" />
+          </div>
+          <!-- ENDE HONEYPOT -->
           <div class="form-group">
             <label for="name" class="form-label">Ihr Name *</label>
             <input
@@ -134,7 +138,7 @@ const baseUrl = import.meta.env.BASE_URL;
   document.getElementById('contact-form').addEventListener('submit', function(e) {
     e.preventDefault();
     let isValid = true;
-    
+
     // Name validation
     const name = document.getElementById('name').value.trim();
     const nameError = document.getElementById('name-error');
@@ -144,7 +148,7 @@ const baseUrl = import.meta.env.BASE_URL;
     } else {
       nameError.textContent = '';
     }
-    
+
     // Email validation
     const email = document.getElementById('email').value.trim();
     const emailError = document.getElementById('email-error');
@@ -158,7 +162,7 @@ const baseUrl = import.meta.env.BASE_URL;
     } else {
       emailError.textContent = '';
     }
-    
+
     // Message validation
     const message = document.getElementById('message').value.trim();
     const messageError = document.getElementById('message-error');
@@ -168,7 +172,7 @@ const baseUrl = import.meta.env.BASE_URL;
     } else {
       messageError.textContent = '';
     }
-    
+
     // Privacy checkbox validation
     const privacy = document.getElementById('privacy').checked;
     const privacyError = document.getElementById('privacy-error');
@@ -178,25 +182,37 @@ const baseUrl = import.meta.env.BASE_URL;
     } else {
       privacyError.textContent = '';
     }
-    
-    // Submit form if valid
+
     if (isValid) {
       const formData = new FormData(e.target);
-      
-      // Submit to API endpoint
+      const submitBtn = e.target.querySelector('button[type="submit"]');
+      submitBtn.disabled = true;
+      submitBtn.querySelector('.btn-text').textContent = 'Wird gesendet…';
+
       fetch('/api/contact', {
         method: 'POST',
         body: formData,
       })
-        .then((response) => response.json())
+        .then((response) => {
+          if (!response.ok) throw new Error('Server error');
+          return response.json();
+        })
         .then((data) => {
-          // Hide form and show success message
-          document.getElementById('contact-form').style.display = 'none';
-          document.getElementById('form-success').style.display = 'block';
-          document.querySelector('.contact-section').scrollIntoView({ behavior: 'smooth', block: 'start' });
+          if (data.success) {
+            document.getElementById('contact-form').style.display = 'none';
+            document.getElementById('form-success').style.display = 'block';
+            document.querySelector('.contact-section')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          } else {
+            alert(data.error || 'Fehler beim Senden. Bitte versuchen Sie es später erneut.');
+          }
         })
         .catch((error) => {
+          console.error('Fehler:', error);
           alert('Fehler beim Senden der Nachricht. Bitte versuchen Sie es später erneut.');
+        })
+        .finally(() => {
+          submitBtn.disabled = false;
+          submitBtn.querySelector('.btn-text').textContent = 'Nachricht senden';
         });
     }
   });
