@@ -12,7 +12,7 @@ const {
 } = Astro.props;
 
 const baseUrl = import.meta.env.BASE_URL;
-const siteUrl = 'https://klosestral.pages.dev';
+const siteUrl = 'https://kloseup.eu';
 const canonicalUrl = `${siteUrl}${Astro.url.pathname.replace(/\/$/, '')}`;
 
 // Schema.org LocalBusiness Data
@@ -22,7 +22,7 @@ const localBusinessSchema = {
   "name": "kloseup",
   "description": "Zoho-Beratung & Integration für KMU in Salzburg",
   "url": `${siteUrl}`,
-  "telephone": "+43-664-1234567",
+  "telephone": "+43-660-3612354",
   "email": "christopher@kloseup.eu",
   "address": {
     "@type": "PostalAddress",
@@ -73,7 +73,7 @@ const localBusinessSchema = {
   <meta property="og:description" content={description} />
   <meta property="og:type" content="website" />
   <meta property="og:url" content={canonicalUrl} />
-  <meta property="og:image" content={`https://klosestral.pages.dev/logos/Logo_mit_Text.svg`} />
+  <meta property="og:image" content={`https://kloseup.eu/logos/Logo_mit_Text.svg`} />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:image:alt" content="kloseup – Zoho-Beratung & Integration in Salzburg" />
