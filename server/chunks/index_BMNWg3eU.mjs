@@ -91,7 +91,7 @@ var $$Index = createComponent(($$result, $$props, $$slots) => {
 		"amount": "ab 290 €",
 		"unit": "/ Monat",
 		"description": "Laufender Support und Weiterentwicklung im Retainer."
-	})}</div><p class="pricing-note">Alle Preise zzgl. gesetzl. USt., sofern zutreffend. Finales Angebot nach individuellem Scoping-Gespräch.</p></div></section><!-- Kontakt Section --><section id="kontakt"><div class="wrap">${renderComponent($$result, "ContactForm", $$ContactForm, {})}</div></section></main>${renderComponent($$result, "Footer", $$Footer, {})}` })}`;
+	})}</div><p class="pricing-note">Kein Umsatzsteuerausweis gemäß Kleinunternehmerregelung. Finales Angebot nach individuellem Scoping-Gespräch.</p></div></section><!-- Kontakt Section --><section id="kontakt"><div class="wrap">${renderComponent($$result, "ContactForm", $$ContactForm, {})}</div></section></main>${renderComponent($$result, "Footer", $$Footer, {})}` })}`;
 }, "/home/runner/work/Klosestral/Klosestral/src/pages/index.astro", void 0);
 var $$file = "/home/runner/work/Klosestral/Klosestral/src/pages/index.astro";
 //#endregion
