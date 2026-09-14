@@ -3,8 +3,8 @@ globalThis.process.env ??= {};
 import { t as __exportAll } from "./rolldown-runtime_D7vh-g_o.mjs";
 import { d as maybeRenderHead, i as renderComponent, u as renderTemplate } from "./server_CxJNEKB-.mjs";
 import { t as createComponent } from "./compiler_BbSIq9rB.mjs";
-import { i as $$Layout, n as $$Header, t as $$Footer } from "./Footer_Bv48pI_V.mjs";
-import { t as $$Button } from "./Button_LMpF2Yrn.mjs";
+import { i as $$Layout, n as $$Header, t as $$Footer } from "./Footer_rmi9rwWV.mjs";
+import { t as $$Button } from "./Button_DiAqw2P7.mjs";
 //#region src/pages/leistungen.astro
 var leistungen_exports = /* @__PURE__ */ __exportAll({
 	default: () => $$Leistungen,

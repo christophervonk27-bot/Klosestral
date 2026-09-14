@@ -3,7 +3,7 @@ globalThis.process.env ??= {};
 import { C as createAstro, d as maybeRenderHead, p as addAttribute, u as renderTemplate } from "./server_CxJNEKB-.mjs";
 import { t as createComponent } from "./compiler_BbSIq9rB.mjs";
 //#region src/components/Button.astro
-createAstro("https://klosestral.pages.dev");
+createAstro("https://kloseup.eu");
 var $$Button = createComponent(($$result, $$props, $$slots) => {
 	const Astro = $$result.createAstro($$props, $$slots);
 	Astro.self = $$Button;

@@ -20,7 +20,7 @@ async function renderScript(result, id) {
 }
 //#endregion
 //#region src/layouts/Layout.astro
-createAstro("https://klosestral.pages.dev");
+createAstro("https://kloseup.eu");
 var $$Layout = createComponent(($$result, $$props, $$slots) => {
 	const Astro2 = $$result.createAstro($$props, $$slots);
 	Astro2.self = $$Layout;
@@ -97,7 +97,7 @@ var $$Layout = createComponent(($$result, $$props, $$slots) => {
 }, "/home/runner/work/Klosestral/Klosestral/src/layouts/Layout.astro", void 0);
 //#endregion
 //#region src/components/Logo.astro
-createAstro("https://klosestral.pages.dev");
+createAstro("https://kloseup.eu");
 var $$Logo = createComponent(($$result, $$props, $$slots) => {
 	const Astro2 = $$result.createAstro($$props, $$slots);
 	Astro2.self = $$Logo;
@@ -113,7 +113,7 @@ var $$Logo = createComponent(($$result, $$props, $$slots) => {
 }, "/home/runner/work/Klosestral/Klosestral/src/components/Logo.astro", void 0);
 //#endregion
 //#region src/components/Header.astro
-createAstro("https://klosestral.pages.dev");
+createAstro("https://kloseup.eu");
 var $$Header = createComponent(($$result, $$props, $$slots) => {
 	const Astro2 = $$result.createAstro($$props, $$slots);
 	Astro2.self = $$Header;

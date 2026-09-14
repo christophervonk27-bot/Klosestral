@@ -1,7 +1,7 @@
 globalThis.process ??= {};
 globalThis.process.env ??= {};
-import { i as manifest, n as App, r as DefaultFetchHandler } from "./chunks/entrypoints_DPbWHyLT.mjs";
-import "./chunks/image-binding-transform_vIRIhbCh.mjs";
+import { i as manifest, n as App, r as DefaultFetchHandler } from "./chunks/entrypoints_BDe64YDI.mjs";
+import "./chunks/image-binding-transform_DhO7iy7J.mjs";
 import "cloudflare:workers";
 //#region \0virtual:astro-cloudflare:config
 var sessionKVBindingName = "SESSION";

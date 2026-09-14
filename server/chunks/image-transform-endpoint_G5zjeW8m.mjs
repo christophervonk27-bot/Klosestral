@@ -1,7 +1,7 @@
 globalThis.process ??= {};
 globalThis.process.env ??= {};
 import { t as __exportAll } from "./rolldown-runtime_D7vh-g_o.mjs";
-import { t as transform } from "./image-binding-transform_vIRIhbCh.mjs";
+import { t as transform } from "./image-binding-transform_DhO7iy7J.mjs";
 import { env } from "cloudflare:workers";
 //#region node_modules/@astrojs/cloudflare/dist/entrypoints/image-transform-endpoint.js
 var image_transform_endpoint_exports = /* @__PURE__ */ __exportAll({

@@ -9,7 +9,7 @@ import { t as createConsoleLogger } from "./console_CIE2YPw0.mjs";
 var level = "info";
 //#endregion
 //#region node_modules/astro/components/Image.astro
-createAstro("https://klosestral.pages.dev");
+createAstro("https://kloseup.eu");
 var $$Image = createComponent(async ($$result, $$props, $$slots) => {
 	const Astro2 = $$result.createAstro($$props, $$slots);
 	Astro2.self = $$Image;
@@ -483,7 +483,7 @@ function lookup(extn) {
 }
 //#endregion
 //#region node_modules/astro/components/Picture.astro
-createAstro("https://klosestral.pages.dev");
+createAstro("https://kloseup.eu");
 var $$Picture = createComponent(async ($$result, $$props, $$slots) => {
 	const Astro2 = $$result.createAstro($$props, $$slots);
 	Astro2.self = $$Picture;
@@ -575,7 +575,7 @@ function checkWeight(input, target) {
 }
 //#endregion
 //#region node_modules/astro/components/Font.astro
-createAstro("https://klosestral.pages.dev");
+createAstro("https://kloseup.eu");
 var $$Font = createComponent(($$result, $$props, $$slots) => {
 	const Astro = $$result.createAstro($$props, $$slots);
 	Astro.self = $$Font;
