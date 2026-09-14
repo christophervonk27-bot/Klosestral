@@ -46,7 +46,7 @@ var pages_exports = /* @__PURE__ */ __exportAll({
 });
 var $$Index = createComponent(($$result, $$props, $$slots) => {
 	return renderTemplate`${renderComponent($$result, "Layout", $$Layout, {
-		"title": "Zoho Beratung Salzburg – CRM Einrichtung & Integration | kloseup.eu",
+		"title": "Zoho Beratung Salzburg – CRM Einrichtung & Integration",
 		"description": "Zoho Beratung in Salzburg: CRM-Einrichtung, Analytics-Dashboards und Team-Schulung für KMU. Kostenloses Erstgespräch mit Christopher Klose, Zoho-Berater."
 	}, { "default": ($$result) => renderTemplate`${renderComponent($$result, "Header", $$Header, {})}${maybeRenderHead($$result)}<main id="top"><!-- Hero Section --><section class="hero"><div class="wrap hero-grid"><div><p class="eyebrow">Digitalisierungsprojekte und Zoho Beratung in Salzburg</p><h1>Zoho Beratung in Salzburg<br><em>scharf gestellt auf Ihre Prozesse.</em></h1><p class="lede">Ich unterstütze kleine und mittelständische Unternehmen in Salzburg und Umgebung bei der Einführung von Zoho-Produkten. Von der Beratung bis zur nahtlosen Integration.</p><div style="display: flex; gap: 14px; flex-wrap: wrap;">${renderComponent($$result, "Button", $$Button, {
 		"href": "#kontakt",
