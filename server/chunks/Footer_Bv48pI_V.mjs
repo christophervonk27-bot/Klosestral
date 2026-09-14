@@ -26,7 +26,7 @@ var $$Layout = createComponent(($$result, $$props, $$slots) => {
 	Astro2.self = $$Layout;
 	const { title = "kloseup. – Zoho-Beratung & Integration | Christopher Klose", description = "Zoho-Beratung und Integration für kleine und mittlere Unternehmen in Salzburg und der Grenzregion." } = Astro2.props;
 	const baseUrl = "/";
-	const siteUrl = "https://klosestral.pages.dev";
+	const siteUrl = "https://kloseup.eu";
 	const canonicalUrl = `${siteUrl}${Astro2.url.pathname.replace(/\/$/, "")}`;
 	const localBusinessSchema = {
 		"@context": "https://schema.org",
@@ -34,7 +34,7 @@ var $$Layout = createComponent(($$result, $$props, $$slots) => {
 		"name": "kloseup",
 		"description": "Zoho-Beratung & Integration für KMU in Salzburg",
 		"url": `${siteUrl}`,
-		"telephone": "+43-664-1234567",
+		"telephone": "+43-660-3612354",
 		"email": "christopher@kloseup.eu",
 		"address": {
 			"@type": "PostalAddress",
@@ -88,7 +88,7 @@ var $$Layout = createComponent(($$result, $$props, $$slots) => {
 			"closes": "18:00"
 		}
 	};
-	return renderTemplate`<html lang="de"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description"${addAttribute(description, "content")}><meta property="og:title"${addAttribute(title, "content")}><meta property="og:description"${addAttribute(description, "content")}><meta property="og:type" content="website"><meta property="og:url"${addAttribute(canonicalUrl, "content")}><meta property="og:image"${addAttribute(`https://klosestral.pages.dev/logos/Logo_mit_Text.svg`, "content")}><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="kloseup – Zoho-Beratung &amp; Integration in Salzburg"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title"${addAttribute(title, "content")}><meta name="twitter:description"${addAttribute(description, "content")}><link rel="canonical"${addAttribute(canonicalUrl, "href")}><title>${title}</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet"><link rel="icon" type="image/svg+xml"${addAttribute(`${baseUrl}logos/Logo.svg`, "href")}><!-- Schema.org Structured Data --><script type="application/ld+json">${unescapeHTML(JSON.stringify(localBusinessSchema))}<\/script>${renderSlot($$result, $$slots["head"])}${renderHead($$result)}</head><body>${renderSlot($$result, $$slots["default"])}<!-- Klaro Cookie Consent --><script${addAttribute("/klaro-config.js", "src")}><\/script><script${addAttribute("/klaro.js", "src")}><\/script><!-- Google Analytics - lädt erst nach Consent --><script type="text/plain" data-type="application/javascript" data-name="google-analytics">
+	return renderTemplate`<html lang="de"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description"${addAttribute(description, "content")}><meta property="og:title"${addAttribute(title, "content")}><meta property="og:description"${addAttribute(description, "content")}><meta property="og:type" content="website"><meta property="og:url"${addAttribute(canonicalUrl, "content")}><meta property="og:image"${addAttribute(`https://kloseup.eu/logos/Logo_mit_Text.svg`, "content")}><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="kloseup – Zoho-Beratung &amp; Integration in Salzburg"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title"${addAttribute(title, "content")}><meta name="twitter:description"${addAttribute(description, "content")}><link rel="canonical"${addAttribute(canonicalUrl, "href")}><title>${title}</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet"><link rel="icon" type="image/svg+xml"${addAttribute(`${baseUrl}logos/Logo.svg`, "href")}><!-- Schema.org Structured Data --><script type="application/ld+json">${unescapeHTML(JSON.stringify(localBusinessSchema))}<\/script>${renderSlot($$result, $$slots["head"])}${renderHead($$result)}</head><body>${renderSlot($$result, $$slots["default"])}<!-- Klaro Cookie Consent --><script${addAttribute("/klaro-config.js", "src")}><\/script><script${addAttribute("/klaro.js", "src")}><\/script><!-- Google Analytics - lädt erst nach Consent --><script type="text/plain" data-type="application/javascript" data-name="google-analytics">
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());

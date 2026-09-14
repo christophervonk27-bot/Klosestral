@@ -3,7 +3,7 @@ globalThis.process.env ??= {};
 import { t as __exportAll } from "./rolldown-runtime_D7vh-g_o.mjs";
 import { d as maybeRenderHead, i as renderComponent, u as renderTemplate } from "./server_CxJNEKB-.mjs";
 import { t as createComponent } from "./compiler_BbSIq9rB.mjs";
-import { i as $$Layout, n as $$Header, t as $$Footer } from "./Footer_nFBoCAh8.mjs";
+import { i as $$Layout, n as $$Header, t as $$Footer } from "./Footer_Bv48pI_V.mjs";
 //#region src/pages/datenschutz.astro
 var datenschutz_exports = /* @__PURE__ */ __exportAll({
 	default: () => $$Datenschutz,
