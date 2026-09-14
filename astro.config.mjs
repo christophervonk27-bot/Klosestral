@@ -3,7 +3,7 @@ import sitemap from '@astrojs/sitemap';
 import cloudflare from '@astrojs/cloudflare';
 
 export default defineConfig({
-  site: 'https://klosestral.pages.dev',
+  site: 'https://kloseup.eu',
   output: 'server',
   adapter: cloudflare({
     platformProxy: { enabled: true },
