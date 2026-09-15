@@ -1,6 +1,6 @@
 import type { APIRoute } from 'astro';
 
-export const POST: APIRoute = async ({ request }) => {
+export const POST: APIRoute = async ({ request, locals }) => {
   try {
     const formData = await request.formData();
 
@@ -22,8 +22,7 @@ export const POST: APIRoute = async ({ request }) => {
     // Validierung
     if (!name || !email || !message) {
       return new Response(
-        JSON.stringify({ success: false,
-          error: 'Bitte füllen Sie alle Pflichtfelder aus.' }),
+        JSON.stringify({ success: false, error: 'Bitte füllen Sie alle Pflichtfelder aus.' }),
         { status: 400, headers: { 'Content-Type': 'application/json' } }
       );
     }
@@ -41,12 +40,20 @@ export const POST: APIRoute = async ({ request }) => {
     const firstName = nameParts[0] || '';
     const lastName = nameParts.slice(1).join(' ') || '';
 
+    // Brevo API Key — auf Cloudflare über locals.runtime.env, lokal über import.meta.env
+    const runtimeEnv = (locals as { runtime?: { env?: Record<string, string | undefined> } })?.runtime?.env;
+    const brevoApiKey = runtimeEnv?.BREVO_API_KEY ?? import.meta.env.BREVO_API_KEY;
+
+    if (!brevoApiKey) {
+      console.error('BREVO_API_KEY ist nicht gesetzt!');
+    }
+
     // Kontakt in Brevo anlegen
-    // listIds: [4] — ersetze mit der ID der Liste "Kontaktanfragen"
+    // listIds: [4] — ID der Liste "Kontaktanfragen"
     const brevoResponse = await fetch('https://api.brevo.com/v3/contacts', {
       method: 'POST',
       headers: {
-        'api-key': import.meta.env.BREVO_API_KEY,
+        'api-key': brevoApiKey,
         'Content-Type': 'application/json',
         'accept': 'application/json',
       },
@@ -57,7 +64,7 @@ export const POST: APIRoute = async ({ request }) => {
           LASTNAME: lastName,
           ANFRAGE: message,
         },
-        listIds: [4], // ← ERSETZE mit deiner Listen-ID für "Kontaktanfragen"
+        listIds: [4],
         updateEnabled: true,
       }),
     });
@@ -76,8 +83,7 @@ export const POST: APIRoute = async ({ request }) => {
   } catch (error) {
     console.error('Contact form Fehler:', error);
     return new Response(
-      JSON.stringify({ success: false,
-        error: 'Server-Fehler beim Senden der Nachricht.' }),
+      JSON.stringify({ success: false, error: 'Server-Fehler beim Senden der Nachricht.' }),
       { status: 500, headers: { 'Content-Type': 'application/json' } }
     );
   }
