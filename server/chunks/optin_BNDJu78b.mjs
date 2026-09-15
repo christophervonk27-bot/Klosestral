@@ -40,8 +40,19 @@ var POST = async ({ request, locals }) => {
 		const nameParts = name.split(/\s+/).filter(Boolean);
 		const firstName = nameParts[0] || "";
 		const lastName = nameParts.slice(1).join(" ") || "";
-		const brevoApiKey = (locals?.runtime?.env)?.BREVO_API_KEY ?? void 0;
-		if (!brevoApiKey) console.error("BREVO_API_KEY ist nicht gesetzt!");
+		const runtimeEnv = locals?.runtime?.env;
+		const brevoApiKey = runtimeEnv?.BREVO_API_KEY;
+		if (!brevoApiKey) {
+			const availableKeys = runtimeEnv ? Object.keys(runtimeEnv).join(", ") || "(leer — keine Umgebungsvariablen gebunden)" : "locals.runtime.env ist undefined";
+			console.error("BREVO_API_KEY fehlt im Worker-Runtime! Verfügbare Schlüssel:", availableKeys);
+			return new Response(JSON.stringify({
+				success: false,
+				error: "Konfigurationsfehler: Brevo API-Key fehlt."
+			}), {
+				status: 500,
+				headers: { "Content-Type": "application/json" }
+			});
+		}
 		const brevoResponse = await fetch("https://api.brevo.com/v3/contacts", {
 			method: "POST",
 			headers: {
