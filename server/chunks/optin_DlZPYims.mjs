@@ -3,7 +3,7 @@ globalThis.process.env ??= {};
 import { t as __exportAll } from "./rolldown-runtime_D7vh-g_o.mjs";
 //#region src/pages/api/optin.ts
 var optin_exports = /* @__PURE__ */ __exportAll({ POST: () => POST });
-var POST = async ({ request }) => {
+var POST = async ({ request, locals }) => {
 	try {
 		const formData = await request.formData();
 		if (formData.get("website")?.toString()) return new Response(JSON.stringify({
@@ -40,10 +40,12 @@ var POST = async ({ request }) => {
 		const nameParts = name.split(/\s+/).filter(Boolean);
 		const firstName = nameParts[0] || "";
 		const lastName = nameParts.slice(1).join(" ") || "";
+		const brevoApiKey = (locals?.runtime?.env)?.BREVO_API_KEY ?? void 0;
+		if (!brevoApiKey) console.error("BREVO_API_KEY ist nicht gesetzt!");
 		const brevoResponse = await fetch("https://api.brevo.com/v3/contacts", {
 			method: "POST",
 			headers: {
-				"api-key": void 0,
+				"api-key": brevoApiKey,
 				"Content-Type": "application/json",
 				"accept": "application/json"
 			},
