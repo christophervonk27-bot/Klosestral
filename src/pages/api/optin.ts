@@ -1,6 +1,6 @@
 import type { APIRoute } from 'astro';
 
-export const POST: APIRoute = async ({ request }) => {
+export const POST: APIRoute = async ({ request, locals }) => {
   try {
     const formData = await request.formData();
 
@@ -46,12 +46,20 @@ export const POST: APIRoute = async ({ request }) => {
     const firstName = nameParts[0] || '';
     const lastName = nameParts.slice(1).join(' ') || '';
 
+    // Brevo API Key — auf Cloudflare über locals.runtime.env, lokal über import.meta.env
+    const runtimeEnv = (locals as { runtime?: { env?: Record<string, string | undefined> } })?.runtime?.env;
+    const brevoApiKey = runtimeEnv?.BREVO_API_KEY ?? import.meta.env.BREVO_API_KEY;
+
+    if (!brevoApiKey) {
+      console.error('BREVO_API_KEY ist nicht gesetzt!');
+    }
+
     // Kontakt in Brevo anlegen
-    // listIds: [5] — ersetze mit der ID der Liste "Checklisten-Downloads"
+    // listIds: [5] — ID der Liste "Checklisten-Downloads"
     const brevoResponse = await fetch('https://api.brevo.com/v3/contacts', {
       method: 'POST',
       headers: {
-        'api-key': import.meta.env.BREVO_API_KEY,
+        'api-key': brevoApiKey,
         'Content-Type': 'application/json',
         'accept': 'application/json',
       },
@@ -61,7 +69,7 @@ export const POST: APIRoute = async ({ request }) => {
           FIRSTNAME: firstName,
           LASTNAME: lastName,
         },
-        listIds: [5], // ERSETZE mit deiner Listen-ID für "Checklisten-Downloads"
+        listIds: [5],
         updateEnabled: true,
       }),
     });
@@ -81,8 +89,7 @@ export const POST: APIRoute = async ({ request }) => {
   } catch (error) {
     console.error('Opt-in form Fehler:', error);
     return new Response(
-      JSON.stringify({ success: false,
-        error: 'Server-Fehler beim Senden der Anfrage.' }),
+      JSON.stringify({ success: false, error: 'Server-Fehler beim Senden der Anfrage.' }),
       { status: 500, headers: { 'Content-Type': 'application/json' } }
     );
   }
