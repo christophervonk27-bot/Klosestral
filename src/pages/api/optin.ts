@@ -46,12 +46,21 @@ export const POST: APIRoute = async ({ request, locals }) => {
     const firstName = nameParts[0] || '';
     const lastName = nameParts.slice(1).join(' ') || '';
 
-    // Brevo API Key — auf Cloudflare über locals.runtime.env, lokal über import.meta.env
+    // Brevo API Key — im deployed Cloudflare Worker NUR über locals.runtime.env verfügbar.
+    // WICHTIG: import.meta.env darf hier NICHT verwendet werden — der Adapter wirft damit einen Fehler!
     const runtimeEnv = (locals as { runtime?: { env?: Record<string, string | undefined> } })?.runtime?.env;
-    const brevoApiKey = runtimeEnv?.BREVO_API_KEY ?? import.meta.env.BREVO_API_KEY;
+    const brevoApiKey = runtimeEnv?.BREVO_API_KEY;
 
     if (!brevoApiKey) {
-      console.error('BREVO_API_KEY ist nicht gesetzt!');
+      // Diagnose: welche Schlüssel stehen im Worker-Runtime tatsächlich zur Verfügung?
+      const availableKeys = runtimeEnv
+        ? Object.keys(runtimeEnv).join(', ') || '(leer — keine Umgebungsvariablen gebunden)'
+        : 'locals.runtime.env ist undefined';
+      console.error('BREVO_API_KEY fehlt im Worker-Runtime! Verfügbare Schlüssel:', availableKeys);
+      return new Response(
+        JSON.stringify({ success: false, error: 'Konfigurationsfehler: Brevo API-Key fehlt.' }),
+        { status: 500, headers: { 'Content-Type': 'application/json' } }
+      );
     }
 
     // Kontakt in Brevo anlegen
