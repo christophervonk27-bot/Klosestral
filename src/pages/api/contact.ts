@@ -40,9 +40,8 @@ export const POST: APIRoute = async ({ request, locals }) => {
     const firstName = nameParts[0] || '';
     const lastName = nameParts.slice(1).join(' ') || '';
 
-    // Brevo API Key — auf Cloudflare über locals.runtime.env, lokal über import.meta.env
-    const runtimeEnv = (locals as { runtime?: { env?: Record<string, string | undefined> } })?.runtime?.env;
-    const brevoApiKey = runtimeEnv?.BREVO_API_KEY ?? import.meta.env.BREVO_API_KEY;
+    // Brevo API Key — im Cloudflare Worker nur über locals.runtime.env verfügbar
+    const brevoApiKey = (locals as { runtime?: { env?: Record<string, string | undefined> } })?.runtime?.env?.BREVO_API_KEY;
 
     if (!brevoApiKey) {
       console.error('BREVO_API_KEY ist nicht gesetzt!');
