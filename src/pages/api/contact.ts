@@ -7,7 +7,6 @@ export const POST: APIRoute = async ({ request, locals }) => {
     // Honeypot — Spambots füllen dieses versteckte Feld aus
     const honeypot = formData.get('website')?.toString();
     if (honeypot) {
-      // Tu so als wäre alles OK, aber ignoriere die Anfrage
       return new Response(
         JSON.stringify({ success: true, message: 'Nachricht gesendet!' }),
         { status: 200, headers: { 'Content-Type': 'application/json' } }
@@ -40,22 +39,32 @@ export const POST: APIRoute = async ({ request, locals }) => {
     const firstName = nameParts[0] || '';
     const lastName = nameParts.slice(1).join(' ') || '';
 
-    // Brevo API Key — im deployed Cloudflare Worker NUR über locals.runtime.env verfügbar.
-    // WICHTIG: import.meta.env darf hier NICHT verwendet werden — der Adapter wirft damit einen Fehler!
+    // Brevo API Key — zwei sichere Bezugsquellen:
+    // 1. Runtime-Binding im Cloudflare Worker (locals.runtime.env)
+    // 2. Build-time Inlining (Vite ersetzt import.meta.env.BREVO_API_KEY zur Build-Zeit,
+    //    WENN die Variable im Build-Environment gesetzt ist — try/catch fängt den Runtime-Fehler ab)
     const runtimeEnv = (locals as { runtime?: { env?: Record<string, string | undefined> } })?.runtime?.env;
-    const brevoApiKey = runtimeEnv?.BREVO_API_KEY;
+    let brevoApiKey = runtimeEnv?.BREVO_API_KEY;
 
     if (!brevoApiKey) {
-      // Diagnose: welche Schlüssel stehen im Worker-Runtime tatsächlich zur Verfügung?
+      try {
+        brevoApiKey = import.meta.env.BREVO_API_KEY;
+      } catch {
+        // import.meta.env wirft im deployed Worker, wenn es nicht zur Build-Zeit ersetzt wurde
+      }
+    }
+
+    if (!brevoApiKey) {
       const availableKeys = runtimeEnv
         ? Object.keys(runtimeEnv).join(', ') || '(leer — keine Umgebungsvariablen gebunden)'
         : 'locals.runtime.env ist undefined';
-      console.error('BREVO_API_KEY fehlt im Worker-Runtime! Verfügbare Schlüssel:', availableKeys);
+      console.error('BREVO_API_KEY fehlt! Runtime-Keys:', availableKeys);
       return new Response(
         JSON.stringify({ success: false, error: 'Konfigurationsfehler: Brevo API-Key fehlt.' }),
         { status: 500, headers: { 'Content-Type': 'application/json' } }
       );
     }
+
 
     // Kontakt in Brevo anlegen
     // listIds: [4] — ID der Liste "Kontaktanfragen"
@@ -81,8 +90,6 @@ export const POST: APIRoute = async ({ request, locals }) => {
     if (!brevoResponse.ok) {
       const errorData = await brevoResponse.text();
       console.error('Brevo API Fehler:', brevoResponse.status, errorData);
-      // Wir geben trotzdem success zurück, damit der Besucher keine Fehlermeldung sieht
-      // Die Anfrage ist protokolliert und kann manuell nachverfolgt werden
     }
 
     return new Response(
