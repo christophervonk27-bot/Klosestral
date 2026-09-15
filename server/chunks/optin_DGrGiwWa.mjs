@@ -1,24 +1,24 @@
 globalThis.process ??= {};
 globalThis.process.env ??= {};
 import { t as __exportAll } from "./rolldown-runtime_D7vh-g_o.mjs";
-//#region src/pages/api/contact.ts
-var contact_exports = /* @__PURE__ */ __exportAll({ POST: () => POST });
-var POST = async ({ request, locals }) => {
+//#region src/pages/api/optin.ts
+var optin_exports = /* @__PURE__ */ __exportAll({ POST: () => POST });
+var POST = async ({ request }) => {
 	try {
 		const formData = await request.formData();
 		if (formData.get("website")?.toString()) return new Response(JSON.stringify({
 			success: true,
-			message: "Nachricht gesendet!"
+			message: "Checkliste angefordert!"
 		}), {
 			status: 200,
 			headers: { "Content-Type": "application/json" }
 		});
-		const name = formData.get("name")?.toString().trim() || "";
 		const email = formData.get("email")?.toString().trim() || "";
-		const message = formData.get("message")?.toString().trim() || "";
-		if (!name || !email || !message) return new Response(JSON.stringify({
+		const name = formData.get("name")?.toString().trim() || "";
+		const consent = formData.get("consent")?.toString();
+		if (!email) return new Response(JSON.stringify({
 			success: false,
-			error: "Bitte füllen Sie alle Pflichtfelder aus."
+			error: "E-Mail-Adresse ist erforderlich."
 		}), {
 			status: 400,
 			headers: { "Content-Type": "application/json" }
@@ -30,17 +30,19 @@ var POST = async ({ request, locals }) => {
 			status: 400,
 			headers: { "Content-Type": "application/json" }
 		});
-		const nameParts = name.split(/\s+/);
+		if (!consent) return new Response(JSON.stringify({
+			success: false,
+			error: "Bitte stimmen Sie der Datenschutzerklärung zu."
+		}), {
+			status: 400,
+			headers: { "Content-Type": "application/json" }
+		});
+		const nameParts = name.split(/\s+/).filter(Boolean);
 		const firstName = nameParts[0] || "";
 		const lastName = nameParts.slice(1).join(" ") || "";
-		const runtimeEnv = locals?.runtime?.env;
-		let brevoApiKey = runtimeEnv?.BREVO_API_KEY;
-		if (!brevoApiKey) try {
-			brevoApiKey = void 0;
-		} catch {}
+		const brevoApiKey = globalThis.env?.BREVO_API_KEY ?? void 0;
 		if (!brevoApiKey) {
-			const availableKeys = runtimeEnv ? Object.keys(runtimeEnv).join(", ") || "(leer — keine Umgebungsvariablen gebunden)" : "locals.runtime.env ist undefined";
-			console.error("BREVO_API_KEY fehlt! Runtime-Keys:", availableKeys);
+			console.error("BREVO_API_KEY fehlt!");
 			return new Response(JSON.stringify({
 				success: false,
 				error: "Konfigurationsfehler: Brevo API-Key fehlt."
@@ -60,10 +62,9 @@ var POST = async ({ request, locals }) => {
 				email,
 				attributes: {
 					FIRSTNAME: firstName,
-					LASTNAME: lastName,
-					ANFRAGE: message
+					LASTNAME: lastName
 				},
-				listIds: [4],
+				listIds: [5],
 				updateEnabled: true
 			})
 		});
@@ -73,16 +74,16 @@ var POST = async ({ request, locals }) => {
 		}
 		return new Response(JSON.stringify({
 			success: true,
-			message: "Nachricht gesendet!"
+			message: "Checkliste angefordert! Bitte prüfen Sie Ihr Postfach."
 		}), {
 			status: 200,
 			headers: { "Content-Type": "application/json" }
 		});
 	} catch (error) {
-		console.error("Contact form Fehler:", error);
+		console.error("Opt-in form Fehler:", error);
 		return new Response(JSON.stringify({
 			success: false,
-			error: "Server-Fehler beim Senden der Nachricht."
+			error: "Server-Fehler beim Senden der Anfrage."
 		}), {
 			status: 500,
 			headers: { "Content-Type": "application/json" }
@@ -90,7 +91,7 @@ var POST = async ({ request, locals }) => {
 	}
 };
 //#endregion
-//#region \0virtual:astro:page:src/pages/api/contact@_@ts
-var page = () => contact_exports;
+//#region \0virtual:astro:page:src/pages/api/optin@_@ts
+var page = () => optin_exports;
 //#endregion
 export { page };
