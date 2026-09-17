@@ -63,8 +63,8 @@ export const POST: APIRoute = async ({ request }) => {
       body: JSON.stringify({
         email: email,
         attributes: {
-          FIRSTNAME: firstName,
-          LASTNAME: lastName,
+          VORNAME: firstName,
+          NACHNAME: lastName,
           ANFRAGE: message,
         },
         listIds: [4],

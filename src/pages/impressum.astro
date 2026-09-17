@@ -6,7 +6,7 @@ import Footer from '../components/Footer.astro';
 
 <Layout
   title="Impressum – KloseUp Zoho-Beratung Salzburg"
-  description="Impressum von KloseUp, Christopher Klose, Zoho-Beratung aus Salzburg. Angabe gemäß § 5 ECG."
+  description="Impressum von KloseUp, Christopher Klose, Zoho-Beratung aus Salzburg. Angaben gemäß § 5 ECG."
 >
   <Header />
 
@@ -49,27 +49,50 @@ import Footer from '../components/Footer.astro';
           <p class="legal-value">Telefon: +43 660 3612354</p>
         </div>
 
-        <h2>Unternehmensgegenstand</h2>
+        <h2>Gewerbeberechtigung</h2>
+
+        <div class="legal-block">
+          <p class="legal-label">Gewerbebezeichnung</p>
+          <p class="legal-value">
+            Dienstleistungen in der automatischen Datenverarbeitung und Informationstechnik
+          </p>
+          <p class="legal-value">Freies Gewerbe gemäß Gewerbeordnung 1994</p>
+        </div>
+
+        <!-- TODO: Behörde und Kammer mit Gewerbeschein abgleichen -->
+        <div class="legal-block">
+          <p class="legal-label">Zuständige Behörde</p>
+          <p class="legal-value">Bezirkshauptmannschaft Salzburg-Umgebung</p>
+        </div>
+
+        <div class="legal-block">
+          <p class="legal-label">Kammer</p>
+          <p class="legal-value">Mitglied der Wirtschaftskammer Salzburg</p>
+        </div>
+
         <p class="legal-text">
-          Beratung und Integration von Softwarelösungen, insbesondere
-          Zoho-Produkte (CRM, Bigin, Books, Inventory, Analytics).
+          Die anwendbaren gewerberechtlichen Vorschriften (Gewerbeordnung 1994) sind
+          im Rechtsinformationssystem des Bundes abrufbar:
+          <a href="https://www.ris.bka.gv.at" target="_blank" rel="noopener">www.ris.bka.gv.at</a>.
         </p>
 
         <h2>UID-Nummer</h2>
         <p class="legal-text">
-          Als Kleinunternehmer (gemäß § 6 Abs 1 Z 4 ECG) bin ich nicht
-          zur Umsatzsteueridentifikationsnummer verpflichtet.
+          Umsatzsteuer-Identifikationsnummer (UID): ATU74351649
         </p>
-
-        <h2>Berufsbezeichnung</h2>
         <p class="legal-text">
-          Zoho-Berater. Diese Berufsbezeichnung wurde verliehen in Österreich.
-          Es handelt sich nicht um eine reglementierte Berufsbezeichnung im
-          Sinne der Gewerbeordnung.
+          Die UID dient ausschließlich der Abwicklung des Reverse-Charge-Verfahrens
+          (Übergang der Steuerschuldnerschaft auf den Leistungsempfänger) gegenüber
+          Unternehmern mit Sitz im EU-Ausland. Eine umsatzsteuerliche Registrierung
+          im Regelsteuersystem ist damit nicht verbunden.
+        </p>
+        <p class="legal-text">
+          Gemäß § 6 Abs. 1 Z 27 UStG 1994 wird die Kleinunternehmerregelung
+          angewendet; auf Rechnungen wird daher keine Umsatzsteuer ausgewiesen.
         </p>
 
         <h2>Verantwortlich für den Inhalt</h2>
-        <p class="legal-text">Christopher Klose, KloseUp.</p>
+        <p class="legal-text">Christopher Klose</p>
 
         <h2>Haftungsausschluss</h2>
 
@@ -98,11 +121,10 @@ import Footer from '../components/Footer.astro';
           schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers.
         </p>
 
-        <h2>Streitschlichtung</h2>
+        <h2>Streitbeilegung</h2>
         <p class="legal-text">
-          Die Europäische Kommission stellt eine Plattform zur
-          Online-Streitbeilegung (OS) bereit:
-          <a href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noopener">ec.europa.eu/consumers/odr</a>.
+          Die von der Europäischen Kommission bereitgestellte Plattform zur
+          Online-Streitbeilegung (OS) wurde mit 20. Juli 2025 eingestellt.
           Ich bin nicht verpflichtet und nicht bereit, an einem
           Streitbeilegungsverfahren vor einer
           Verbraucherschlichtungsstelle teilzunehmen.
@@ -185,6 +207,12 @@ import Footer from '../components/Footer.astro';
     color: var(--ink-soft);
     line-height: 1.7;
     margin: 0 0 16px;
+  }
+
+  .legal-text a {
+    color: var(--green-deep);
+    text-decoration: underline;
+    text-underline-offset: 2px;
   }
 
   .legal-note {
