@@ -4,6 +4,7 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import Aperture from '../components/Aperture.astro';
 import Button from '../components/Button.astro';
+import PageHero from '../components/PageHero.astro';
 import Service from '../components/Service.astro';
 import Badge from '../components/Badge.astro';
 import PriceCard from '../components/PriceCard.astro';
@@ -17,23 +18,18 @@ import ContactForm from '../components/ContactForm.astro';
   <Header />
 
   <main id="top">
-    <!-- Hero Section -->
-    <section class="hero">
-      <div class="wrap hero-grid">
-        <div>
-          <p class="eyebrow">Digitalisierungsprojekte und Zoho Beratung in Salzburg</p>
-          <h1>Zoho Beratung in Salzburg<br /><em>scharf gestellt auf Ihre Prozesse.</em></h1>
-          <p class="lede">
-            Ich unterstütze kleine und mittelständische Unternehmen in Salzburg und Umgebung bei der Einführung von Zoho-Produkten. Von der Beratung bis zur nahtlosen Integration.
-          </p>
-          <div style="display: flex; gap: 14px; flex-wrap: wrap;">
-            <Button href="#kontakt" variant="primary" label="Erstgespräch anfragen" showArrow={true} />
-            <Button href="#leistungen" variant="ghost" label="Leistungen ansehen" showArrow={true} />
-          </div>
-        </div>
-        <Aperture />
+    <PageHero
+      eyebrow="Digitalisierungsprojekte und Zoho Beratung in Salzburg"
+      titel="Zoho Beratung in Salzburg"
+      titelEm="scharf gestellt auf Ihre Prozesse."
+      lede="Ich unterstütze kleine und mittelständische Unternehmen in Salzburg und Umgebung bei der Einführung von Zoho-Produkten. Von der Beratung bis zur nahtlosen Integration."
+    >
+      <div style="display: flex; gap: 14px; flex-wrap: wrap;">
+        <Button href="#kontakt" variant="primary" label="Erstgespräch anfragen" showArrow={true} />
+        <Button href="#leistungen" variant="ghost" label="Leistungen ansehen" showArrow={true} />
       </div>
-    </section>
+      <Aperture slot="aside" />
+    </PageHero>
 
     <!-- Leistungen Section -->
     <section id="leistungen">
@@ -57,7 +53,7 @@ import ContactForm from '../components/ContactForm.astro';
           />
           <Service
             title="Schulung"
-            description="Digitalisierung, die Ihre Mitarbeiter annehmen, weil sie ihnen wirklich hilft."
+            description="Ihr Team nutzt das System von selbst, weil es ihm im Alltag wirklich hilft."
           />
         </div>
       </div>
@@ -72,7 +68,7 @@ import ContactForm from '../components/ContactForm.astro';
             Für Betriebe, die es genau wissen wollen.
           </h2>
           <p style="margin-top: 20px;">
-            Ich arbeite mit kleinen und mittleren Unternehmen im Raum Salzburg und dem bayerischen Grenzgebiet — branchenoffen, mit Fokus auf klare, nutzbare Lösungen statt Überkomplexität.
+            Ich arbeite mit kleinen und mittleren Unternehmen im Raum Salzburg und dem bayerischen Grenzgebiet, branchenoffen, mit Fokus auf klare, nutzbare Lösungen statt Überkomplexität.
           </p>
           <p>Viele Digitalisierungsprojekte sind förderfähig. Ich unterstütze Sie dabei, die passende Förderung zu nutzen.</p>
         </div>

@@ -1,0 +1,46 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout
+  title="Seite nicht gefunden – kloseup.eu"
+  description="Die gesuchte Seite existiert nicht. Bitte prüfen Sie die URL oder kehren Sie zur Startseite zurück."
+  noindex={true}
+>
+  <Header />
+
+  <main id="top">
+    <section class="legal-hero">
+      <div class="wrap">
+        <p class="eyebrow">404</p>
+        <h1>Seite nicht gefunden.</h1>
+        <p>Die von Ihnen gesuchte Seite existiert nicht. Möglicherweise wurde sie verschoben oder gelöscht.</p>
+        <a href="/" class="btn" style="margin-top: 20px; display: inline-flex; align-items: center; gap: 10px;">
+          <span class="btn-text">Zur Startseite</span>
+          <span class="btn-arrow" aria-hidden="true">→</span>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  .legal-hero {
+    padding: 72px 0 24px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .legal-hero h1 {
+    margin: 10px 0 20px;
+  }
+
+  .legal-hero p {
+    color: var(--ink-soft);
+    margin: 0 0 20px;
+    line-height: 1.6;
+  }
+</style>

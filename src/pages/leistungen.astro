@@ -3,6 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import Button from '../components/Button.astro';
+import PageHero from '../components/PageHero.astro';
 
 const baseUrl = import.meta.env.BASE_URL;
 
@@ -16,7 +17,7 @@ const leistungen = [
       'Einrichtung & Konfiguration von Zoho Bigin oder Zoho CRM, exakt auf Ihre Vertriebsprozesse abgestimmt',
       'Automatisierte Sales-Pipelines: Leads, Deals, Follow-ups ohne manuelle Doppelpflege',
       'Saubere Migration Ihrer bestehenden Kundendaten, ohne Verlust und ohne Downtime',
-      'Anbindung an E-Mail, Telefonie und Bestehendsysteme. Ein System, eine Wahrheit.'
+      'Anbindung an E-Mail, Telefonie und Bestandssysteme. Ein System, eine Wahrheit.'
     ]
   },
   {
@@ -56,31 +57,24 @@ const leistungen = [
 ---
 
 <Layout
-  title="Zoho CRM Einrichtung & Analytics Beratung in Salzburg | kloseup.eu"
+  title="Zoho CRM & Analytics Einrichtung in Salzburg"
   description="Zoho CRM, Bigin, Analytics, Calendar und Meet in Salzburg einrichten lassen. Vier Bereiche, ein Pragmatiker: Integration die Ihre Prozesse respektiert."
 >
   <Header />
 
   <main id="top">
 
-    <!-- Hero -->
-    <section class="hero leistungen-hero">
-      <div class="wrap">
-        <p class="eyebrow">Leistungen</p>
-        <h1 class="leistungen-hero-h1">
-          Zoho CRM Einrichtung und Integration<br /><em>pragmatisch umgesetzt.</em>
-        </h1>
-        <p class="lede">
-          Zoho-Integration, die Ihre Prozesse respektiert. Kein Tool-Verkauf,
-          sondern Lösungen, die im Alltag funktionieren. Vier Bereiche,
-          ein Ansatz: pragmatisch, nutzerfreundlich, messbar.
-        </p>
-        <div class="leistungen-hero-cta">
-          <Button href="#kontakt" variant="primary" label="Kostenloses Erstgespräch" showArrow={true} />
-          <Button href="#prozess" variant="ghost" label="So arbeite ich" showArrow={true} />
-        </div>
+    <PageHero
+      eyebrow="Leistungen"
+      titel="Zoho CRM Einrichtung und Integration"
+      titelEm="pragmatisch umgesetzt."
+      lede="Zoho-Integration, die Ihre Prozesse respektiert. Kein Tool-Verkauf, sondern Lösungen, die im Alltag funktionieren. Vier Bereiche, ein Ansatz: pragmatisch, nutzerfreundlich, messbar."
+    >
+      <div class="leistungen-hero-cta">
+        <Button href="#kontakt" variant="primary" label="Kostenloses Erstgespräch" showArrow={true} />
+        <Button href="#prozess" variant="ghost" label="So arbeite ich" showArrow={true} />
       </div>
-    </section>
+    </PageHero>
 
     <!-- Leistungen Detail -->
     <section id="leistungen-detail">
@@ -188,35 +182,34 @@ const leistungen = [
       </div>
     </section>
 
+    <!-- Projekte Verweis -->
+    <section id="projekte-verweis">
+      <div class="wrap">
+        <div class="projekte-verweis-box">
+          <p class="projekte-verweis-text">
+            Konkrete Beispiele gefällig? Hier sehen Sie <a href="/projekte/">Referenzen aus meiner Berufspraxis</a>.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- KI Verweis -->
+    <section id="ki-verweis">
+      <div class="wrap">
+        <div class="ki-verweis-box">
+          <p class="ki-verweis-text">
+            Interessiert an KI-Lösungen? Mehr unter <a href="/ki-automatisierung/">KI & Automatisierung</a>.
+          </p>
+        </div>
+      </div>
+    </section>
+
   </main>
 
   <Footer />
 </Layout>
 
 <style>
-  /* ===== Hero ===== */
-  .leistungen-hero {
-    padding: 96px 0 80px;
-  }
-
-  .leistungen-hero-h1 {
-    font-size: clamp(38px, 5.4vw, 64px);
-    margin: 14px 0 24px;
-  }
-
-  .leistungen-hero-h1 em {
-    font-style: italic;
-    font-weight: 500;
-    color: var(--green-bright);
-  }
-
-  .leistungen-hero .lede {
-    font-size: 19px;
-    color: var(--ink-soft);
-    max-width: 56ch;
-    margin: 0 0 34px;
-  }
-
   .leistungen-hero-cta {
     display: flex;
     gap: 14px;
@@ -516,5 +509,36 @@ const leistungen = [
     .kontakt-actions .btn {
       width: 100%;
     }
+  }
+
+  /* ===== Verweis-Boxen ===== */
+  .projekte-verweis-box,
+  .ki-verweis-box {
+    background: var(--bg-alt);
+    border: 1px solid var(--line);
+    border-radius: 2px;
+    padding: 24px 32px;
+    text-align: center;
+  }
+
+  .projekte-verweis-text,
+  .ki-verweis-text {
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--ink-soft);
+    margin: 0;
+  }
+
+  .projekte-verweis-text a,
+  .ki-verweis-text a {
+    color: var(--green-deep);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    transition: color 0.15s;
+  }
+
+  .projekte-verweis-text a:hover,
+  .ki-verweis-text a:hover {
+    color: var(--green-bright);
   }
 </style>

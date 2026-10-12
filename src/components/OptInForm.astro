@@ -52,7 +52,7 @@ import Logo from './Logo.astro';
         </div>
         <div class="optin-group optin-consent">
           <input type="checkbox" id="optin-consent" name="consent" value="yes" required />
-          <label for="optin-consent">Ich habe die <a href="/datenschutz" target="_blank">Datenschutzerklärung</a> gelesen und stimme der Verarbeitung meiner E-Mail-Adresse zu. *</label>
+          <label for="optin-consent">Ich habe die <a href="/datenschutz/" target="_blank">Datenschutzerklärung</a> gelesen und stimme der Verarbeitung meiner E-Mail-Adresse zu. *</label>
         </div>
         <button type="submit" class="btn optin-btn">
           <span class="btn-text">Checkliste anfordern</span>
@@ -62,7 +62,7 @@ import Logo from './Logo.astro';
     </div>
   </div>
 
-  <div id="optin-success" class="optin-success" style="display: none;">
+  <div id="optin-success" class="optin-success" style="display: none;" role="status" aria-live="polite">
     <p class="optin-success-msg">Vielen Dank! Die Checkliste ist auf dem Weg zu Ihrem Postfach.</p>
     <p class="optin-success-hint" style="color: var(--ink-soft); font-size: 13px; margin-top: 8px;">
       Bitte prüfen Sie auch Ihren Spam-Ordner.

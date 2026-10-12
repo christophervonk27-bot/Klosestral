@@ -2,50 +2,47 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import Button from '../components/Button.astro';
+import PageHero from '../components/PageHero.astro';
 
 const baseUrl = import.meta.env.BASE_URL;
 ---
 
 <Layout
-  title="Christopher Klose – Zoho-Berater in Salzburg | kloseup.eu"
+  title="Christopher Klose – Zoho-Berater in Salzburg"
   description="Christopher Klose, Zoho-Berater in Salzburg. Vom ERP-Fluch zum Digitalisierungs-Pragmatiker. Prozesse vor Tools, Change Management vor Software."
 >
   <Header />
 
   <main id="top">
-    <!-- Hero Section -->
-    <section class="hero">
-      <div class="wrap hero-grid">
-        <div>
-          <p class="eyebrow">Über mich</p>
-          <h1>Zoho-Berater in Salzburg</h1>
-          <p class="lede">Pragmatische Digitalisierung & Zoho-Lösungen</p>
-          <p class="hero-sub">Christopher Klose</p>
-          <div class="hero-actions">
-            <a href="mailto:christopher@kloseup.eu" class="btn">
-              <span class="btn-text">Per Mail</span>
-              <span class="btn-arrow" aria-hidden="true">→</span>
-            </a>
-            <a href="https://wa.me/436603612354" class="btn">
-              <span class="btn-text">Per WhatsApp</span>
-              <span class="btn-arrow" aria-hidden="true">→</span>
-            </a>
-          </div>
-        </div>
-        <div class="hero-image" style="justify-self: center;">
-          <div class="hero-image-wrap">
-            <img src={`${baseUrl}images/1731027398052.jpeg`} alt="Christopher Klose" class="hero-image-img" />
-          </div>
+    <PageHero
+      eyebrow="Über mich"
+      titel="Zoho-Berater in Salzburg"
+      titelEm="Pragmatische Digitalisierung und Zoho-Lösungen"
+      lede="Christopher Klose"
+      kompakt={true}
+    >
+      <div class="hero-actions">
+        <a href="mailto:christopher@kloseup.eu" class="btn">
+          <span class="btn-text">Per Mail</span>
+          <span class="btn-arrow" aria-hidden="true">→</span>
+        </a>
+        <a href="https://wa.me/436603612354" class="btn">
+          <span class="btn-text">Per WhatsApp</span>
+          <span class="btn-arrow" aria-hidden="true">→</span>
+        </a>
+      </div>
+      <div class="hero-image" style="justify-self: center;" slot="aside">
+        <div class="hero-image-wrap">
+          <img src={`${baseUrl}images/1731027398052.jpeg`} alt="Christopher Klose" width="800" height="800" class="hero-image-img" />
         </div>
       </div>
-    </section>
+    </PageHero>
 
     <!-- Problem Section -->
     <section id="problem">
       <div class="wrap">
         <p class="eyebrow">Sie kennen das</p>
-        <h2>Digitalisierung die niemand nutzt</h2>
+        <h2>Digitalisierung, die niemand nutzt</h2>
         <div class="ds-grid">
           <div class="ds-column ds-column--problem">
             <div class="ds-column-header">
@@ -94,7 +91,7 @@ const baseUrl = import.meta.env.BASE_URL;
       <div class="wrap">
         <div class="section-head">
           <p class="eyebrow">Meine Lösung</p>
-          <h2>Digitalisierung die wirklich funktioniert</h2>
+          <h2>Digitalisierung, die wirklich funktioniert</h2>
         </div>
         <div class="loesung-intro">
           <p class="loesung-intro-lead">Ich mache Digitalisierung pragmatisch, kosteneffizient und nutzerfreundlich.</p>
@@ -114,7 +111,7 @@ const baseUrl = import.meta.env.BASE_URL;
           <article class="loesung-card">
             <div class="loesung-card-num" aria-hidden="true">03</div>
             <h3 class="loesung-card-title">Kosten/Nutzen im Fokus</h3>
-            <p class="loesung-card-desc">Ich empfehle nur Tools, die messbaren Mehrwert bringen – nicht die neueste Hype-Software.</p>
+            <p class="loesung-card-desc">Ich empfehle nur Tools, die messbaren Mehrwert bringen, nicht die neueste Hype-Software.</p>
           </article>
         </div>
         <div class="loesung-ansatz">
@@ -138,7 +135,7 @@ const baseUrl = import.meta.env.BASE_URL;
               <div class="loesung-step-marker" aria-hidden="true"><span class="loesung-step-dot"></span></div>
               <div class="loesung-step-body">
                 <h4 class="loesung-step-title">Umsetzung</h4>
-                <p class="loesung-step-desc">Schrittweise Einführung – ohne Chaos, ohne Überforderung.</p>
+                <p class="loesung-step-desc">Schrittweise Einführung, ohne Chaos, ohne Überforderung.</p>
               </div>
             </li>
             <li class="loesung-step">
@@ -171,7 +168,7 @@ const baseUrl = import.meta.env.BASE_URL;
           </div>
           <div class="warum-row">
             <div class="warum-cell warum-cell--frage">"Meine Mitarbeiter wehren sich gegen Veränderungen."</div>
-            <div class="warum-cell warum-cell--antwort">Ich sorge für Akzeptanz durch Schulungen die praktisch und verständlich sind.</div>
+            <div class="warum-cell warum-cell--antwort">Ich sorge für Akzeptanz durch Schulungen, die praktisch und verständlich sind.</div>
           </div>
           <div class="warum-row">
             <div class="warum-cell warum-cell--frage">"Ich will keine teuren Experimente."</div>
@@ -179,7 +176,7 @@ const baseUrl = import.meta.env.BASE_URL;
           </div>
           <div class="warum-row">
             <div class="warum-cell warum-cell--frage">"Unsere Prozesse sind zu komplex."</div>
-            <div class="warum-cell warum-cell--antwort">Ich standardisiere und automatisiere wo es Sinn macht.</div>
+            <div class="warum-cell warum-cell--antwort">Ich standardisiere und automatisiere, wo es Sinn macht.</div>
           </div>
         </div>
       </div>
@@ -189,7 +186,7 @@ const baseUrl = import.meta.env.BASE_URL;
     <section id="versprechen">
       <div class="wrap" style="text-align: center;">
         <p class="eyebrow">Mein Versprechen</p>
-        <h2 class="versprechen-head">"Kein Bullshit-Bingo. Keine teuren Fehlinvestitionen. Nur Lösungen die in Ihrem Alltag ankommen."</h2>
+        <h2 class="versprechen-head">"Kein Bullshit-Bingo. Keine teuren Fehlinvestitionen. Nur Lösungen, die in Ihrem Alltag ankommen."</h2>
       </div>
     </section>
 
@@ -204,6 +201,7 @@ const baseUrl = import.meta.env.BASE_URL;
         <p class="weg-text">Nicht, weil die Firmen rückständig wären. Sondern weil Digitalisierung wie ein rotes Tuch wirkt: zu teuer, zu kompliziert, zu viel Umstellung. Dabei sind die ersten Schritte oft verblüffend einfach, wenn jemand zeigt, wo sie hinführen.</p>
         <p class="weg-text">Genau das ist meine Arbeit. Ich übersetze zwischen Technik und Alltag, denke Prozesse vom Menschen her und baue Lösungen, die tatsächlich benutzt werden. Keine Pilotprojekte, die nach drei Monaten im Sande verlaufen.</p>
         <p class="weg-text"><strong>Digitalisierung, die Ihre Mitarbeiter annehmen, weil sie ihnen wirklich hilft.</strong></p>
+        <p class="weg-text">Meine <a href="/projekte/">Referenzprojekte</a> zeigen, wie das in der Praxis aussieht.</p>
       </div>
     </section>
 
@@ -214,7 +212,7 @@ const baseUrl = import.meta.env.BASE_URL;
           <div class="kontakt-text">
             <p class="eyebrow">Bereit für den nächsten Schritt?</p>
             <h2>Kontaktieren Sie mich</h2>
-            <p class="kontakt-intro">Sie wollen Digitalisierung die Ihre Mitarbeiter nutzen und die Ihnen Geld spart?</p>
+            <p class="kontakt-intro">Sie wollen Digitalisierung, die Ihre Mitarbeiter nutzen und die Ihnen Geld spart?</p>
           </div>
           <div class="kontakt-actions">
             <a href="mailto:christopher@kloseup.eu" class="btn"><span class="btn-text">Per Mail</span><span class="btn-arrow" aria-hidden="true">→</span></a>
@@ -229,7 +227,7 @@ const baseUrl = import.meta.env.BASE_URL;
       <div class="wrap">
         <p class="eyebrow">Privat</p>
         <h2>Abseits der Arbeit</h2>
-        <p class="privat-text">Abseits der Digitalisierung liebe ich gute Geschichten – ob in Filmen, Serien oder beim Kochen für Freunde. Salzburgs Kaffeehauskultur gibt mir dabei die perfekte Inspiration für neue Ideen.</p>
+        <p class="privat-text">Abseits der Digitalisierung liebe ich gute Geschichten, ob in Filmen, Serien oder beim Kochen für Freunde. Salzburgs Kaffeehauskultur gibt mir dabei die perfekte Inspiration für neue Ideen.</p>
       </div>
     </section>
 
@@ -250,11 +248,15 @@ const baseUrl = import.meta.env.BASE_URL;
 
 <style>
   /* Hero */
-  .hero { padding: 96px 0 72px; }
-  .hero-grid { display: grid; grid-template-columns: 1fr auto; gap: 32px; align-items: center; }
-  .hero h1 { font-family: 'Fraunces', serif; font-size: clamp(42px, 6vw, 68px); font-weight: 600; color: var(--green-deep); margin: 0 0 12px; line-height: 1.15; }
-  .hero .lede { font-size: 20px; color: var(--ink-soft); margin: 0 0 8px; line-height: 1.45; }
-  .hero-sub { color: var(--ink-soft); font-size: 15px; margin: 0; }
+  .hero .lede {
+    font-size: 19px;
+    color: var(--ink-soft);
+    max-width: 56ch;
+    margin: 0;
+    line-height: 1.65;
+  }
+
+
   .hero-actions { display: flex; gap: 16px; margin-top: 20px; flex-wrap: wrap; }
   .hero-actions .btn { width: 250px; }
   .hero-image-wrap { position: relative; padding: 6px; background: linear-gradient(135deg, var(--green-bright) 0%, var(--green-deep) 100%); border-radius: 50%; width: 207px; height: 207px; }
@@ -361,13 +363,12 @@ const baseUrl = import.meta.env.BASE_URL;
     .kontakt-actions .btn { width: 100%; }
   }
   @media (max-width: 680px) {
-    .hero-actions { flex-direction: column; gap: 12px; }
-    .hero-actions .btn { width: 100%; }
+
     .kontakt-layout { flex-direction: column; gap: 28px; }
     .kontakt-text { min-width: 0; }
   }
   @media (max-width: 560px) {
-    .hero-grid { grid-template-columns: 1fr; text-align: center; }
+
     .hero-image-wrap { width: 160px; height: 160px; margin: 0 auto; }
     .loesung-steps { grid-template-columns: 1fr; gap: 24px; }
     .loesung-step:not(:last-child)::after { display: none; }

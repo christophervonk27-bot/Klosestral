@@ -1,0 +1,306 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import CtaBox from '../components/CtaBox.astro';
+import PageHero from '../components/PageHero.astro';
+
+const siteUrl = 'https://kloseup.eu';
+
+// BreadcrumbList für JSON-LD
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Startseite",
+      "item": `${siteUrl}`
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Projekte",
+      "item": `${siteUrl}/projekte`
+    }
+  ]
+};
+
+// Projektdaten
+const projekte = [
+  {
+    nummer: '01',
+    title: 'Zoho Bigin für ein Bauunternehmen',
+    branche: 'Bau',
+    team: 'Team aus 10 Mitarbeitern (3 Außendienst, 2 Innendienst)',
+    tool: 'Zoho Bigin',
+    ausgangslage: 'Alle Projekte liefen über Excel-Tabellen und Outlook. Niemand konnte verlässlich beantworten: Wo stehen unsere Projekte? Wo hängen sie? Was wurde vergessen?',
+    umsetzung: 'Einführung von Zoho Bigin als zentralem Projekt-CRM. Seither laufen alle Projekte in einer Pipeline mit klaren Phasen, automatischen Wiedervorlagen und einem zentralen Informationsspeicher für Dokumente und Kundenkontakte.',
+    ergebnis: 'Volle Nachverfolgbarkeit aller Projekte, keine versickerten Vorgänge mehr, saubere Auswertung der Außendienst-Performance und ein Controlling auf Basis echter Zahlen statt Bauchgefühl.'
+  },
+  {
+    nummer: '02',
+    title: 'Zoho Bigin für ein Elektronikunternehmen',
+    branche: 'Elektronik',
+    team: 'Team aus 3 Mitarbeitern',
+    tool: 'Zoho Bigin',
+    ausgangslage: 'Ein kleines Team, das Projekte und Kundenanfragen parallel managen musste, ohne dass ein System den Überblick behielt.',
+    umsetzung: 'Schlankes Zoho-Bigin-Setup mit Fokus auf Projektübersicht, Nachverfolgbarkeit und strukturiertem Leadmanagement. Bewusst ohne Überkomplexität, die ein Dreier-Team nicht braucht.',
+    ergebnis: 'Jedes Projekt und jeder Lead hat einen Status, einen Verantwortlichen und eine Wiedervorlage. Nichts wird mehr vergessen.'
+  },
+  {
+    nummer: '03',
+    title: 'Zoho Analytics für die Geschäftsführung',
+    branche: 'Bau (wie Projekt 1)',
+    team: 'Geschäftsführung',
+    tool: 'Zoho Analytics',
+    ausgangslage: 'Finanz- und Umsatzzahlen lagen vor, aber nicht in einer Form, die eine Geschäftsführung in 30 Sekunden erfasst.',
+    umsetzung: 'Visuelles Dashboard mit Umsätzen, Marge und Stückzahlen, filterbar nach Außendienstgebiet und Monat. Dazu Cashflow-Planung und Cashflow-Forecasting mit Was-wäre-wenn-Szenarien.',
+    ergebnis: 'Der CEO sieht die steuerungsrelevanten Zahlen jederzeit auf einen Blick. Szenario-Entscheidungen wie "Was macht ein Umsatzminus im vierten Quartal mit dem Cashflow?" sind in Minuten statt Tagen durchgerechnet.'
+  },
+  {
+    nummer: '04',
+    title: 'Automatisierte Datenabfrage aus dem Bestands-ERP',
+    branche: 'Bau (wie Projekt 1)',
+    team: 'Projektverantwortlicher',
+    tool: 'ERP-API, Skripte',
+    ausgangslage: 'Monatliche Auswertungen bedeuteten, Zahlen aus einem in die Jahre gekommenen ERP-System manuell zusammenzukopieren.',
+    umsetzung: 'Datenabfrage aus dem alten ERP über dessen API, aufbereitet mit Skripten. Einmal gebaut, danach lief der monatliche Datenzugriff automatisch.',
+    ergebnis: 'Monatliches Reporting ohne manuelle Handgriffe, keine Übertragungsfehler mehr, und die Zahlen im Analytics-Dashboard (Projekt 3) sind immer aktuell.'
+  },
+  {
+    nummer: '05',
+    title: 'Mistral AI als interner KI-Assistent',
+    branche: 'unternehmensinterne Nutzung',
+    team: 'Außendienst und interne Teams',
+    tool: 'Mistral AI',
+    ausgangslage: 'Informationen für den Außendienst und Produktdatenblätter mussten aus einer unübersichtlichen Ordnerstruktur auf einer internen Cloud manuell zusammengesucht werden. Das war zeitaufwendig und fehleranfällig.',
+    umsetzung: 'Einführung von Mistral AI als internem KI-Assistenten: Zusammenstellen von Außendienst-Informationen, Erstellen von Produktdatenblättern und gezieltes Extrahieren von Wissen aus der bestehenden Cloud-Ordnerstruktur.',
+    ergebnis: 'Der Außendienst erhält aufbereitete Informationen in Minuten statt in Stunden, und das im Unternehmen vorhandene Wissen wird endlich genutzt, statt in Ordnerstrukturen zu verstauben.'
+  }
+];
+---
+
+<Layout
+  title="Zoho-Projekte & Referenzen aus Salzburg"
+  description="Echte Projekte statt Standard-Demos: Einführung von Zoho Bigin & Analytics, ERP-Anbindungen und KI-Assistenten in KMU. Pragmatisch, messbar, ohne Blendeffekt."
+  ogTitle="Zoho-Projekte & Referenzen aus Salzburg"
+  ogDescription="Echte Projekte statt Standard-Demos: Einführung von Zoho Bigin & Analytics, ERP-Anbindungen und KI-Assistenten in KMU. Pragmatisch, messbar, ohne Blendeffekt."
+>
+  <Header />
+
+  <main id="top">
+
+    <PageHero
+      eyebrow="Projekte"
+      titel="Referenzen aus meiner Berufspraxis"
+      lede="Echte Projekte statt Standard-Demos: Einführung von Zoho Bigin & Analytics, ERP-Anbindungen und KI-Assistenten in KMU. Pragmatisch, messbar, ohne Blendeffekt."
+    />
+
+    <!-- Projekte List -->
+    <section id="projekte-detail">
+      <div class="wrap">
+        {projekte.map((p) => (
+          <article class="projekt-row">
+            <div class="projekt-row-inner">
+              <div class="projekt-num">{p.nummer}</div>
+              <div class="projekt-content">
+                <h2 class="projekt-title">{p.title}</h2>
+                <div class="projekt-meta-chips">
+                  <span class="meta-chip">{p.branche}</span>
+                  <span class="meta-chip">{p.team}</span>
+                  <span class="meta-chip">{p.tool}</span>
+                </div>
+                <div class="projekt-section">
+                  <span class="projekt-label">Ausgangslage</span>
+                  <p>{p.ausgangslage}</p>
+                </div>
+                <div class="projekt-section">
+                  <span class="projekt-label">Umsetzung</span>
+                  <p>{p.umsetzung}</p>
+                </div>
+                <div class="projekt-section projekt-section--ergebnis">
+                  <span class="projekt-label">Ergebnis</span>
+                  <p>{p.ergebnis}</p>
+                </div>
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <!-- KI Verweis -->
+    <section id="ki-verweis">
+      <div class="wrap">
+        <p class="ki-verweis-text">
+          Wie KI konkret eingesetzt wird, sehen Sie unter <a href="/ki-automatisierung/">KI & Automatisierung</a>.
+        </p>
+      </div>
+    </section>
+
+    <!-- Kontakt CTA -->
+    <section id="kontakt">
+      <CtaBox
+        eyebrow="Bereit?"
+        titel="Lassen Sie uns über Ihr Projekt sprechen."
+        text="Kostenloses Erstgespräch. Ich sage Ihnen ehrlich, ob ich Ihnen helfen kann, und lasse es bleiben, wenn nicht. Nur eine echte Einschätzung."
+      />
+    </section>
+
+  </main>
+
+  <Footer />
+
+  <!-- SEO: JSON-LD -->
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+  <script is:inline type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Projekte & Referenzen | kloseup.eu",
+    "description": "Echte Projekte statt Standard-Demos: Einführung von Zoho Bigin & Analytics, ERP-Anbindungen und KI-Assistenten in KMU.",
+    "url": `${siteUrl}/projekte`
+  })} />
+</Layout>
+
+<style>
+  /* ===== Projekte List ===== */
+  #projekte-detail {
+    padding: 50px 0;
+    border-top: 1px solid var(--line);
+  }
+
+  .projekt-row {
+    border-top: 1px solid var(--line);
+    padding: 28px 0;
+  }
+
+  .projekt-row:first-child {
+    border-top: none;
+  }
+
+  .projekt-row-inner {
+    display: flex;
+    gap: 24px;
+    align-items: flex-start;
+  }
+
+  .projekt-num {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 14px;
+    color: var(--green-bright);
+    flex-shrink: 0;
+    width: 48px;
+  }
+
+  .projekt-content {
+    flex: 1;
+  }
+
+  .projekt-title {
+    font-family: 'Fraunces', serif;
+    font-size: 28px;
+    font-weight: 600;
+    color: var(--green-deep);
+    margin: 0 0 8px;
+    transition: color 0.15s;
+  }
+
+  .projekt-title:hover {
+    color: var(--green-bright);
+  }
+
+  .projekt-meta-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 20px;
+  }
+
+  .meta-chip {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    border: 1px solid var(--line);
+    border-radius: 2px;
+    padding: 4px 10px;
+    color: var(--ink-soft);
+  }
+
+  .projekt-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--ink-soft);
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  .projekt-section {
+    margin-bottom: 16px;
+  }
+
+  .projekt-section:last-child {
+    margin-bottom: 0;
+  }
+
+  .projekt-section p {
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--ink-soft);
+    margin: 0;
+  }
+
+  .projekt-section--ergebnis {
+    border-left: 2px solid var(--green-bright);
+    padding-left: 14px;
+    margin-top: 12px;
+  }
+
+  /* ===== Kontakt ===== */
+  #kontakt {
+    padding: 50px 0;
+    border-top: 1px solid var(--line);
+  }
+
+  /* ===== Responsive ===== */
+  @media (max-width: 880px) {
+    .projekt-row-inner {
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .projekt-num {
+      width: auto;
+    }
+
+    .projekt-meta-chips {
+      margin-bottom: 16px;
+    }
+  }
+
+  /* ===== KI Verweis ===== */
+  #ki-verweis {
+    padding: 20px 0;
+    border-top: 1px solid var(--line);
+  }
+
+  .ki-verweis-text {
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--ink-soft);
+    margin: 0;
+  }
+
+  .ki-verweis-text a {
+    color: var(--green-deep);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    transition: color 0.15s;
+  }
+
+  .ki-verweis-text a:hover {
+    color: var(--green-bright);
+  }
+</style>

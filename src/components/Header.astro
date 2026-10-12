@@ -1,11 +1,7 @@
 ---
 import Logo from './Logo.astro';
 
-interface Props {
-  currentSection?: string;
-}
-
-const { currentSection } = Astro.props;
+const {} = Astro.props;
 const baseUrl = import.meta.env.BASE_URL;
 ---
 
@@ -13,12 +9,14 @@ const baseUrl = import.meta.env.BASE_URL;
   <div class="nav">
     <Logo variant="header" />
     <ul class="nav-links" id="navLinks">
-      <li><a href={`${baseUrl}`}>Startseite</a></li>
-      <li><a href={`${baseUrl}ueber-mich`}>Über mich</a></li>
-      <li><a href={`${baseUrl}leistungen`}>Leistungen</a></li>
-      <li><a href={`${baseUrl}kontakt`}>Kontakt</a></li>
+      <li><a href={baseUrl}>Startseite</a></li>
+      <li><a href={baseUrl + 'ueber-mich'}>Über mich</a></li>
+      <li><a href={baseUrl + 'leistungen'}>Leistungen</a></li>
+      <li><a href={baseUrl + 'projekte'}>Projekte</a></li>
+      <li><a href={baseUrl + 'ki-automatisierung'}>KI & Automatisierung</a></li>
+      <li><a href={baseUrl + 'kontakt'}>Kontakt</a></li>
     </ul>
-    <a href={`${baseUrl}kontakt#kontakt-formular`} class="status-pill" aria-label="Verfügbar für Projekte – zur Kontaktseite">
+    <a href={baseUrl + 'kontakt#kontakt-formular'} class="status-pill" aria-label="Verfügbar für Projekte – zur Kontaktseite">
       <span class="status-dot" aria-hidden="true"></span>
       Verfügbar für Projekte
     </a>
@@ -60,6 +58,16 @@ const baseUrl = import.meta.env.BASE_URL;
 
   .nav-links {
     justify-self: center;
+    display: flex;
+    gap: 12px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  
+  .nav-links a {
+    font-size: 14px;
+    white-space: nowrap;
   }
 
   .status-pill {

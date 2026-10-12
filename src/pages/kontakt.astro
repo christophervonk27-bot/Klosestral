@@ -3,6 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import ContactForm from '../components/ContactForm.astro';
+import PageHero from '../components/PageHero.astro';
 
 const baseUrl = import.meta.env.BASE_URL;
 
@@ -48,28 +49,20 @@ const faqSchema = {
 ---
 
 <Layout
-  title="Kontakt – Zoho Beratung Salzburg, kostenloses Erstgespräch | kloseup.eu"
+  title="Kontakt & kostenloses Erstgespräch | kloseup.eu"
   description="Kostenloses Erstgespräch mit Christopher Klose, Zoho-Berater in Salzburg. Schreiben Sie mir, ich melde mich innerhalb von 24 Stunden zurück."
 >
   <Header />
-  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
 
   <main id="top">
 
-    <!-- Hero -->
-    <section class="hero kontakt-hero">
-      <div class="wrap">
-        <p class="eyebrow">Kontakt</p>
-        <h1 class="kontakt-hero-h1">
-          Kostenloses Erstgespräch in Salzburg<br /><em>für Ihr Zoho-Projekt.</em>
-        </h1>
-        <p class="lede">
-          Kostenloses Erstgespräch. Ich sage Ihnen ehrlich, ob und wie Zoho
-          für Sie Sinn macht. Kein Verkaufspitch, kein Blendeffekt. Nur eine
-          echte Einschätzung.
-        </p>
-      </div>
-    </section>
+    <PageHero
+      eyebrow="Kontakt"
+      titel="Kostenloses Erstgespräch in Salzburg"
+      titelEm="für Ihr Zoho-Projekt."
+      lede="Kostenloses Erstgespräch. Ich sage Ihnen ehrlich, ob Zoho für Sie das Richtige ist. Wenn nicht, sage ich Ihnen das auch. Nur eine echte Einschätzung."
+    />
 
     <!-- Formular Section -->
     <section id="kontakt-formular" class="kontakt-section">
@@ -196,30 +189,6 @@ const faqSchema = {
 </Layout>
 
 <style>
-  /* ===== Hero ==== */
-  .kontakt-hero {
-    padding: 96px 0 72px;
-  }
-
-  .kontakt-hero-h1 {
-    font-size: clamp(38px, 5.4vw, 64px);
-    margin: 14px 0 24px;
-  }
-
-  .kontakt-hero-h1 em {
-    font-style: italic;
-    font-weight: 500;
-    color: var(--green-bright);
-  }
-
-  .kontakt-hero .lede {
-    font-size: 19px;
-    color: var(--ink-soft);
-    max-width: 56ch;
-    margin: 0;
-    line-height: 1.65;
-  }
-
   /* ===== Formular Section ==== */
   .kontakt-section {
     padding: 72px 0;

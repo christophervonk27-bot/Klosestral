@@ -250,7 +250,6 @@ details .impressum-body{margin-top:14px; line-height:1.7;}
 details .impressum-body .todo{color:#9c5a1f; font-style:italic;}
 
 @media (max-width: 880px){
-  .hero-grid{grid-template-columns:1fr;}
   .aperture-wrap{order:-1; margin-bottom:8px;}
   .aperture{width:210px;}
   .services{grid-template-columns:1fr 1fr;}
@@ -270,6 +269,12 @@ details .impressum-body .todo{color:#9c5a1f; font-style:italic;}
   }
   .nav-links.open{display:flex;}
   .nav-toggle{display:block;}
+}
+
+@media (max-width: 640px){
+  .services{grid-template-columns:1fr;}
+  .service{border-right:none; border-bottom:1px solid var(--line);}
+  .service:last-child{border-bottom:none;}
 }
 
 @media (max-width: 560px){

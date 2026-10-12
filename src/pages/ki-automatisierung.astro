@@ -1,0 +1,344 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import CtaBox from '../components/CtaBox.astro';
+import PageHero from '../components/PageHero.astro';
+
+const siteUrl = 'https://kloseup.eu';
+const canonicalUrl = `${siteUrl}/ki-automatisierung`;
+
+// BreadcrumbList für JSON-LD
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Startseite",
+      "item": `${siteUrl}`
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "KI & Automatisierung",
+      "item": canonicalUrl
+    }
+  ]
+};
+
+// Service-Schema für JSON-LD
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "KI-Beratung & Automatisierung für KMU",
+  "description": "KI und Automatisierung pragmatisch eingeführt: ChatGPT, Claude und Mistral im Team, automatisierte Reports. Für KMU in Salzburg und der Grenzregion.",
+  "provider": {
+    "@type": "Organization",
+    "name": "kloseup",
+    "url": `${siteUrl}`
+  },
+  "areaServed": [
+    {"@type": "City", "name": "Salzburg"},
+    {"@type": "State", "name": "Salzburg"},
+    {"@type": "AdministrativeArea", "name": "Bayerisches Grenzgebiet"}
+  ],
+  "serviceType": "KI- und Automatisierungsberatung"
+};
+
+// Leistungsbereiche
+const bereiche = [
+  {
+    nummer: '01',
+    titel: 'KI-Assistenten im Team',
+    lead: 'Mistral AI als interner Assistent: Informationen für den Außendienst aufbereiten, Produktdatenblätter erstellen und verstreutes Unternehmenswissen zentral verfügbar machen. Ihr Team fragt, die KI antwortet mit dem, was im Unternehmen bereits vorhanden ist.',
+    bullets: [
+      'Einführung von Mistral AI als internem KI-Assistenten, abgestimmt auf Ihre Abläufe',
+      'Außendienst-Informationen und Produktdatenblätter in Minuten statt in Stunden',
+      'Unternehmenswissen zentral auffindbar machen, statt es in Ordnerstrukturen zu verlieren',
+      'Klare Regeln, welche Daten die KI verarbeitet und welche nicht'
+    ]
+  },
+  {
+    nummer: '02',
+    titel: 'Automatisierte Abläufe',
+    lead: 'Monatliche Datenabfragen, Reports und Wiedervorlagen laufen automatisch. Ich verbinde Ihre Systeme über APIs und Skripte, damit Zahlen fließen, ohne dass jemand kopieren muss.',
+    bullets: [
+      'Automatisierte Datenabfrage aus Bestands- und ERP-Systemen über APIs',
+      'Monatsreporting, das sich selbst erstellt, bevor jemand danach fragt',
+      'Direkte Verknüpfung mit Ihren Zoho-Dashboards in CRM und Analytics',
+      'Weniger Übertragungsfehler, weil niemand mehr manuell kopiert'
+    ]
+  },
+  {
+    nummer: '03',
+    titel: 'Die richtigen KI-Tools für Ihren Alltag',
+    lead: 'ChatGPT, Claude oder Mistral: Ich helfe Ihnen, das Werkzeug zu wählen, das zu Ihren Aufgaben passt, und führe es so ein, dass Ihr Team es wirklich nutzt. Werkzeugauswahl nach Nutzen, nicht nach Hype.',
+    bullets: [
+      'Auswahl zwischen Mistral, Claude und ChatGPT anhand Ihrer Aufgaben',
+      'Einführung und Hands-on-Schulung mit Ihren echten Arbeitsbeispielen, nicht mit Demo-Daten',
+      'Wiederverwendbare Prompt-Vorlagen für Angebote, E-Mails und Recherchen',
+      'Klare Regeln, welche Firmendaten hineingehören und welche nicht'
+    ]
+  },
+  {
+    nummer: '04',
+    titel: 'Einführung & ehrliche Einordnung',
+    lead: 'Vor jedem Einsatz steht die Frage: Hilft KI hier wirklich? Ich bewerte Ihre Prozesse zuerst ohne KI-Brille und sage Ihnen auch, wenn eine einfachere Lösung reicht.',
+    bullets: [
+      'Analyse, welche Prozesse sich für KI und Automatisierung eignen, und welche nicht',
+      'Datenschutz und EU AI Act ehrlich eingeordnet: keine Rechtsberatung, aber klare Hinweise, worauf Sie achten müssen',
+      'Schrittweise Einführung mit messbaren Quick Wins statt Großprojekten',
+      'Fördermöglichkeiten prüfen: KMU.DIGITAL und der Salzburger Digi-Bonus übernehmen bis zu 50 % der Beratungskosten'
+    ]
+  }
+];
+---
+
+<Layout
+  title="KI-Beratung & Automatisierung für KMU in Salzburg"
+  description="KI und Automatisierung pragmatisch eingeführt: ChatGPT, Claude und Mistral im Team, automatisierte Reports. Für KMU in Salzburg."
+  ogTitle="KI-Beratung & Automatisierung für KMU in Salzburg"
+  ogDescription="KI und Automatisierung pragmatisch eingeführt: ChatGPT, Claude und Mistral im Team, automatisierte Reports. Für KMU in Salzburg."
+>
+  <Header />
+
+  <main id="top">
+
+    <PageHero
+      eyebrow="KI & Automatisierung"
+      titel="KI & Automatisierung"
+      titelEm="eingesetzt, wo sie messbar hilft."
+      lede="KI muss kein Hype sein. Richtig eingesetzt spart sie Ihrem Team jede Woche Stunden, antwortet Kunden schneller und holt Wissen aus Ordnern, in denen es sonst verstaubt. Ich führe KI und Automatisierung dort ein, wo sie Ihren Alltag spürbar entlastet, und nirgendwo sonst."
+    >
+      <div class="ki-badges">
+        <span class="ki-badge">Mistral</span>
+        <span class="ki-badge">Claude</span>
+        <span class="ki-badge">ChatGPT</span>
+        <span class="ki-badge">Zoho</span>
+        <span class="ki-badge">APIs & Skripte</span>
+      </div>
+    </PageHero>
+
+    <!-- Leistungsbereiche Grid -->
+    <section id="bereiche">
+      <div class="wrap">
+        <div class="bereiche-grid">
+          {bereiche.map((b) => (
+            <article class="bereich-card">
+              <div class="bereich-card-head">
+                <span class="bereich-num">{b.nummer}</span>
+                <h2 class="bereich-title">{b.titel}</h2>
+              </div>
+              <p class="bereich-lead">{b.lead}</p>
+              <ul class="bereich-points">
+                {b.bullets.map((point) => (
+                  <li class="bereich-point">
+                    <span class="bereich-point-dot" aria-hidden="true"></span>
+                    <span>{point}</span>
+                  </li>
+                ))}
+              </ul>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Referenz-Abschnitt -->
+    <section id="referenz">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">Aus der Praxis</p>
+          <h2>Vom Excel-Chaos zur Pipeline, von der Ordnersuche zum KI-Assistenten</h2>
+        </div>
+        <p class="referenz-text">
+          Auf der <a href="/projekte/">Projekte-Seite</a> sehen Sie,
+          wie das in echten Betrieben aussieht, inklusive der Einführung von Mistral AI
+          als internem KI-Assistenten.
+        </p>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section id="kontakt">
+      <CtaBox
+        eyebrow="Bereit?"
+        titel="Reden wir über Ihren ersten Automatisierungs-Sprint."
+        text="Kostenloses Erstgespräch. Ich sage Ihnen ehrlich, ob und wo KI oder Automatisierung in Ihrem Betrieb etwas bringt. Kein Verkaufspitch, keine Buzzword-Wüste. Nur eine echte Einschätzung."
+      />
+    </section>
+
+  </main>
+
+  <Footer />
+
+  <!-- SEO: JSON-LD -->
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
+
+</Layout>
+
+<style>
+  /* ===== Badges ===== */
+  .ki-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 16px;
+  }
+
+  .ki-badge {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    border: 1px solid var(--line);
+    border-radius: 2px;
+    padding: 4px 10px;
+    color: var(--ink-soft);
+  }
+
+  /* ===== Bereiche Grid ===== */
+  #bereiche {
+    padding: 50px 0;
+    border-top: 1px solid var(--line);
+  }
+
+  .bereiche-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    border: 1px solid var(--line);
+    border-radius: 2px;
+    background: var(--paper);
+    overflow: hidden;
+  }
+
+  .bereich-card {
+    padding: 36px 32px;
+    border-right: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    transition: background 0.15s;
+  }
+
+  .bereich-card:hover {
+    background: var(--bg-alt);
+  }
+
+  .bereich-card:nth-child(2n) {
+    border-right: none;
+  }
+
+  .bereich-card:nth-last-child(-n+2) {
+    border-bottom: none;
+  }
+
+  .bereich-card-head {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 10px;
+  }
+
+  .bereich-num {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    color: var(--green-bright);
+  }
+
+  .bereich-title {
+    font-family: 'Fraunces', serif;
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--green-deep);
+    margin: 0;
+    line-height: 1.15;
+  }
+
+  .bereich-lead {
+    font-size: 16px;
+    line-height: 1.55;
+    color: var(--ink-soft);
+    margin: 0 0 20px;
+    max-width: 50ch;
+  }
+
+  .bereich-points {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .bereich-point {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 14.5px;
+    line-height: 1.5;
+    color: var(--ink);
+  }
+
+  .bereich-point-dot {
+    flex-shrink: 0;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    border: 1.5px solid var(--green-bright);
+    margin-top: 7px;
+  }
+
+  /* ===== Referenz ===== */
+  #referenz {
+    padding: 50px 0;
+    border-top: 1px solid var(--line);
+  }
+
+  .section-head {
+    margin-bottom: 36px;
+  }
+
+  .referenz-text {
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--ink-soft);
+    margin: 0;
+    max-width: 56ch;
+  }
+
+  .referenz-text a {
+    color: var(--green-deep);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    transition: color 0.15s;
+  }
+
+  .referenz-text a:hover {
+    color: var(--green-bright);
+  }
+
+  /* ===== Kontakt ===== */
+  #kontakt {
+    padding: 50px 0;
+    border-top: 1px solid var(--line);
+  }
+
+  /* ===== Responsive ===== */
+  @media (max-width: 880px) {
+    .bereiche-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .bereich-card {
+      border-right: none;
+    }
+
+    .bereich-card:nth-last-child(2) {
+      border-bottom: 1px solid var(--line);
+    }
+  }
+
+</style>

@@ -1,0 +1,123 @@
+---
+interface Props {
+  eyebrow?: string;
+  titel: string;
+  text: string;
+}
+
+const { eyebrow, titel, text } = Astro.props;
+---
+
+<div class="wrap kontakt-box">
+  <div class="kontakt-text">
+    {eyebrow && <p class="eyebrow">{eyebrow}</p>}
+    <h2>{titel}</h2>
+    <p>{text}</p>
+  </div>
+  <div class="kontakt-actions">
+    <a href="mailto:christopher@kloseup.eu" class="btn">
+      <span class="btn-text">Per Mail</span>
+      <span class="btn-arrow" aria-hidden="true">→</span>
+    </a>
+    <a href="https://wa.me/436603612354" class="btn">
+      <span class="btn-text">Per WhatsApp</span>
+      <span class="btn-arrow" aria-hidden="true">→</span>
+    </a>
+  </div>
+</div>
+
+<style>
+  .kontakt-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+
+  .kontakt-text {
+    flex: 1;
+    min-width: 300px;
+  }
+
+  .kontakt-text h2 {
+    font-size: clamp(26px, 3.4vw, 36px);
+    margin: 8px 0 12px;
+  }
+
+  .kontakt-text p {
+    font-size: 16px;
+    color: var(--ink-soft);
+    max-width: 48ch;
+    margin: 0;
+  }
+
+  .kontakt-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .kontakt-actions .btn {
+    width: 250px;
+  }
+
+  .eyebrow {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--green-bright);
+    margin: 0;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 2px;
+    padding: 10px 20px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--ink);
+    text-decoration: none;
+    cursor: pointer;
+    transition: border-color 0.15s, color 0.15s;
+  }
+
+  .btn:hover {
+    border-color: var(--green-bright);
+    color: var(--green-deep);
+  }
+
+  .btn-text {
+    white-space: nowrap;
+  }
+
+  .btn-arrow {
+    font-size: 18px;
+    transition: transform 0.15s;
+  }
+
+  .btn:hover .btn-arrow {
+    transform: translateX(4px);
+  }
+
+  @media (max-width: 880px) {
+    .kontakt-box {
+      flex-direction: column;
+    }
+
+    .kontakt-text {
+      min-width: 0;
+    }
+
+    .kontakt-actions .btn {
+      width: 100%;
+    }
+  }
+</style>
