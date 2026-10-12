@@ -64,11 +64,44 @@ const baseUrl = import.meta.env.BASE_URL;
     padding: 0;
     list-style: none;
   }
-  
+
   .nav-links a {
     font-size: 14px;
     white-space: nowrap;
   }
+
+  .nav-toggle {
+    display: none;
+    width: 40px;
+    height: 40px;
+    border: 1px solid var(--line);
+    border-radius: 2px;
+    background: transparent;
+    cursor: pointer;
+    padding: 0;
+  }
+
+  .nav-toggle span {
+    display: block;
+    width: 18px;
+    height: 2px;
+    margin: 0 auto;
+    background: var(--ink);
+    position: relative;
+  }
+
+  .nav-toggle span::before,
+  .nav-toggle span::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 18px;
+    height: 2px;
+    background: var(--ink);
+  }
+
+  .nav-toggle span::before { top: -6px; }
+  .nav-toggle span::after { top: 6px; }
 
   .status-pill {
     display: inline-flex;
@@ -88,7 +121,7 @@ const baseUrl = import.meta.env.BASE_URL;
     text-decoration: none;
     transition: border-color 0.15s;
   }
-  
+
   .status-pill:hover {
     border-color: var(--green-bright);
   }
@@ -116,18 +149,56 @@ const baseUrl = import.meta.env.BASE_URL;
     100% { opacity: 0;   transform: scale(2); }
   }
 
-  /* Mobile: Logo links, Menü + Pill rechts */
+  /* Mobile: Logo, darunter Status-Pill, darunter Burger, Menü als Panel auf Klick */
   @media (max-width: 880px) {
     .nav {
-      grid-template-columns: auto 1fr;
+      grid-template-columns: 1fr;
+      align-items: start;
+      row-gap: 10px;
     }
+
     .status-pill {
+      grid-row: 2;
       justify-self: start;
-      grid-column: 1 / -1;
-      margin-top: 6px;
       font-size: 10.5px;
       padding: 4px 10px;
     }
+
+    .nav-toggle {
+      display: block;
+      grid-row: 3;
+      justify-self: start;
+    }
+
+    .nav-links {
+      display: none;
+      grid-row: 4;
+      flex-direction: column;
+      gap: 0;
+      margin: 6px 0 0;
+      padding: 8px 0;
+      list-style: none;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 2px;
+    }
+
+    .nav-links.open {
+      display: flex;
+    }
+
+    .nav-links li {
+      margin: 0;
+    }
+
+    .nav-links a {
+      display: block;
+      font-size: 15px;
+      padding: 12px 20px;
+    }
+
+    .nav-links a:hover {
+      background: var(--bg-alt);
+    }
   }
 </style>
-
