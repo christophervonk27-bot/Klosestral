@@ -122,3 +122,13 @@ import ContactForm from '../components/ContactForm.astro';
 
   <Footer />
 </Layout>
+
+<style>
+  /* Mobil: Lede und Grafik im Hero ausblenden */
+  @media (max-width: 880px) {
+    :global(.hero .lede),
+    :global(.hero .hero-aside) {
+      display: none;
+    }
+  }
+</style>
