@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="5.3726 83.3814 92.1726 93.2372" width="92.1726px" height="93.2372px">
+  <g transform="matrix(1.600099, 0, 0, 1.600099, -113.26976, -78.012878)" style="">
+    <g transform="matrix(0.2, 0, 0, 0.2, 70.948502, 98)">
+      <g fill="#14432F">
+        <path d="M160 160 L160 34 L214 46 Z"/>
+      </g>
+      <g fill="#1B5138">
+        <path d="M160 160 L272 96 L260 152 Z"/>
+      </g>
+      <g fill="#215C41">
+        <path d="M160 160 L268 226 L214 258 Z"/>
+      </g>
+      <g fill="#2A6B4C">
+        <path d="M160 160 L160 286 L106 274 Z"/>
+      </g>
+      <g fill="#347A58">
+        <path d="M160 160 L48 224 L60 168 Z"/>
+      </g>
+      <g fill="#4C8C6B">
+        <path d="M160 160 L52 94 L106 62 Z"/>
+      </g>
+    </g>
+    <ellipse style="opacity: 1; fill: rgba(216, 216, 216, 0); fill-opacity: 0; stroke: rgb(129, 226, 145);" cx="102.949" cy="130" rx="27.359" ry="27.675"/>
+  </g>
+</svg>
