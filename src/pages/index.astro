@@ -12,24 +12,51 @@ import ContactForm from '../components/ContactForm.astro';
 ---
 
 <Layout
-  title="Zoho Beratung Salzburg – CRM Einrichtung & Integration"
-  description="Zoho Beratung in Salzburg: CRM-Einrichtung, Analytics-Dashboards und Team-Schulung für KMU. Kostenloses Erstgespräch mit Christopher Klose, Zoho-Berater."
+  title="Zoho CRM für Handwerk & Bau in Salzburg – kloseup"
+  description="Weniger verlorene Aufträge für Handwerks- und Baubetriebe: Zoho Bigin/CRM-Setup mit Pipeline und automatischem Angebot-Nachfassen. Für Betriebe in Salzburg und dem bayerischen Grenzgebiet."
 >
   <Header />
 
   <main id="top">
     <PageHero
-      eyebrow="Digitalisierungsprojekte und Zoho Beratung in Salzburg"
-      titel="Zoho Beratung in Salzburg"
-      titelEm="scharf gestellt auf Ihre Prozesse."
-      lede="Ich unterstütze kleine und mittelständische Unternehmen in Salzburg und Umgebung bei der Einführung von Zoho-Produkten. Von der Beratung bis zur nahtlosen Integration."
+      eyebrow="Vertriebs-Struktur für Handwerk und Bau in Salzburg"
+      titel="Ihre Angebote, die niemand mehr vergisst."
+      titelEm="Weniger verlorene Aufträge. Ab 7 € pro Nutzer."
+      lede="Ich richte Zoho Bigin für Handwerks- und Baubetriebe ein: eine Pipeline statt Excel-Listen, automatisches Nachfassen bei offenen Angeboten, alle Kundendaten an einem Ort. Eingerichtet in Tagen, nicht Monaten — ohne Tool-Overkill, den ohnehin keiner nutzt."
     >
       <div style="display: flex; gap: 14px; flex-wrap: wrap;">
-        <Button href="#kontakt" variant="primary" label="Erstgespräch anfragen" showArrow={true} />
-        <Button href="#leistungen" variant="ghost" label="Leistungen ansehen" showArrow={true} />
+        <Button href="#kontakt" variant="primary" label="Kostenloses Erstgespräch" showArrow={true} />
+        <Button href="#schmerz" variant="ghost" label="Ist das Ihr Betrieb?" showArrow={true} />
       </div>
       <Aperture slot="aside" />
     </PageHero>
+
+    <!-- Schmerz Section -->
+    <section id="schmerz">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">Ist das Ihr Betrieb?</p>
+          <h2 style="margin-bottom: 16px;">Diese drei Sätze höre ich in fast jedem Erstgespräch.</h2>
+        </div>
+        <div class="schmerz-grid">
+          <div class="schmerz-card">
+            <p class="schmerz-quote">„Der Anrufer von letzte Woche? Keine Ahnung, was daraus geworden ist.“</p>
+            <p class="schmerz-erkl">Anfragen versickern zwischen Posteingang, WhatsApp und Zetteln. Deren Aufträge holt die Konkurrenz.</p>
+          </div>
+          <div class="schmerz-card">
+            <p class="schmerz-quote">„Wir haben 14 offene Angebote. Ob da schon jemand nachgefasst hat? Gute Frage.“</p>
+            <p class="schmerz-erkl">Ohne systematisches Nachfassen sackt die Abschlussquote ab. Excel erinnert Sie nicht von selbst.</p>
+          </div>
+          <div class="schmerz-card">
+            <p class="schmerz-quote">„Ich suche wieder mal die Notiz vom Kunden vom Baustellenbesuch.“</p>
+            <p class="schmerz-erkl">Kundendaten leben in drei Köpfen, zwei Handys und einer Excel-Liste von 2019. Wenn einer fehlt, fehlt alles.</p>
+          </div>
+        </div>
+        <p class="schmerz-nach" style="margin-top: 32px; max-width: 60ch;">
+          Ab etwa 30 aktiven Kunden und fünf gleichzeitig offenen Angeboten kippt Excel — Studien zeigen: über 90 % aller geschäftlich genutzten Tabellen enthalten Fehler. Es muss kein großes CRM sein. Es muss eines sein, das Ihr Team wirklich nutzt.
+        </p>
+      </div>
+    </section>
 
     <!-- Leistungen Section -->
     <section id="leistungen">
@@ -40,41 +67,41 @@ import ContactForm from '../components/ContactForm.astro';
         </div>
         <div class="services">
           <Service
-            title="CRM & Vertrieb"
-            description="Zoho Bigin und Zoho CRM. Von der Einrichtung bis zur automatisierten Pipeline."
+            title="Angebots-Pipeline"
+            description="Zoho Bigin statt Excel: Anfrage bis Auftragsbestätigung in einer Pipeline, mit Status und Verantwortlichem."
+          />
+          <Service
+            title="Automatisches Nachfassen"
+            description="Follow-up-Erinnerungen und Wiedervorlagen, die von selbst kommen. Abschlussquoten steigen, ohne dass jemand dran denken muss."
           />
           <Service
             title="Auswertung"
-            description="Zoho Analytics für Dashboards und Kennzahlen, die tatsächlich genutzt werden."
-          />
-          <Service
-            title="Kommunikation"
-            description="Zoho Calendar und Meet. Sauber verzahnt mit Ihren Vertriebs- und Kundenprozessen."
+            description="Zoho Analytics: Wo kommen Aufträge her, wo brechen sie ab, was ist der Außendienst wirklich wert."
           />
           <Service
             title="Schulung"
-            description="Ihr Team nutzt das System von selbst, weil es ihm im Alltag wirklich hilft."
+            description="Ihr Team nutzt das System von selbst, weil es ihm im Alltag wirklich hilft. Vor Ort oder remote, an Ihren Beispielen."
           />
         </div>
       </div>
     </section>
 
     <!-- Zielgruppe Section -->
-    <section id="zielgruppe" >
+    <section id="zielgruppe">
       <div class="wrap target">
         <div>
-          <p class="eyebrow">Zielgruppe & Förderung</p>
+          <p class="eyebrow">Für wen ich arbeite</p>
           <h2 style="font-size: clamp(26px, 3vw, 34px); margin-bottom: 16px;">
-            Für Betriebe, die es genau wissen wollen.
+            Für inhabergeführte Handwerks- und Baubetriebe, die Struktur suchen — kein Tool.
           </h2>
           <p style="margin-top: 20px;">
-            Ich arbeite mit kleinen und mittleren Unternehmen im Raum Salzburg und dem bayerischen Grenzgebiet, branchenoffen, mit Fokus auf klare, nutzbare Lösungen statt Überkomplexität.
+            Ich arbeite mit Handwerks-, Bau- und Gewerbebetrieben mit 3 bis 15 Mitarbeitern im Raum Salzburg, Flachgau und dem bayerischen Grenzgebiet. Typischerweise mit 30 oder mehr aktiven Kunden, deren Verwaltung über Excel, E-Mail-Postfach und WhatsApp läuft.
           </p>
-          <p>Viele Digitalisierungsprojekte sind förderfähig. Ich unterstütze Sie dabei, die passende Förderung zu nutzen.</p>
+          <p>Für Kleinstbetriebe unter 30 Kunden lohnt sich das meist noch nicht — das sage ich Ihnen im Erstgespräch offen, ehe Sie einen Euro ausgeben.</p>
         </div>
         <div class="badges">
-          <Badge label="Bundesförderung" name="KMU.DIGITAL Beratungsförderung" />
-          <Badge label="Land Salzburg" name="Salzburger Digi-Bonus" />
+          <Badge label="Branchen-Fokus" name="Handwerk, Bau &amp; Gewerbe" />
+          <Badge label="Einstieg" name="Zoho Bigin ab 7 €/Nutzer" />
         </div>
       </div>
     </section>
@@ -88,26 +115,26 @@ import ContactForm from '../components/ContactForm.astro';
         </div>
         <div class="pricing">
           <PriceCard
+            label="Angebots-Setup"
+            amount="ab 650 €"
+            unit="/ Projekt"
+            description="Bigin-Einrichtung, Pipeline, automatisches Nachfassen, Migration Ihrer Kundendaten. In etwa zwei Wochen einsatzbereit."
+          />
+          <PriceCard
             label="Beratung"
             amount="ab 95 €"
             unit="/ Std."
             description="Prozessanalyse, Troubleshooting, Ad-hoc-Support."
           />
           <PriceCard
-            label="Projekt"
-            amount="ab 650 €"
-            unit="/ Projekt"
-            description="CRM-Setup, Migration, Automatisierung, Integration."
-          />
-          <PriceCard
             label="Betreuung"
             amount="ab 290 €"
             unit="/ Monat"
-            description="Laufender Support und Weiterentwicklung im Retainer."
+            description="Laufender Support und Weiterentwicklung im Retainer — z. B. 90 Tage, bis die Abschlussquote sitzt."
           />
         </div>
         <p class="pricing-note">
-          Kein Umsatzsteuerausweis gemäß Kleinunternehmerregelung. Finales Angebot nach individuellem Scoping-Gespräch.
+          Kein Umsatzsteuerausweis gemäß Kleinunternehmerregelung. Zoho-Lizenzen (Bigin ab ca. 7 €/Nutzer/Monat) kommen direkt von Zoho dazu. Finales Angebot nach individuellem Scoping-Gespräch.
         </p>
       </div>
     </section>
@@ -129,6 +156,61 @@ import ContactForm from '../components/ContactForm.astro';
     :global(.hero .lede),
     :global(.hero .hero-aside) {
       display: none;
+    }
+  }
+
+  /* ===== Schmerz ===== */
+  #schmerz {
+    padding: 50px 0;
+    border-top: 1px solid var(--line);
+  }
+
+  .schmerz-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .schmerz-card {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 2px;
+    padding: 28px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    transition: border-color 0.15s;
+  }
+
+  .schmerz-card:hover {
+    border-color: var(--green-bright);
+  }
+
+  .schmerz-quote {
+    font-family: 'Fraunces', serif;
+    font-size: 17px;
+    font-style: italic;
+    color: var(--green-deep);
+    margin: 0;
+    line-height: 1.45;
+  }
+
+  .schmerz-erkl {
+    font-size: 14.5px;
+    color: var(--ink-soft);
+    margin: 0;
+    line-height: 1.55;
+  }
+
+  .schmerz-nach {
+    color: var(--ink-soft);
+    font-size: 15.5px;
+    margin: 32px 0 0;
+  }
+
+  @media (max-width: 880px) {
+    .schmerz-grid {
+      grid-template-columns: 1fr;
     }
   }
 </style>

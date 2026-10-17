@@ -11,10 +11,10 @@ const baseUrl = import.meta.env.BASE_URL;
 const leistungen = [
   {
     num: '01',
-    title: 'CRM & Vertrieb',
-    desc: 'Ihre Vertriebspipeline funktioniert, nicht nur auf dem Papier. Von der Einrichtung in Zoho Bigin oder Zoho CRM bis zur automatisierten Workflow-Pipeline, die Ihre Vertriebler auch wirklich nutzen.',
+    title: 'Angebots-Pipeline statt Excel',
+    desc: 'Ihre Vertriebspipeline funktioniert, nicht nur auf dem Papier. Von der Einrichtung in Zoho Bigin oder Zoho CRM bis zur automatisierten Workflow-Pipeline, die Ihre Leute auch wirklich nutzen — vom ersten Anruf bis zur Auftragsbestätigung.',
     points: [
-      'Einrichtung & Konfiguration von Zoho Bigin oder Zoho CRM, exakt auf Ihre Vertriebsprozesse abgestimmt',
+      'Einrichtung & Konfiguration von Zoho Bigin oder Zoho CRM, exakt auf Ihre Abläufe abgestimmt — Anfrage, Angebot, Auftrag, Nacharbeit',
       'Automatisierte Sales-Pipelines: Leads, Deals, Follow-ups ohne manuelle Doppelpflege',
       'Saubere Migration Ihrer bestehenden Kundendaten, ohne Verlust und ohne Downtime',
       'Anbindung an E-Mail, Telefonie und Bestandssysteme. Ein System, eine Wahrheit.'
@@ -22,8 +22,19 @@ const leistungen = [
   },
   {
     num: '02',
+    title: 'Automatisches Nachfassen',
+    desc: 'Der häufigste Grund für verlorene Aufträge ist nicht der Preis — es ist das vergessene Follow-up. Ich baue Erinnerungen und Wiedervorlagen, die von selbst kommen: kein Angebot bleibt liegen, kein Lead versickert, niemand muss dran denken.',
+    points: [
+      'Automatische Follow-up-Erinnerungen bei offenen Angeboten — per Task, E-Mail oder WhatsApp-Workflow',
+      'Wiedervorlagen, die der Verantwortliche zugewiesen bekommt, nicht „irgendwer"',
+      'Eskalation, wenn Angebote zu lange offen stehen: Der Chef sieht es, bevor der Auftrag weg ist',
+      'Messbare Abschlussquote: Sie sehen, ob das Nachfassen tatsächlich wirkt'
+    ]
+  },
+  {
+    num: '03',
     title: 'Auswertung',
-    desc: 'Dashboards, die jemand ansieht. Zoho Analytics verbindet Ihre Datenquellen und zeigt Ihnen die Kennzahlen, die Ihre Entscheidungen wirklich beeinflussen, nicht die, die gut aussehen.',
+    desc: 'Dashboards, die jemand ansieht. Zoho Analytics verbindet Ihre Datenquellen und zeigt Ihnen die Kennzahlen, die Ihre Entscheidungen wirklich beeinflussen: Wo kommen Aufträge her, wo brechen sie ab, was bringt der Außendienst wirklich.',
     points: [
       'Zoho Analytics-Dashboards nach Ihren KPIs. Keine Standard-Reports, sondern Ihre Metriken',
       'Verknüpfung von CRM-, Finanz- und externen Datenquellen in einer zentralen Ansicht',
@@ -32,23 +43,12 @@ const leistungen = [
     ]
   },
   {
-    num: '03',
-    title: 'Kommunikation',
-    desc: 'Termine, Meetings und Follow-ups in einem System, sauber verzahnt mit Ihren Vertriebs- und Kundenprozessen. Zoho Calendar und Meet, damit kein Termin mehr verloren geht.',
-    points: [
-      'Zoho Calendar & Zoho Meet direkt ins CRM integriert. Kein Kontextwechsel mehr.',
-      'Automatische Terminerinnerungen und Follow-ups. Ihr System denkt mit, Sie vergessen nichts.',
-      'Synchronisation mit bestehenden Kalendersystemen: Google, Outlook, Apple.',
-      'Virtuelle Kundenmeetings ohne Tool-Sprung. Vom Deal zum Gespräch in einem Klick.'
-    ]
-  },
-  {
     num: '04',
     title: 'Schulung',
-    desc: 'Ihr Team kennt das System und nutzt es. Kein Standard-Workshop, sondern praxisnahe Einführung, die Ihre Prozesse und Ihre Sprache spricht. Damit die Investition im Alltag ankommt.',
+    desc: 'Ihr Team kennt das System und nutzt es. Kein Standard-Workshop, sondern praxisnahe Einführung, die Ihre Prozesse und Ihre Sprache spricht — vom Monteur bis zur Bürokraft. Damit die Investition im Alltag ankommt.',
     points: [
-      'Praxisnahe Team-Schulungen vor Ort oder remote, an Ihren Beispielen und nicht an Demo-Daten.',
-      'Individuelle Userguides & Kurzvideos für Ihre Prozesse, als Nachschlagewerk, wenn es zählt.',
+      'Praxisnahe Team-Schulungen vor Ort oder remote, an Ihren Beispielen und nicht an Demo-Daten',
+      'Individuelle Userguides & Kurzvideos für Ihre Prozesse, als Nachschlagewerk, wenn es zählt',
       'Change Management, das Mitarbeiter abholt statt überfährt. Akzeptanz statt Widerstand.',
       'Follow-up-Support in den ersten Wochen nach Go-Live, bis es im Alltag sitzt.'
     ]
@@ -57,8 +57,8 @@ const leistungen = [
 ---
 
 <Layout
-  title="Zoho CRM & Analytics Einrichtung in Salzburg"
-  description="Zoho CRM, Bigin, Analytics, Calendar und Meet in Salzburg einrichten lassen. Vier Bereiche, ein Pragmatiker: Integration die Ihre Prozesse respektiert."
+  title="Zoho CRM & Analytics Einrichtung für Handwerk & Bau in Salzburg"
+  description="Angebots-Pipeline, automatisches Nachfassen, Analytics-Dashboards und Team-Schulung mit Zoho — für Handwerks- und Baubetriebe in Salzburg und dem bayerischen Grenzgebiet."
 >
   <Header />
 
@@ -66,9 +66,9 @@ const leistungen = [
 
     <PageHero
       eyebrow="Leistungen"
-      titel="Zoho CRM Einrichtung und Integration"
-      titelEm="pragmatisch umgesetzt."
-      lede="Zoho-Integration, die Ihre Prozesse respektiert. Kein Tool-Verkauf, sondern Lösungen, die im Alltag funktionieren. Vier Bereiche, ein Ansatz: pragmatisch, nutzerfreundlich, messbar."
+      titel="Zoho für Handwerk und Bau"
+      titelEm="eingerichtet, dass Ihr Team es nutzt."
+      lede="Vier Bereiche, ein Ziel: kein Angebot, keine Anfrage und kein Kunde mehr, der durchrutscht. Kein Tool-Verkauf, sondern Lösungen, die im Alltag funktionieren. Pragmatisch, nutzerfreundlich, messbar."
     >
       <div class="leistungen-hero-cta">
         <Button href="#kontakt" variant="primary" label="Kostenloses Erstgespräch" showArrow={true} />
@@ -141,19 +141,19 @@ const leistungen = [
       </div>
     </section>
 
-    <!-- Förderung Hinweis -->
+    <!-- Ehrlich über Kosten Section -->
     <section id="foerderung">
       <div class="wrap">
         <div class="foerderung-box">
           <div class="foerderung-content">
-            <p class="eyebrow">Förderung</p>
+            <p class="eyebrow">Ehrlich über Kosten</p>
             <h2>Digitalisierung muss nicht teuer sein.</h2>
             <p>
-              Viele Digitalisierungsprojekte sind förderfähig, bis zu 50 % der Beratungskosten können übernommen werden. Ich prüfe für Sie, ob die <strong>KMU.Digital Beratungsförderung</strong> des Bundes oder der <strong>Salzburger Digi-Bonus</strong> passen, und übernehme die Antragsstellung mit.
+              Ein Angebot-Nachfass-Setup mit Zoho Bigin kostet ab 650 € einmalig plus etwa 7 € pro Nutzer und Monat an Zoho-Lizenzen — damit sind Sie dabei, bevor ein einziger weiterer Auftrag durchrutscht. Fördergeld: Die früher beworbenen Programme (KMU.DIGITAL, Salzburger Digi-Bonus) sind derzeit ausgelaufen bzw. pausiert. Neue Tranchen melde ich Ihnen proaktiv — ich behalte das für Sie im Auge, verspreche aber nichts, was heute nicht beantragbar ist.
             </p>
           </div>
           <div class="foerderung-cta">
-            <Button href="#kontakt" variant="ghost" label="Förderung prüfen lassen" showArrow={true} />
+            <Button href="#kontakt" variant="ghost" label="Kosten im Erstgespräch klären" showArrow={true} />
           </div>
         </div>
       </div>
