@@ -21,11 +21,13 @@ const { title, description } = Astro.props;
   }
 
   /* Titel-Zone für zwei Zeilen reservieren, damit die Beschreibungen
-     aller Karten auf einer Ebene starten, egal ob ein Titel umbreicht */
+     aller Karten auf einer Ebene starten. Titel oben ausrichten:
+     der Punkt bleibt immer am Titel, die Reserve liegt zwischen
+     Titel und Beschreibung. */
   .service h3 {
     min-height: 46px;
     display: flex;
-    align-items: flex-end;
+    align-items: flex-start;
     justify-content: center;
   }
 </style>
