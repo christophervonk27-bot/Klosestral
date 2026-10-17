@@ -3,7 +3,7 @@ globalThis.process.env ??= {};
 import { t as __exportAll } from "./rolldown-runtime_D7vh-g_o.mjs";
 import { b as unescapeHTML, d as maybeRenderHead, i as renderComponent, u as renderTemplate } from "./server_CxJNEKB-.mjs";
 import { t as createComponent } from "./compiler_BbSIq9rB.mjs";
-import { i as $$Layout, n as $$Header, t as $$Footer } from "./Footer_Bvl89sLO.mjs";
+import { i as $$Layout, n as $$Header, t as $$Footer } from "./Footer_OMT4BR2f.mjs";
 import { t as $$PageHero } from "./PageHero_BFMlKxcI.mjs";
 import { t as $$CtaBox } from "./CtaBox_DfLaSr_Q.mjs";
 //#region src/pages/projekte.astro

@@ -3,7 +3,7 @@ globalThis.process.env ??= {};
 import { t as __exportAll } from "./rolldown-runtime_D7vh-g_o.mjs";
 import { b as unescapeHTML, d as maybeRenderHead, i as renderComponent, u as renderTemplate } from "./server_CxJNEKB-.mjs";
 import { t as createComponent } from "./compiler_BbSIq9rB.mjs";
-import { i as $$Layout, n as $$Header, t as $$Footer } from "./Footer_Bvl89sLO.mjs";
+import { i as $$Layout, n as $$Header, t as $$Footer } from "./Footer_OMT4BR2f.mjs";
 import { t as $$PageHero } from "./PageHero_BFMlKxcI.mjs";
 import { t as $$CtaBox } from "./CtaBox_DfLaSr_Q.mjs";
 //#region src/pages/ki-automatisierung.astro
@@ -97,7 +97,7 @@ var $$KiAutomatisierung = createComponent(($$result, $$props, $$slots) => {
 				"Analyse, welche Prozesse sich für KI und Automatisierung eignen, und welche nicht",
 				"Datenschutz und EU AI Act ehrlich eingeordnet: keine Rechtsberatung, aber klare Hinweise, worauf Sie achten müssen",
 				"Schrittweise Einführung mit messbaren Quick Wins statt Großprojekten",
-				"Fördermöglichkeiten prüfen: KMU.DIGITAL und der Salzburger Digi-Bonus übernehmen bis zu 50 % der Beratungskosten"
+				"Fördermöglichkeiten im Blick: Die früher beworbenen Programme (KMU.DIGITAL, Salzburger Digi-Bonus) sind derzeit ausgelaufen bzw. pausiert. Ich melde mich proaktiv, wenn es wieder Förderprogramme gibt"
 			]
 		}
 	];
