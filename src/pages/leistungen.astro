@@ -149,7 +149,7 @@ const leistungen = [
             <p class="eyebrow">Ehrlich über Kosten</p>
             <h2>Was es kostet, wissen Sie vorher.</h2>
             <p>
-              Ein Angebots-Nachfass-Setup mit Zoho Bigin kostet ab 650 € einmalig plus etwa 7 € pro Nutzer und Monat an Zoho-Lizenzen. Ein einziger Auftrag, der durch Nachfassen nicht verloren geht, hat das meist schon eingespielt. Fördergeld: Die früher beworbenen Programme (KMU.DIGITAL, Salzburger Digi-Bonus) sind derzeit ausgelaufen bzw. pausiert. Neue Förderprogramme melde ich Ihnen proaktiv. Ich behalte das für Sie im Auge und verspreche nichts, was heute nicht beantragbar ist.
+              Ein Angebots-Nachfass-Setup mit Zoho Bigin kostet ab 650 € einmalig plus etwa 7 € pro Nutzer und Monat an Zoho-Lizenzen. Ein einziger Auftrag, der durch Nachfassen nicht verloren geht, hat das meist schon eingespielt.
             </p>
           </div>
           <div class="foerderung-cta">
@@ -237,6 +237,16 @@ const leistungen = [
     border-right: 1px solid var(--line);
     border-bottom: 1px solid var(--line);
     transition: background 0.15s;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .leistung-card-head {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 10px;
+    min-height: 56px;
   }
 
   .leistung-card:nth-child(2n) {
@@ -249,13 +259,6 @@ const leistungen = [
 
   .leistung-card:hover {
     background: var(--bg-alt);
-  }
-
-  .leistung-card-head {
-    display: flex;
-    align-items: baseline;
-    gap: 12px;
-    margin-bottom: 10px;
   }
 
   .leistung-num {
