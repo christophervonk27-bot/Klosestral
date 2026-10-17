@@ -4,7 +4,7 @@ export const POST: APIRoute = async ({ request }) => {
   try {
     const formData = await request.formData();
 
-    // Honeypot — Spambots füllen dieses versteckte Feld aus
+    // Honeypot: Spambots füllen dieses versteckte Feld aus
     const honeypot = formData.get('website')?.toString();
     if (honeypot) {
       return new Response(
@@ -39,7 +39,7 @@ export const POST: APIRoute = async ({ request }) => {
     const firstName = nameParts[0] || '';
     const lastName = nameParts.slice(1).join(' ') || '';
 
-    // Brevo API Key — funktioniert in Cloudflare Workers UND lokaler Dev
+    // Brevo API Key: funktioniert in Cloudflare Workers UND lokaler Dev
     const brevoApiKey = (globalThis as any).env?.BREVO_API_KEY ?? import.meta.env.BREVO_API_KEY;
 
     if (!brevoApiKey) {
@@ -52,7 +52,7 @@ export const POST: APIRoute = async ({ request }) => {
 
 
     // Kontakt in Brevo anlegen
-    // listIds: [4] — ID der Liste "Kontaktanfragen"
+    // listIds: [4], ID der Liste "Kontaktanfragen"
     const brevoResponse = await fetch('https://api.brevo.com/v3/contacts', {
       method: 'POST',
       headers: {

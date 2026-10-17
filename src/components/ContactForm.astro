@@ -14,7 +14,7 @@ const baseUrl = import.meta.env.BASE_URL;
         </div>
 
         <form id="contact-form" class="form" action="/api/contact" method="POST">
-          <!-- HONEYPOT — verstecktes Feld für Spambots -->
+          <!-- HONEYPOT: verstecktes Feld für Spambots -->
           <div style="position: absolute; left: -9999px; top: -9999px;" aria-hidden="true">
             <label for="website-ct">Website (nicht ausfüllen)</label>
             <input type="text" id="website-ct" name="website" tabindex="-1" autocomplete="off" />

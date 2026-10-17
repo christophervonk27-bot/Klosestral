@@ -46,7 +46,7 @@ export const POST: APIRoute = async ({ request }) => {
     const firstName = nameParts[0] || '';
     const lastName = nameParts.slice(1).join(' ') || '';
 
-    // Brevo API Key — funktioniert in Cloudflare Workers UND lokaler Dev
+    // Brevo API Key: funktioniert in Cloudflare Workers UND lokaler Dev
     const brevoApiKey = (globalThis as any).env?.BREVO_API_KEY ?? import.meta.env.BREVO_API_KEY;
 
     if (!brevoApiKey) {
@@ -59,7 +59,7 @@ export const POST: APIRoute = async ({ request }) => {
 
 
     // Kontakt in Brevo anlegen
-    // listIds: [5] — ID der Liste "Checklisten-Downloads"
+    // listIds: [5], ID der Liste "Checklisten-Downloads"
     const brevoResponse = await fetch('https://api.brevo.com/v3/contacts', {
       method: 'POST',
       headers: {
