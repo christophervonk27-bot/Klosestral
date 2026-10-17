@@ -182,24 +182,22 @@ const leistungen = [
       </div>
     </section>
 
-    <!-- Projekte Verweis -->
-    <section id="projekte-verweis">
+    <!-- Vertiefen: Referenzen + KI als Karten -->
+    <section id="vertiefen">
       <div class="wrap">
-        <div class="projekte-verweis-box">
-          <p class="projekte-verweis-text">
-            Konkrete Beispiele gefällig? Hier sehen Sie <a href="/projekte/">Referenzen aus meiner Berufspraxis</a>.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- KI Verweis -->
-    <section id="ki-verweis">
-      <div class="wrap">
-        <div class="ki-verweis-box">
-          <p class="ki-verweis-text">
-            Interessiert an KI-Lösungen? Mehr unter <a href="/ki-automatisierung/">KI & Automatisierung</a>.
-          </p>
+        <div class="vertiefen-grid">
+          <a href="/projekte/" class="vertiefen-card">
+            <p class="vertiefen-eyebrow">Referenzen</p>
+            <p class="vertiefen-title">Aus meiner Berufspraxis</p>
+            <p class="vertiefen-desc">Vom Bauunternehmen mit Bigin-Pipeline bis zum Analytics-Dashboard für die Geschäftsführung.</p>
+            <span class="vertiefen-arrow" aria-hidden="true">→</span>
+          </a>
+          <a href="/ki-automatisierung/" class="vertiefen-card">
+            <p class="vertiefen-eyebrow">Vertiefen</p>
+            <p class="vertiefen-title">KI &amp; Automatisierung</p>
+            <p class="vertiefen-desc">Eingesetzt, wo sie messbar hilft: vom Angebot-Versand bis zur Nachfass-Automatik.</p>
+            <span class="vertiefen-arrow" aria-hidden="true">→</span>
+          </a>
         </div>
       </div>
     </section>
@@ -514,34 +512,27 @@ const leistungen = [
     }
   }
 
-  /* ===== Verweis-Boxen ===== */
-  .projekte-verweis-box,
-  .ki-verweis-box {
-    background: var(--bg-alt);
+  /* ===== Vertiefen-Karten ===== */
+  #vertiefen { padding: 64px 0; border-top: 1px solid var(--line); }
+  .vertiefen-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .vertiefen-card {
+    background: var(--paper);
     border: 1px solid var(--line);
     border-radius: 2px;
-    padding: 24px 32px;
-    text-align: center;
+    padding: 24px 26px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    text-decoration: none;
+    transition: border-color 0.15s, background 0.15s;
   }
+  .vertiefen-card:hover { border-color: var(--green-bright); background: var(--bg-alt); }
+  .vertiefen-eyebrow { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--green-bright); margin: 0; }
+  .vertiefen-title { font-family: 'Fraunces', serif; font-size: 19px; font-weight: 600; color: var(--ink); margin: 0; }
+  .vertiefen-desc { font-size: 14px; line-height: 1.55; color: var(--ink-soft); margin: 0; }
+  .vertiefen-arrow { font-size: 15px; color: var(--green-deep); margin-top: 10px; }
 
-  .projekte-verweis-text,
-  .ki-verweis-text {
-    font-size: 16px;
-    line-height: 1.6;
-    color: var(--ink-soft);
-    margin: 0;
-  }
-
-  .projekte-verweis-text a,
-  .ki-verweis-text a {
-    color: var(--green-deep);
-    text-decoration: underline;
-    text-underline-offset: 2px;
-    transition: color 0.15s;
-  }
-
-  .projekte-verweis-text a:hover,
-  .ki-verweis-text a:hover {
-    color: var(--green-bright);
+  @media (max-width: 880px) {
+    .vertiefen-grid { grid-template-columns: 1fr; }
   }
 </style>
