@@ -22,7 +22,7 @@ import ContactForm from '../components/ContactForm.astro';
       eyebrow="Vertriebs-Struktur für Handwerk und Bau in Salzburg"
       titel="Ihre Angebote, die niemand mehr vergisst."
       titelEm="Weniger verlorene Aufträge ab 7 € pro Nutzer."
-      lede="Ich richte Zoho Bigin für Handwerks- und Baubetriebe ein: eine Pipeline statt Excel-Listen, automatisches Nachfassen bei offenen Angeboten, alle Kundendaten an einem Ort. Eingerichtet in Tagen, nicht Monaten. Ohne Schnickschnack, den ohnehin keiner nutzt."
+      lede="Ich richte Zoho Bigin für Handwerks- und Baubetriebe ein: eine Pipeline statt Excel-Listen, automatisches Nachfassen bei offenen Angeboten, alle Kundendaten an einem Ort. Eingerichtet in Tagen, nicht Monaten."
     >
       <div style="display: flex; gap: 14px; flex-wrap: wrap;">
         <Button href="#kontakt" variant="primary" label="Kostenloses Erstgespräch" showArrow={true} />
@@ -72,15 +72,15 @@ import ContactForm from '../components/ContactForm.astro';
           />
           <Service
             title="Automatisches Nachfassen"
-            description="Follow-up-Erinnerungen und Wiedervorlagen, die von selbst kommen. Abschlussquoten steigen, ohne dass jemand dran denken muss."
+            description="Follow-up-Erinnerungen und Wiedervorlagen, die ohne Zutun kommen. Sie wissen jederzeit, welches Angebot noch offen ist."
           />
           <Service
             title="Auswertung"
-            description="Zoho Analytics: Wo kommen Aufträge her, wo brechen sie ab, was ist der Außendienst wirklich wert."
+            description="Zoho Analytics: Wo kommen Aufträge her, wo brechen sie ab, was bringt der Außendienst."
           />
           <Service
             title="Schulung"
-            description="Ihr Team nutzt das System von selbst, weil es ihm im Alltag wirklich hilft. Vor Ort oder online, an Ihren Beispielen."
+            description="Ihr Team greift zum System, weil es ihm im Alltag hilft. Vor Ort oder online, an Ihren Beispielen."
           />
         </div>
       </div>
@@ -95,13 +95,13 @@ import ContactForm from '../components/ContactForm.astro';
             Für inhabergeführte Handwerks- und Baubetriebe, die Struktur suchen. Kein Tool.
           </h2>
           <p style="margin-top: 20px;">
-            Ich arbeite mit Handwerks-, Bau- und Gewerbebetrieben mit 3 bis 15 Mitarbeitern im Raum Salzburg, Flachgau und dem bayerischen Grenzgebiet. Typischerweise mit 30 oder mehr aktiven Kunden, deren Verwaltung über Excel, E-Mail-Postfach und WhatsApp läuft.
+            Ich arbeite mit Handwerks-, Bau- und Gewerbebetrieben ab 5 Mitarbeitern im Raum Salzburg, Flachgau und dem bayerischen Grenzgebiet. Typischerweise mit 30 oder mehr aktiven Kunden, deren Verwaltung über Excel, E-Mail-Postfach und Telefon läuft.
           </p>
           <p>Für Kleinstbetriebe unter 30 Kunden lohnt sich das meist noch nicht. Das sage ich Ihnen im Erstgespräch offen, bevor Sie Geld ausgeben.</p>
         </div>
         <div class="badges">
-          <Badge label="Branchen-Fokus" name="Handwerk, Bau &amp; Gewerbe" />
-          <Badge label="Einstieg" name="Zoho Bigin ab 7 €/Nutzer" />
+          <Badge label="Branchen-Fokus" name="Handwerk, Bau und Gewerbe" />
+          <Badge label="Einsatzgebiet" name="Salzburg &amp; bayerisches Grenzgebiet" />
         </div>
       </div>
     </section>
@@ -136,6 +136,17 @@ import ContactForm from '../components/ContactForm.astro';
         <p class="pricing-note">
           Kein Umsatzsteuerausweis gemäß Kleinunternehmerregelung. Zoho-Lizenzen (Bigin ab ca. 7 €/Nutzer/Monat) kommen direkt von Zoho dazu. Finales Angebot nach dem ersten Gespräch.
         </p>
+      </div>
+    </section>
+
+    <!-- Referenzen Verweis -->
+    <section id="referenzen">
+      <div class="wrap">
+        <div class="referenz-box">
+          <p class="referenz-text">
+            Konkrete Beispiele gefällig? <a href="/projekte/">Referenzen aus meiner Berufspraxis</a>: vom Bauunternehmen mit Bigin-Pipeline bis zum Analytics-Dashboard für die Geschäftsführung.
+          </p>
+        </div>
       </div>
     </section>
 
@@ -206,6 +217,32 @@ import ContactForm from '../components/ContactForm.astro';
     color: var(--ink-soft);
     font-size: 15.5px;
     margin: 32px 0 0;
+  }
+
+  .referenz-box {
+    background: var(--bg-alt);
+    border: 1px solid var(--line);
+    border-radius: 2px;
+    padding: 24px 32px;
+    text-align: center;
+  }
+
+  .referenz-text {
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--ink-soft);
+    margin: 0;
+  }
+
+  .referenz-text a {
+    color: var(--green-deep);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    transition: color 0.15s;
+  }
+
+  .referenz-text a:hover {
+    color: var(--green-bright);
   }
 
   @media (max-width: 880px) {
